@@ -1,6 +1,8 @@
-# BabyLM 2026 Submission: Heavy-Hitter and Accuracy-Morph Masking
+# BabyLM 2026 Submission: Hard-to-Predict Word Masking
 
 This repository contains the code, paper draft, and lightweight result exports for a BabyLM 2026 Strict-Small masking-only study.
+
+The paper asks whether small language models can pretrain more effectively when part of the masked-language-modeling budget is allocated to words that are hard for the model to predict, rather than selected uniformly at random.
 
 The central experimental constraint is that compared systems use the same data, tokenizer, model architecture, optimizer, schedule, training steps, and total MLM mask rate. The intended difference is only the masking policy.
 
@@ -63,5 +65,4 @@ cd paper
 latexmk -pdf -interaction=nonstopmode babylm-sketchselect-main.tex
 ```
 
-The current paper framing is mixed: HHM is a controlled negative/mixed result, while Accuracy-Morph is the most promising follow-up, improving matched validation loss in seeds 1 and 2 and producing the clearest Entity Tracking gains.
-
+The current paper framing is diagnostic: HHM and raw-loss CMS signals do not improve validation loss, while correctness-smoothed Accuracy-Morph is the most promising follow-up and needs broader multi-seed confirmation.

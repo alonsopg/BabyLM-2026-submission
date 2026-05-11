@@ -1,17 +1,17 @@
-# BabyLM Heavy-Hitter Masking Paper
+# BabyLM Hard-to-Predict Masking Paper
 
-Paper title: **Heavy-Hitter Masking for Sample-Efficient BabyLM Pretraining**
+Paper title: **Can Masking Hard-to-Predict Words Improve Small Language Model Pretraining?**
 
-This folder contains the local LaTeX draft for the BabyLM HHM paper. The implementation lives in `/home/paperspace/babylm-hhm`.
+This folder contains the local LaTeX draft for the BabyLM masking paper. The implementation lives in `/home/paperspace/babylm-hhm`.
 
 ## Current Status
 
-The current paper is framed as a controlled mixed/negative result for HHM, plus a diagnostic follow-up.
+The current paper is framed as a controlled diagnostic study of hard-to-predict word masking, not as a strong positive method paper.
 
 - Main HHM vs. random comparison: complete for 3 seeds with local validation loss and available official BabyLM strict metrics.
 - HHM validation loss is worse than random, but official metrics are slightly higher on average.
 - CMS-Morph and Entity-Accuracy-Morph are single-seed follow-ups that do not improve validation loss.
-- Accuracy-Morph is the best current follow-up: in matched seeds 1 and 2 it improves validation loss and gives the clearest Entity Tracking gain, but still needs a third seed for a stronger claim.
+- Accuracy-Morph is the most promising current follow-up: in matched seeds 1 and 2 it improves validation loss and gives the clearest Entity Tracking gain, but still needs broader multi-seed confirmation.
 
 The most important table for the current recommendation is `tables/current_status.tex`.
 
