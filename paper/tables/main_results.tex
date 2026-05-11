@@ -1,6 +1,8 @@
 \begin{table*}[t]
 \centering
-\scriptsize
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lcccccccc}
 \toprule
@@ -12,6 +14,11 @@ HHM entity+error & 3 & $3.0321 \pm 0.1469$ & \textbf{$62.66 \pm 0.51$} & \textbf
 \bottomrule
 \end{tabular}
 }
-\caption{Main results. Values are mean $\pm$ sample standard deviation over three 10k-step seeds. Gray rows mark the random baseline; bold marks the better value in each metric. Validation loss is local MLM loss, where lower is better. Evaluation columns are official BabyLM strict zero-shot outputs available in the local evaluation bundle; higher is better. The local bundle did not include EWoK data, so EWoK is omitted.}
+\vspace{2pt}
+\begin{minipage}{\textwidth}
+\scriptsize
+\emph{Data note.} All systems use the same BabyLM 2026 Strict-Small data split, tokenizer, compact BERT-style MLM, 10k training steps, and fixed 15\% mask rate. \emph{Evaluation note.} Validation loss is computed by the local MLM evaluator on held-out text; official columns are computed by running the saved final checkpoints through the BabyLM strict zero-shot evaluation pipeline without task-specific fine-tuning. Accuracy-style tasks score controlled sentence or continuation preferences, while Eye and SPR compare model surprisal with human reading measurements. EWoK was unavailable in the local bundle.
+\end{minipage}
+\caption{Main results. Values are mean $\pm$ sample standard deviation over three 10k-step seeds. Gray rows mark the random baseline; bold marks the better value in each metric. Validation loss is local MLM loss, where lower is better; higher is better for official BabyLM diagnostics.}
 \label{tab:main-results}
 \end{table*}
