@@ -1,49 +1,50 @@
 {
-  "file": "accuracy_morph_seed2_final_predictions_partial.json",
-  "sha256": "d879abaa4909fbfac62f0768687865feddc056a9a0320725d54f9e1377c44df9",
-  "size_bytes": 14957174,
+  "file": "accuracy_morph_seed2_final_predictions.json",
+  "sha256": "6274c1a9fea01cb80fe3e44401a6ec79a59ea202007afd2c31281a9417dfabad",
+  "size_bytes": 15897425,
   "model_hf": "https://huggingface.co/alonsopg/babylm-2026-accuracy-morph-strict-small",
-  "source_results_dir": "babylm-hhm/resources/babylm-eval/strict/results/checkpoint-final/accuracy_morph_seed2",
+  "source_checkpoint": "/home/paperspace/babylm-hhm/outputs/accuracy_morph_seed2/seed_2/checkpoint-final",
+  "source_results_dir": "/home/paperspace/babylm-hhm/resources/babylm-eval/strict/results/checkpoint-final/accuracy_morph_seed2",
+  "official_collated_source": "/home/paperspace/babylm-hhm/resources/babylm-eval/strict/results/checkpoint-final/all_full_preds_and_fast_scores_mlm.json",
   "backend": "mlm",
   "track": "strict-small",
+  "revision_name": "accuracy_morph_seed2",
   "complete_challenge_submission": false,
-  "reason_incomplete": "Missing EWoK, AoA, fine-tuning/GLUE predictions, and fast checkpoint evaluation results required by the official challenge collation.",
-  "summary": {
-    "blimp": {
-      "status": "present",
-      "prediction_sets": 67,
-      "predictions": 59875
-    },
-    "blimp_supplement": {
-      "status": "present",
-      "prediction_sets": 5,
-      "predictions": 5218
-    },
-    "ewok": {
-      "status": "missing"
-    },
-    "entity_tracking": {
-      "status": "present",
-      "prediction_sets": 18,
-      "predictions": 9483
-    },
-    "comps": {
-      "status": "present",
-      "prediction_sets": 4,
-      "predictions": 91028
-    },
-    "reading": {
-      "status": "present",
-      "prediction_sets": 1,
-      "predictions": 1726
-    },
-    "aoa": {
-      "status": "missing"
-    },
+  "reason_incomplete": "Full-model zero-shot predictions and GLUE fine-tuning predictions are present. EWoK is missing because the full EWoK dataset is gated for the current Hugging Face account. AoA surprisal is missing because only the final checkpoint was available, not the full set of official checkpoint revisions used by the AoA pipeline.",
+  "submission_status": {
+    "blimp": "present",
+    "blimp_supplement": "present",
+    "entity_tracking": "present",
+    "comps": "present",
+    "reading": "present",
     "glue": {
-      "status": "empty",
-      "prediction_sets": 0,
-      "predictions": 0
-    }
+      "status": "present",
+      "tasks": [
+        "boolq",
+        "mnli",
+        "mrpc",
+        "multirc",
+        "qqp",
+        "rte",
+        "wsc"
+      ]
+    },
+    "ewok": "missing",
+    "aoa": "missing",
+    "fast_checkpoint_series": "not_run"
+  },
+  "gpu_eval_notes": {
+    "gpu": "NVIDIA RTX A6000",
+    "cuda_visible_devices": "0",
+    "environment": "ir-model-compression",
+    "fine_tuning_tasks_completed": [
+      "boolq",
+      "multirc",
+      "rte",
+      "wsc",
+      "mrpc",
+      "qqp",
+      "mnli"
+    ]
   }
 }
