@@ -6,16 +6,16 @@
 \toprule
 \textbf{Metric} & \textbf{Baseline mean} & \textbf{HHM mean} & \textbf{$\Delta$ HHM--Base} & \textbf{Paired $t$ $p$} & \textbf{Exact sign-flip $p$} \\
 \midrule
-MLM validation loss & 3.0023 & 3.0321 & +0.0297 & 0.114 & 0.25 \\
-BLiMP & 62.43 & 62.66 & +0.23 & 0.757 & 1.00 \\
-BLiMP Supplement & 55.77 & 55.88 & +0.11 & 0.929 & 1.00 \\
-Entity Tracking & 16.77 & 17.65 & +0.88 & 0.721 & 0.75 \\
-COMPS & 50.18 & 50.55 & +0.38 & 0.177 & 0.25 \\
-Reading: eye tracking & 1.97 & 2.28 & +0.32 & 0.559 & 0.75 \\
-Reading: self-paced & 2.14 & 2.64 & +0.50 & 0.166 & 0.25 \\
+MLM validation loss & \textbf{3.0023} & 3.0321 & +0.0297 & 0.114 & 0.25 \\
+BLiMP & 62.43 & \textbf{62.66} & \textbf{+0.23} & 0.757 & 1.00 \\
+BLiMP Supplement & 55.77 & \textbf{55.88} & \textbf{+0.11} & 0.929 & 1.00 \\
+Entity Tracking & 16.77 & \textbf{17.65} & \textbf{+0.88} & 0.721 & 0.75 \\
+COMPS & 50.18 & \textbf{50.55} & \textbf{+0.38} & 0.177 & 0.25 \\
+Reading: eye tracking & 1.97 & \textbf{2.28} & \textbf{+0.32} & 0.559 & 0.75 \\
+Reading: self-paced & 2.14 & \textbf{2.64} & \textbf{+0.50} & 0.166 & 0.25 \\
 \bottomrule
 \end{tabular}
 }
-\caption{Paired significance tests over the three matched random-vs-HHM seeds. Positive validation-loss deltas are worse because lower MLM loss is better; positive official-metric deltas are better. With only three paired seeds, the tests are intentionally low-power: the smallest possible two-sided exact sign-flip $p$ value is 0.25.}
+\caption{Paired significance tests over the three matched random-vs-HHM seeds. Bold marks the better mean or favorable official-metric delta. Positive validation-loss deltas are worse because lower MLM loss is better; positive official-metric deltas are better. With only three paired seeds, the tests are intentionally low-power: the smallest possible two-sided exact sign-flip $p$ value is 0.25.}
 \label{tab:significance-tests}
 \end{table*}
