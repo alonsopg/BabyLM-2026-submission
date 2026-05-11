@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments
+.venv/
+venv/
+env/
+
+# Large/local experiment artifacts
+outputs/
+data/
+!data/
+!data/README.md
+resources/
+checkpoints/
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Logs/caches
+*.log
+*.tmp
+.cache/
+
+# LaTeX build products
+paper/*.aux
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.out
+paper/*.synctex.gz

@@ -1,0 +1,53 @@
+\section{Results}
+
+Table~\ref{tab:main-results} reports validation loss for the completed 10k-step main comparison, along with official BabyLM 2026 strict zero-shot evaluation results for the tasks available in the local evaluation bundle. EWoK was not present in the local evaluation data, so we omit it rather than substituting a non-identical task source.
+
+\input{tables/main_results}
+\input{tables/improvement_summary}
+\input{tables/significance_tests}
+\input{tables/cms_morph_pilot}
+\input{tables/accuracy_morph_seed2}
+\input{tables/accuracy_morph_matched}
+\input{tables/accuracy_morph_aggregate}
+\input{tables/current_status}
+
+\paragraph{Main Comparison.}
+The main comparison is Baseline Random MLM versus HHM Entity+Error, with three 10k-step seeds each. The random baseline reaches a mean validation loss of $3.0023 \pm 0.1576$, while HHM reaches $3.0321 \pm 0.1469$, a $+0.0298$ increase in loss. On local MLM validation loss, HHM is therefore slightly worse than random masking in the completed matched-run comparison, although the gap is small relative to seed-to-seed variation.
+
+The official zero-shot results point in the opposite direction, but only weakly. As summarized in Table~\ref{tab:improvement-summary}, HHM is higher than the random baseline on every reported official metric: BLiMP improves by $+0.23$, BLiMP Supplement by $+0.11$, Entity Tracking by $+0.88$, COMPS by $+0.37$, eye-tracking reading score by $+0.31$, and self-paced reading score by $+0.50$. These are small gains, and Entity Tracking in particular has high HHM variance ($\pm 4.39$), so the official evaluation should be read as suggestive rather than decisive.
+
+This pattern is important for interpretation. If we judged only by official averages, HHM would look mildly encouraging; if we judged only by validation loss, it would look negative. The controlled design makes the tension visible. HHM changes the prediction targets but not the prediction budget, and the result is not a general sample-efficiency improvement. Instead, it appears to move some linguistic diagnostics without improving the objective used for pretraining. This is weaker than the gains reported by broader BabyLM systems that change architecture or objective, but it is a cleaner test of mask selection itself.
+
+\paragraph{Significance Tests.}
+Table~\ref{tab:significance-tests} reports paired tests over the three matched seeds. None of the observed differences are statistically significant. The validation-loss gap against HHM has paired $t$-test $p=0.114$ and exact sign-flip $p=0.25$; COMPS and self-paced reading also have exact sign-flip $p=0.25$ because all three paired deltas go in the same direction, but with only three seeds this is still the strongest possible two-sided exact result. We therefore interpret all main HHM differences as descriptive trends, not as statistically established effects.
+
+\paragraph{No-Retraining Check.}
+The official evaluation answers the main no-retraining question: the existing HHM checkpoints do show modest behavioral improvements despite slightly worse MLM validation loss. This weakens a purely negative interpretation of HHM, but does not establish a robust sample-efficiency gain. The bottom line is mixed: HHM is worse on the training objective used for selection, while the available official diagnostics show small average improvements.
+
+\paragraph{Adaptive Masking Pilots.}
+Table~\ref{tab:cms-morph-pilot} reports three additional controlled seed-1 pilots. CMS-Morph keeps the same model, tokenizer, data, optimizer, schedule, training length, and 15\% total mask rate, but after a 10\% warmup it allocates 70\% of masks randomly, 20\% using a Count-Min Sketch over high-loss token strings, and 10\% using a Count-Min Sketch over high-loss character trigrams. The realized final batches used the intended fixed budget: 1{,}216 masked tokens per batch, split into 832 random and 384 adaptive token/trigram-guided masks.
+
+CMS-Morph is not a clear improvement. Its final validation loss is 3.1574, slightly worse than the matched seed-1 random baseline at 3.1445 and slightly worse than HHM seed 1 at 3.1530. On official metrics, however, it is mixed rather than uniformly negative: relative to random seed 1, CMS-Morph improves BLiMP by $+0.52$, COMPS by $+0.23$, eye-tracking by $+1.72$, and self-paced reading by $+0.52$, while decreasing BLiMP Supplement by $-1.36$ and Entity Tracking by $-0.03$. We therefore treat CMS-Morph as a useful additional probe, not as a replacement result: subtoken sketch guidance can move some official diagnostics, but this first mixture does not improve the core training objective.
+
+Accuracy-Morph is more promising in the seed-1 pilot. It uses the same fixed 15\% mask rate, but after a 30\% warmup allocates 80\% of masks randomly, 15\% by token correctness sketches, and 5\% by character trigram correctness sketches. The final batches again preserve the fixed budget, with 960 random and 256 adaptive masks per batch. Relative to random seed 1, Accuracy-Morph lowers validation loss by $-0.0119$ and improves Entity Tracking by $+3.20$, COMPS by $+0.36$, eye-tracking by $+0.55$, and self-paced reading by $+0.33$, while slightly decreasing BLiMP by $-0.15$ and BLiMP Supplement by $-0.64$. This suggested that correctness-smoothed adaptive masking was a better next direction than raw loss-guided CMS-Morph, motivating the seed-2 replication below.
+
+The final limited-compute run replicates Accuracy-Morph with seed 2. As shown in Table~\ref{tab:accuracy-morph-seed2}, Accuracy-Morph seed 2 improves matched validation loss from 3.0296 to 3.0105, a $-0.0191$ change. It also improves Entity Tracking by $+7.82$, eye-tracking by $+0.21$, self-paced reading by $+0.04$, and BLiMP Supplement by $+0.12$, while leaving BLiMP unchanged and decreasing COMPS by $-0.37$. This is the strongest current evidence for the masking idea: the raw-loss and entity-bonus variants remain negative or mixed, but correctness-smoothed masking now improves matched validation loss in an additional seed while preserving the fixed 15\% mask budget.
+
+Table~\ref{tab:accuracy-morph-matched} summarizes the matched two-seed comparison. Accuracy-Morph improves validation loss in both seed 1 and seed 2, with a mean paired validation-loss change of $-0.0155 \pm 0.0051$. Its largest diagnostic effect is Entity Tracking, where the mean paired gain is $+5.51 \pm 3.27$. The rest of the official metrics are mixed: BLiMP is nearly unchanged, Supplement is lower on average because of seed 1, COMPS is effectively flat, and both reading scores improve modestly. Table~\ref{tab:accuracy-morph-aggregate} gives the broader context, comparing the two Accuracy-Morph seeds against all three available random seeds.
+
+The Accuracy-Morph result also clarifies what the paper can and cannot claim. It does not show that any adaptive mask is useful: CMS-Morph uses a larger adaptive share and still hurts validation loss. It also does not show that entity-like recurrence is sufficient: the entity-augmented variant loses the Accuracy-Morph advantage. The evidence instead points to a specific design lesson that matches the literature on model-aware masking: the adaptive signal should be stable and calibrated to the model's actual prediction behavior. In this setting, smoothed correctness is more reliable than raw loss.
+
+Entity-Accuracy-Morph tests a more targeted variant of Accuracy-Morph by adding repeated-token scoring, filtering adaptive candidates to an intermediate predicted-error band, and decaying the adaptive share late in training. This did not improve the result. The best validation checkpoint reached 3.1342 at step 8{,}000, close to Accuracy-Morph, but the final validation loss rose to 3.1566. Relative to random seed 1, the official metrics improve Entity Tracking by $+2.01$, eye-tracking by $+0.53$, and self-paced reading by $+0.28$, but BLiMP falls by $-0.68$ and COMPS by $-0.06$. The final batches preserved the fixed mask budget, with 1{,}152 random masks and only 64 adaptive masks after late decay. We therefore treat this run as evidence against adding entity bonuses and late adaptive decay in the current form; the cleaner Accuracy-Morph pilot remains the stronger follow-up.
+
+Table~\ref{tab:current-status} summarizes the current situation. The paper should not claim that HHM is a strong positive result: the three-seed validation-loss comparison is negative, while the official metrics provide only suggestive behavioral gains. Among the follow-up pilots, Accuracy-Morph is now the only branch with a replicated matched-seed validation-loss improvement and a strong entity-tracking diagnostic. The recommended continuation is therefore an additional Accuracy-Morph seed, not raw-loss or entity-bonus variants.
+
+\paragraph{Ablation Results.}
+Table~\ref{tab:prelim-ablation-results} reports single-seed preliminary ablations for entity-only masking, error-only masking, randomized sketch masking, and frequency-only masking. These runs were short pipeline checks rather than full comparisons: their validation losses remain near 8.65--8.72 after 20 steps, with the randomized sketch control lowest among them at 8.6462. They are useful for verifying implementation coverage but should not be interpreted as substantive ablation evidence. The current completed evidence is therefore the three-seed random-vs-HHM comparison plus the adaptive follow-up runs, not a full multi-seed ablation suite.
+
+\input{tables/prelim_ablation_results}
+
+\paragraph{Mask Diagnostics.}
+Table~\ref{tab:mask-diagnostics} summarizes the HHM mask-source logs. The observed HHM allocation is 15.4\% entity-selected masks, 18.9\% error-selected masks, and 65.6\% random masks. This confirms that the collator is reallocating part of the fixed 15\% mask budget toward heavy hitters, while also showing that fallback to random masking is common under the current heuristics. Table~\ref{tab:pilot-mask-diagnostics} reports the corresponding final-step budget checks for the adaptive pilots.
+
+\input{tables/mask_diagnostics}
+\input{tables/pilot_mask_diagnostics}

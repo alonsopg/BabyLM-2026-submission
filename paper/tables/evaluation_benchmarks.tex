@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llll}
+\toprule
+\textbf{Metric} & \textbf{Evaluation type} & \textbf{What it probes} & \textbf{Reported score} \\
+\midrule
+Validation MLM loss & In-domain held-out MLM & Fit to the held-out BabyLM-style validation split under the training objective & Mean cross-entropy; lower is better \\
+BLiMP & Zero-shot minimal-pair preference & Morphology, syntax, syntax/semantics, negative polarity items, agreement, islands, binding, argument structure & Average accuracy; higher is better \\
+BLiMP Supplement & Zero-shot minimal-pair preference & Additional targeted phenomena including hypernymy, question-answer congruence, subject-auxiliary inversion, and turn taking & Average accuracy; higher is better \\
+Entity Tracking & Zero-shot controlled reference task & Whether the model tracks discourse entities through regular, ambiguous-reference, and move-contents conditions across increasing operation counts & Average accuracy; higher is better \\
+COMPS & Zero-shot compositional generalization & Compositional interpretation, including nonce/wug-style conditions and distractor variants & Average accuracy; higher is better \\
+Reading & Psycholinguistic prediction & Whether model surprisal aligns with human reading behavior in eye-tracking and self-paced reading data & Official reading scores; higher is better \\
+\bottomrule
+\end{tabular}
+}
+\caption{Evaluation metrics reported in this paper. The official BabyLM strict zero-shot pipeline scores the available benchmark files in the local evaluation bundle. Accuracy-style tasks compare model preferences over controlled alternatives; reading evaluates alignment between model-derived surprisal and human reading measurements.}
+\label{tab:evaluation-benchmarks}
+\end{table*}

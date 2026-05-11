@@ -1,0 +1,42 @@
+\section{Experimental Setup}
+
+\paragraph{Data.}
+We use the official detoxified BabyLM 2026 Strict-Small training set released by the BabyLM community. The dataset contains 10M words drawn from BNC spoken, CHILDES, Gutenberg, OpenSubtitles, Simple Wikipedia, and Switchboard sources. All compared systems use the same train/validation split.
+
+\paragraph{Systems.}
+The main comparison is between a standard random masked language modeling baseline and HHM. We additionally implement ablations for entity-only masking, error-only masking, a randomized sketch control, and a frequency-weighted masking control. After the main comparison, we also ran adaptive masking pilots: CMS-Morph, which replaces HHM's entity/error sources with Count-Min Sketch scores over high-loss token strings and high-loss character trigram features; Accuracy-Morph, which uses smoothed top-1 prediction correctness instead of raw loss as the adaptive signal; and Entity-Accuracy-Morph, which adds repeated-token scoring and late adaptive decay on top of Accuracy-Morph. CMS-Morph and Entity-Accuracy-Morph were run for seed 1; Accuracy-Morph was run for seeds 1 and 2 after the seed-1 pilot looked promising.
+
+\paragraph{Why These Pilots.}
+The follow-up pilots were chosen to test specific explanations for the HHM outcome rather than to tune toward the validation set. CMS-Morph asks whether the original token-level hard-example signal was too narrow and should generalize through subtoken patterns. Accuracy-Morph asks whether raw loss was too noisy and should be replaced by a more stable correctness rate. Entity-Accuracy-Morph asks whether the best pilot signal can be combined with repeated-token/entity pressure and a late return toward random masking. Each pilot keeps the same model and total mask rate, so the comparison remains about mask selection rather than capacity or compute.
+
+The pilots also position the paper relative to prior adaptive masking work. Concept-based curriculum masking and scheduled masking show that changing what gets masked over training can improve MLM efficiency \citep{lee2022efficient,yang2023learning}. BabyLM adaptive MLM work shows that model-predictability-aware masking and subtoken information can help in the strict-small setting \citep{edman2025mask}. Our pilots ask a smaller mechanistic question under tighter controls: which online signal is least noisy when the only allowed intervention is reweighting a fixed 15\% mask budget? The answer in our runs is not raw cross-entropy loss, and not an entity bonus layered on top; the only replicated positive signal is smoothed top-1 correctness with a small character-trigram component.
+
+\paragraph{Model and Training.}
+All systems use the same Hugging Face Transformers masked language model, tokenizer, optimizer, batch size, sequence length, learning-rate schedule, random seed policy, training steps, and total mask rate. The only intended experimental difference is the masking policy. This differs from stronger BabyLM system submissions such as GPT-BERT, AntLM, BLaLM, or masked diffusion models, where the training objective, architecture, optimizer, or model family changes \citep{charpentier2024gptbert,yu2024antlm,haller2025sample,kosmopoulou2025masked}. Those approaches are better candidates for maximizing leaderboard performance; our setup is better suited for isolating whether target selection alone carries useful signal.
+
+\paragraph{Evaluation.}
+We report validation MLM loss from the local training pipeline after 10k training steps. This is the closest measure to the training objective: the model is evaluated on held-out BabyLM-style text with the same masked language modeling loss, and lower loss indicates better average prediction of masked validation tokens. Validation loss is therefore the cleanest measure of sample-efficient pretraining under the objective we optimize, but it does not directly test whether the model has acquired specific linguistic generalizations.
+
+We also evaluate checkpoints with the official BabyLM 2026 strict zero-shot pipeline for the tasks available in the local evaluation bundle. Table~\ref{tab:evaluation-benchmarks} summarizes the reported benchmarks. These evaluations use the trained masked language model without task-specific fine-tuning. For the accuracy-style benchmarks, the scorer compares the model's preference over controlled alternatives, such as a grammatical versus ungrammatical sentence or a correct versus incorrect continuation. For reading, the scorer compares model-derived surprisal with human reading measurements and reports separate eye-tracking and self-paced reading scores. Higher is better for all official metrics.
+
+\input{tables/evaluation_benchmarks}
+
+\paragraph{BLiMP.}
+BLiMP is a broad zero-shot linguistic acceptability suite built from minimal pairs. Each item contrasts a sentence that satisfies a targeted linguistic constraint with a minimally different sentence that violates it. The local report groups BLiMP items into fields such as morphology, semantics, syntax, and syntax/semantics, with individual phenomena including determiner-noun agreement, subject-verb agreement, binding, island constraints, negative polarity item licensing, passives, argument structure, and wh-dependencies. A model receives credit when it assigns the better score to the acceptable member of the pair.
+
+\paragraph{BLiMP Supplement.}
+The BLiMP Supplement extends the minimal-pair style evaluation to additional targeted phenomena not covered by the main BLiMP suite. In the local bundle, the reported subsets include hypernymy, subject-auxiliary inversion, easy and tricky question-answer congruence, and turn taking. This metric is useful because it tests a mixture of syntactic, semantic, and discourse-pragmatic contrasts that may not be captured by the main BLiMP categories.
+
+\paragraph{Entity Tracking.}
+Entity Tracking is especially relevant to HHM because the method explicitly masks repeated entity-like strings. The benchmark tests whether a model can maintain information about discourse entities across controlled contexts. The local report includes regular cases, ambiguous-reference cases, and move-contents cases, each evaluated across increasing numbers of operations. Higher scores indicate that the model more often prefers the continuation or alternative consistent with the correct entity state. Because HHM was designed partly around discourse recurrence, Entity Tracking is the most directly motivated official diagnostic for the entity-heavy-hitter component.
+
+\paragraph{COMPS.}
+COMPS evaluates compositional generalization. The local report includes a base condition and nonce or ``wug''-style conditions, including variants with distractors before or between relevant material. These examples test whether the model can combine lexical and structural information productively rather than relying only on memorized surface strings. This benchmark is relevant to the morph pilots because character-trigram adaptive masking is intended to encourage some generalization across related or novel-looking forms.
+
+\paragraph{Reading.}
+The reading benchmark evaluates whether the model's word-by-word expectations align with human processing data. Instead of minimal-pair accuracy, the official report provides separate eye-tracking and self-paced reading scores. Intuitively, a better language model should assign higher surprisal to words that humans also find harder or slower to process, although the relationship is indirect. We treat these scores as psycholinguistic diagnostics rather than as direct measures of MLM training quality.
+
+The main baseline and HHM checkpoints are evaluated across three seeds with both local validation loss and the available official metrics. The CMS-Morph and Entity-Accuracy-Morph pilots are evaluated with the same local and official commands for one seed, while Accuracy-Morph is evaluated for two matched seeds. We report these follow-ups separately from the main three-seed comparison because they were selected adaptively after the initial HHM result. EWoK was not present in the local evaluation data, so it is not reported.
+
+\paragraph{Diagnostics.}
+Each run logs the number of total masked tokens and the number selected from entity, error, and random sources. This verifies that HHM reallocates the prediction budget without increasing it.

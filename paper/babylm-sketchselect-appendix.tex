@@ -1,0 +1,9 @@
+\appendix
+
+\section{Implementation Details}
+
+The code is organized in \texttt{../babylm-hhm}. Core masking classes are in \texttt{src/masking/}. Configurations cover the random baseline, HHM, entity-only, error-only, randomized sketch control, frequency-only control, CMS-Morph, Accuracy-Morph, and Entity-Accuracy-Morph. The official BabyLM evaluation repository is available locally.
+
+\section{Reproducibility Commands}
+
+Tests are run with the local test runner. The three-seed main comparison uses the experiment runner with the \texttt{main} suite and seeds 1--3. The preliminary ablations use the same runner with the \texttt{ablations} suite. The adaptive pilots use the training entry point with the CMS-Morph, Accuracy-Morph, and Entity-Accuracy-Morph config files. All full training runs were executed with CUDA visible.

@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Pilot} & \textbf{Final masks} & \textbf{Random masks} & \textbf{Adaptive masks} \\
+\midrule
+CMS-Morph & 1{,}216 & 832 & 384 \\
+Accuracy-Morph & 1{,}216 & 960 & 256 \\
+Entity-Accuracy-Morph & 1{,}216 & 1{,}152 & 64 \\
+\bottomrule
+\end{tabular}
+}
+\caption{Final-step mask-budget diagnostics for the seed-1 adaptive pilots. All pilots preserve the same 15\% total MLM mask rate; they differ only in how much of that fixed budget is assigned to adaptive token or character-trigram sources. Entity-Accuracy-Morph decays to a much smaller adaptive share late in training.}
+\label{tab:pilot-mask-diagnostics}
+\end{table}

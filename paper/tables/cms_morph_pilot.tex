@@ -1,0 +1,23 @@
+\begin{table}[t]
+\centering
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrrrr}
+\toprule
+\textbf{System} & \textbf{Val. Loss} & \textbf{BLiMP} & \textbf{Sup.} & \textbf{Entity} & \textbf{COMPS} & \textbf{Eye} & \textbf{SPR} \\
+\midrule
+Random MLM, seed 1 & 3.1445 & 62.81 & 55.81 & 15.84 & 50.10 & 0.98 & 1.78 \\
+HHM, seed 1 & 3.1530 & 62.41 & 53.84 & 15.90 & 50.82 & 2.16 & 2.43 \\
+CMS-Morph, seed 1 & 3.1574 & 63.33 & 54.45 & 15.81 & 50.33 & 2.70 & 2.30 \\
+Accuracy-Morph, seed 1 & 3.1326 & 62.66 & 55.17 & 19.04 & 50.46 & 1.53 & 2.11 \\
+Entity-Accuracy-Morph, seed 1 & 3.1566 & 62.13 & 55.17 & 17.85 & 50.04 & 1.51 & 2.06 \\
+\midrule
+CMS-Morph -- Random & +0.0129 & +0.52 & -1.36 & -0.03 & +0.23 & +1.72 & +0.52 \\
+Accuracy-Morph -- Random & -0.0119 & -0.15 & -0.64 & +3.20 & +0.36 & +0.55 & +0.33 \\
+Entity-Accuracy-Morph -- Random & +0.0121 & -0.68 & -0.64 & +2.01 & -0.06 & +0.53 & +0.28 \\
+\bottomrule
+\end{tabular}
+}
+\caption{Additional one-seed adaptive masking pilots. CMS-Morph uses high-loss token and character trigram Count-Min Sketches; Accuracy-Morph instead uses smoothed prediction-correctness sketches and a more conservative adaptive share; Entity-Accuracy-Morph adds a repeated-token/entity bonus and late adaptive decay. All keep the total MLM mask rate fixed at 15\%. Lower is better for validation loss; higher is better for official metrics.}
+\label{tab:cms-morph-pilot}
+\end{table}

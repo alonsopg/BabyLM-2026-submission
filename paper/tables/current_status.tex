@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llcl}
+\toprule
+\textbf{Branch} & \textbf{Evidence} & \textbf{Seeds} & \textbf{Current interpretation} \\
+\midrule
+HHM entity+error & Worse MLM loss than random ($+0.0298$), but small gains on all available official metrics & 3 & Mixed diagnostic result; not a clear training-objective improvement \\
+CMS-Morph & Worse seed-1 MLM loss than random ($+0.0129$), mixed official metrics & 1 & Useful probe, but raw high-loss sketches are not the best next path \\
+Accuracy-Morph & Better matched seed-2 MLM loss than random ($-0.0191$), unchanged BLiMP, and much higher Entity Tracking ($+7.82$) & 2 & Best current follow-up; positive but still needs a third seed \\
+Entity-Accuracy-Morph & Worse seed-1 MLM loss than random ($+0.0121$), smaller Entity Tracking gain than Accuracy-Morph & 1 & Do not continue this variant as the main direction \\
+\bottomrule
+\end{tabular}
+}
+\caption{Current status of the experimental branches. Positive validation-loss deltas are worse because lower MLM loss is better; official metric deltas are interpreted only as diagnostics unless replicated across seeds.}
+\label{tab:current-status}
+\end{table*}

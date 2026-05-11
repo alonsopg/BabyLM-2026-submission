@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrr}
+\toprule
+\textbf{Condition} & \textbf{Steps} & \textbf{Validation loss} \\
+\midrule
+Random baseline & 20 & 8.6524 \\
+HHM entity+error & 20 & 8.6703 \\
+Entity only & 20 & 8.6535 \\
+Error only & 20 & 8.6611 \\
+Random sketch control & 20 & 8.6462 \\
+Frequency only & 20 & 8.7238 \\
+\bottomrule
+\end{tabular}
+}
+\caption{Preliminary single-seed component ablations. These are 20-step pipeline checks rather than full training runs, so they verify implementation behavior but are not used as substantive evidence about final model quality.}
+\label{tab:prelim-ablation-results}
+\end{table}

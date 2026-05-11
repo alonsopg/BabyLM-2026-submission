@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcrrrrrrr}
+\toprule
+\textbf{System} & \textbf{Seeds} & \textbf{Val. Loss} & \textbf{BLiMP} & \textbf{Sup.} & \textbf{Entity} & \textbf{COMPS} & \textbf{Eye} & \textbf{SPR} \\
+\midrule
+Random MLM & 1,2 & $3.0871 \pm 0.0812$ & $62.79 \pm 0.04$ & $55.86 \pm 0.07$ & $16.77 \pm 1.32$ & $50.31 \pm 0.29$ & $1.55 \pm 0.81$ & $2.16 \pm 0.53$ \\
+Accuracy-Morph & 1,2 & $3.0715 \pm 0.0863$ & $62.71 \pm 0.07$ & $55.60 \pm 0.61$ & $22.28 \pm 4.58$ & $50.30 \pm 0.23$ & $1.93 \pm 0.57$ & $2.34 \pm 0.33$ \\
+\midrule
+Paired delta & 1,2 & $-0.0155 \pm 0.0051$ & $-0.08 \pm 0.11$ & $-0.26 \pm 0.54$ & $+5.51 \pm 3.27$ & $-0.00 \pm 0.52$ & $+0.38 \pm 0.24$ & $+0.19 \pm 0.21$ \\
+\bottomrule
+\end{tabular}
+}
+\caption{Matched-seed Accuracy-Morph comparison. The paired delta is Accuracy-Morph minus Random MLM for seeds 1 and 2. Accuracy-Morph improves validation loss in both matched seeds and produces a large positive Entity Tracking delta, while BLiMP, Supplement, and COMPS remain roughly flat or slightly lower.}
+\label{tab:accuracy-morph-matched}
+\end{table*}

@@ -1,0 +1,13 @@
+torch
+transformers
+datasets
+tokenizers
+accelerate
+pyyaml
+numpy
+pandas
+tqdm
+matplotlib
+pytest
+safetensors
+

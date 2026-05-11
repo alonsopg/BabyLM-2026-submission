@@ -1,0 +1,49 @@
+name: entity_accuracy_morph
+output_root: outputs
+data:
+  dataset_name: BabyLM-community/BabyLM-2026-Strict-Small
+  text_column: text
+  validation_size: 2000
+  num_proc: 4
+tokenizer:
+  name: bert-base-uncased
+model:
+  hidden_size: 256
+  num_hidden_layers: 4
+  num_attention_heads: 4
+  intermediate_size: 1024
+  max_position_embeddings: 512
+training:
+  max_length: 128
+  batch_size: 64
+  max_steps: 10000
+  learning_rate: 5.0e-4
+  weight_decay: 0.01
+  warmup_fraction: 0.06
+  max_grad_norm: 1.0
+  eval_every: 500
+  eval_batches: 40
+masking:
+  type: entity_accuracy_morph
+  mask_rate: 0.15
+  random_share: 0.80
+  hard_token_share: 0.15
+  hard_morph_share: 0.05
+  final_random_share: 0.90
+  adaptive_warmup_fraction: 0.30
+  decay_start_fraction: 0.80
+  update_every_steps: 200
+  smoothing_alpha: 1.0
+  min_seen: 3.0
+  min_error_rate: 0.25
+  max_error_rate: 0.85
+  entity_bonus: 0.25
+  morph_tiebreak_bonus: 0.10
+  score_cap: 0.9
+  char_ngram_n: 3
+  add_boundaries: true
+  token_cms_width: 65536
+  token_cms_depth: 4
+  morph_cms_width: 65536
+  morph_cms_depth: 4
+  conservative_update: true

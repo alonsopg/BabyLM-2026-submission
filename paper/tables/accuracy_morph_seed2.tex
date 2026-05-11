@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrrr}
+\toprule
+\textbf{System} & \textbf{Seed} & \textbf{Val. Loss} & \textbf{BLiMP} & \textbf{Sup.} & \textbf{Entity} & \textbf{COMPS} & \textbf{Eye} & \textbf{SPR} \\
+\midrule
+Random MLM & 2 & 3.0296 & 62.76 & 55.91 & 17.70 & 50.51 & 2.12 & 2.53 \\
+Accuracy-Morph & 2 & 3.0105 & 62.76 & 56.03 & 25.52 & 50.14 & 2.33 & 2.57 \\
+\midrule
+Accuracy-Morph -- Random & 2 & -0.0191 & +0.00 & +0.12 & +7.82 & -0.37 & +0.21 & +0.04 \\
+\bottomrule
+\end{tabular}
+}
+\caption{Final limited-compute experiment: Accuracy-Morph seed 2 compared with the matched random MLM seed 2 baseline. Lower is better for validation loss; higher is better for official metrics.}
+\label{tab:accuracy-morph-seed2}
+\end{table*}
