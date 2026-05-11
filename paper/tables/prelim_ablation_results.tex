@@ -1,16 +1,20 @@
 \begin{table}[t]
 \centering
-\small
+\fontsize{8.4}{9.0}\selectfont
+\setlength{\tabcolsep}{3.0pt}
+\renewcommand{\arraystretch}{1.0}
 \resizebox{\linewidth}{!}{%
-\begin{tabular}{lrr}
+\begin{tabular}{@{}l r r@{}}
 \toprule
 \textbf{Condition} & \textbf{Steps} & \textbf{Validation loss} \\
 \midrule
-\rowcolor{gray!10}
+\rowcolor{tablegray}
 Random baseline & 20 & 8.6524 \\
 HHM entity+error & 20 & 8.6703 \\
+\rowcolor{tablegray}
 Entity only & 20 & 8.6535 \\
 Error only & 20 & 8.6611 \\
+\rowcolor{tablegray}
 Random sketch control & 20 & \textbf{8.6462} \\
 Frequency only & 20 & 8.7238 \\
 \bottomrule

@@ -1,15 +1,18 @@
 \begin{table*}[t]
 \centering
-\small
+\fontsize{8.2}{8.8}\selectfont
+\setlength{\tabcolsep}{3.0pt}
+\renewcommand{\arraystretch}{1.0}
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{llcl}
+\begin{tabular}{@{}l l c l@{}}
 \toprule
 \textbf{Branch} & \textbf{Evidence} & \textbf{Seeds} & \textbf{Current interpretation} \\
 \midrule
 HHM entity+error & Worse MLM loss than random ($+0.0298$), but small gains on all available official metrics & 3 & Mixed diagnostic result; not a clear training-objective improvement \\
+\rowcolor{tablegray}
 CMS-Morph & Worse seed-1 MLM loss than random ($+0.0129$), mixed official metrics & 1 & Useful probe, but raw high-loss sketches are not the best next path \\
-\rowcolor{gray!10}
 \textbf{Accuracy-Morph} & \textbf{Better matched seed-2 MLM loss than random ($-0.0191$), unchanged BLiMP, and much higher Entity Tracking ($+7.82$)} & \textbf{2} & \textbf{Best current follow-up; positive but still needs a third seed} \\
+\rowcolor{tablegray}
 Entity-Accuracy-Morph & Worse seed-1 MLM loss than random ($+0.0121$), smaller Entity Tracking gain than Accuracy-Morph & 1 & Do not continue this variant as the main direction \\
 \bottomrule
 \end{tabular}
