@@ -1,0 +1,123 @@
+\begin{thebibliography}{14}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Charpentier and Samuel(2024)}]{charpentier2024gptbert}
+Lucas Georges~Gabriel Charpentier and David Samuel. 2024.
+\newblock {GPT} or {BERT}: Why not both?
+\newblock In \emph{The 2nd BabyLM Challenge at the 28th Conference on
+  Computational Natural Language Learning}, Miami, FL, USA. Association for
+  Computational Linguistics.
+
+\bibitem[{Choshen et~al.(2026)Choshen, Cotterell, Gul, Jumelet, Linzen,
+  Mueller, Salhan, Shah, Warstadt, and Wilcox}]{choshen2026babylm}
+Leshem Choshen, Ryan Cotterell, Mustafa~Omer Gul, Jaap Jumelet, Tal Linzen,
+  Aaron Mueller, Suchir Salhan, Raj~Sanjay Shah, Alex Warstadt, and
+  Ethan~Gotlieb Wilcox. 2026.
+\newblock \href {http://arxiv.org/abs/2602.20092} {{BabyLM} turns 4 and goes
+  multilingual: Call for papers for the 2026 {BabyLM} workshop}.
+
+\bibitem[{Edman and Fraser(2025)}]{edman2025mask}
+Lukas Edman and Alexander Fraser. 2025.
+\newblock Mask and you shall receive: Optimizing masked language modeling for
+  pretraining {BabyLM}s.
+\newblock In \emph{Proceedings of the First BabyLM Workshop}, pages 445--453,
+  Suzhou, China. Association for Computational Linguistics.
+
+\bibitem[{Gu et~al.(2020)Gu, Zhang, Wang, Liu, and Sun}]{gu2020train}
+Yuxian Gu, Zhengyan Zhang, Xiaozhi Wang, Zhiyuan Liu, and Maosong Sun. 2020.
+\newblock \href {https://doi.org/10.18653/v1/2020.emnlp-main.566} {Train no
+  evil: Selective masking for task-guided pre-training}.
+\newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in
+  Natural Language Processing}, pages 6966--6974, Online. Association for
+  Computational Linguistics.
+
+\bibitem[{Haller et~al.(2025)Haller, Golde, and Akbik}]{haller2025sample}
+Patrick Haller, Jonas Golde, and Alan Akbik. 2025.
+\newblock \href {https://doi.org/10.18653/v1/2025.babylm-main.14}
+  {Sample-efficient language modeling with linear attention and lightweight
+  enhancements}.
+\newblock In \emph{Proceedings of the First BabyLM Workshop}, pages 175--191,
+  Suzhou, China. Association for Computational Linguistics.
+
+\bibitem[{Hu et~al.(2024)Hu, Mueller, Ross, Williams, Linzen, Zhuang,
+  Cotterell, Choshen, Warstadt, and Wilcox}]{hu2024babylm}
+Michael~Y. Hu, Aaron Mueller, Candace Ross, Adina Williams, Tal Linzen, Chengxu
+  Zhuang, Ryan Cotterell, Leshem Choshen, Alex Warstadt, and Ethan~Gotlieb
+  Wilcox. 2024.
+\newblock Findings of the second {BabyLM} challenge: Sample-efficient
+  pretraining on developmentally plausible corpora.
+\newblock In \emph{The 2nd BabyLM Challenge at the 28th Conference on
+  Computational Natural Language Learning}, pages 1--21, Miami, FL, USA.
+  Association for Computational Linguistics.
+
+\bibitem[{Kosmopoulou et~al.(2025)Kosmopoulou, Georgiou, Dorovatas,
+  Paraskevopoulos, and Potamianos}]{kosmopoulou2025masked}
+Despoina Kosmopoulou, Efthymios Georgiou, Vaggelis Dorovatas, Georgios
+  Paraskevopoulos, and Alexandros Potamianos. 2025.
+\newblock \href {https://doi.org/10.18653/v1/2025.babylm-main.38} {Masked
+  diffusion language models with frequency-informed training}.
+\newblock In \emph{Proceedings of the First BabyLM Workshop}, pages 531--539,
+  Suzhou, China. Association for Computational Linguistics.
+
+\bibitem[{Lee et~al.(2022)Lee, Park, Kim, Kim, and Lee}]{lee2022efficient}
+Mingyu Lee, Jun-Hyung Park, Junho Kim, Kang-Min Kim, and SangKeun Lee. 2022.
+\newblock Efficient pre-training of masked language model via concept-based
+  curriculum masking.
+\newblock In \emph{Proceedings of the 2022 Conference on Empirical Methods in
+  Natural Language Processing}, Abu Dhabi, United Arab Emirates. Association
+  for Computational Linguistics.
+
+\bibitem[{Sadeq et~al.(2022)Sadeq, Xu, and McAuley}]{sadeq2022informask}
+Nafis Sadeq, Canwen Xu, and Julian McAuley. 2022.
+\newblock {InforMask}: Unsupervised informative masking for language model
+  pretraining.
+\newblock In \emph{Proceedings of the 2022 Conference on Empirical Methods in
+  Natural Language Processing}, Abu Dhabi, United Arab Emirates. Association
+  for Computational Linguistics.
+
+\bibitem[{Warstadt et~al.(2023)Warstadt, Mueller, Choshen, Wilcox, Zhuang,
+  Ciro, Mosquera, Paranjabe, Williams, Linzen, and
+  Cotterell}]{warstadt2023babylm}
+Alex Warstadt, Aaron Mueller, Leshem Choshen, Ethan Wilcox, Chengxu Zhuang,
+  Juan Ciro, Rafael Mosquera, Bhargavi Paranjabe, Adina Williams, Tal Linzen,
+  and Ryan Cotterell. 2023.
+\newblock Findings of the {BabyLM} challenge: Sample-efficient pretraining on
+  developmentally plausible corpora.
+\newblock In \emph{Proceedings of the BabyLM Challenge at the 27th Conference
+  on Computational Natural Language Learning}, pages 1--34, Singapore.
+  Association for Computational Linguistics.
+
+\bibitem[{Wilf et~al.(2023)Wilf, Akter, Mathur, Liang, Mathew, Shou, Nyberg,
+  and Morency}]{wilf2023difference}
+Alex Wilf, Syeda Akter, Leena Mathur, Paul Liang, Sheryl Mathew, Mengrou Shou,
+  Eric Nyberg, and Louis-Philippe Morency. 2023.
+\newblock \href {https://doi.org/10.18653/v1/2023.findings-emnlp.881}
+  {Difference-masking: Choosing what to mask in continued pretraining}.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  EMNLP 2023}, pages 13222--13234, Singapore. Association for Computational
+  Linguistics.
+
+\bibitem[{Yang et~al.(2023)Yang, Zhang, and Zhao}]{yang2023learning}
+Dongjie Yang, Zhuosheng Zhang, and Hai Zhao. 2023.
+\newblock \href {https://doi.org/10.18653/v1/2023.acl-long.400} {Learning
+  better masking for better language model pre-training}.
+\newblock In \emph{Proceedings of the 61st Annual Meeting of the Association
+  for Computational Linguistics (Volume 1: Long Papers)}, pages 7255--7267,
+  Toronto, Canada. Association for Computational Linguistics.
+
+\bibitem[{Yu et~al.(2024)Yu, Guo, Luo, Wang, Ji, and Wu}]{yu2024antlm}
+Xinru Yu, Bin Guo, Shiwei Luo, Jie Wang, Tao Ji, and Yuanbin Wu. 2024.
+\newblock {AntLM}: Bridging causal and masked language models.
+\newblock In \emph{The 2nd BabyLM Challenge at the 28th Conference on
+  Computational Natural Language Learning}, pages 324--331, Miami, FL, USA.
+  Association for Computational Linguistics.
+
+\bibitem[{Zhong et~al.(2023)Zhong, Ding, Liu, Du, and Tao}]{zhong2023self}
+Qihuang Zhong, Liang Ding, Juhua Liu, Bo~Du, and Dacheng Tao. 2023.
+\newblock \href {https://doi.org/10.18653/v1/2023.findings-acl.254}
+  {Self-evolution learning for discriminative language model pretraining}.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  ACL 2023}, pages 4130--4145, Toronto, Canada. Association for Computational
+  Linguistics.
+
+\end{thebibliography}
