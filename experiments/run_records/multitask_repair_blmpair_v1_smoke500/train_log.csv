@@ -1,0 +1,3 @@
+step,task,loss,val_mlm_loss,best_val_mlm_loss,bad_evals,lr,elapsed_sec,early_stop,steps/mlm,steps/rtd,steps/connective,steps/definiteness,steps/collocation,steps/substitution,steps/function_word_recovery,steps/agreement_prediction,steps/grammar_minpair
+1,mlm,10.327686309814453,10.356061617533365,10.356061617533365,0,1.6666666666666667e-05,2.2145979404449463,False,1,0,0,0,0,0,0,0,0
+500,mlm,5.3390302658081055,7.766027450561523,7.766027450561523,0,0.0,66.93176221847534,False,307,50,37,33,32,0,0,0,41

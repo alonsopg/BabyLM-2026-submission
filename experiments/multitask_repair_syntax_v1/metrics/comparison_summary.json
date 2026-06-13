@@ -1,0 +1,65 @@
+{
+  "experiment": "multitask_repair_syntax_v1",
+  "seed": 1,
+  "question": "Can syntax-oriented auxiliary MLM-head tasks recover BLiMP while preserving Entity Tracking and reading gains?",
+  "verdict": "partial_success_not_blimp_repair",
+  "systems": [
+    {
+      "name": "normal_bert_mlm_final",
+      "blimp": 64.33,
+      "blimp_supplement": 54.0,
+      "ewok": 50.55,
+      "entity_tracking": 15.56,
+      "reading_eye": 2.47,
+      "reading_spr": 2.42
+    },
+    {
+      "name": "multitask_bert_calibrated_best",
+      "blimp": 54.8,
+      "blimp_supplement": 54.8,
+      "ewok": 50.27,
+      "entity_tracking": 34.52,
+      "reading_eye": 7.46,
+      "reading_spr": 3.19
+    },
+    {
+      "name": "multitask_bert_light_aux_best",
+      "blimp": 54.59,
+      "blimp_supplement": 52.0,
+      "ewok": 50.09,
+      "entity_tracking": 29.6,
+      "reading_eye": 8.07,
+      "reading_spr": 3.34
+    },
+    {
+      "name": "multitask_repair_syntax_v1_best",
+      "blimp": 55.28,
+      "blimp_supplement": 52.8,
+      "ewok": 50.09,
+      "entity_tracking": 34.92,
+      "reading_eye": 8.13,
+      "reading_spr": 3.5
+    },
+    {
+      "name": "multitask_repair_syntax_v1_final",
+      "blimp": 55.51,
+      "blimp_supplement": 52.4,
+      "ewok": 49.55,
+      "entity_tracking": 32.76,
+      "reading_eye": 8.28,
+      "reading_spr": 3.63
+    }
+  ],
+  "training": {
+    "completed_steps": 10000,
+    "best_validation_step": 9000,
+    "best_validation_mlm_loss": 6.817428112030029,
+    "early_stopping_enabled": true,
+    "early_stopping_start_after_step": 9000,
+    "final_bad_evals": 2,
+    "gpu": "NVIDIA RTX A6000",
+    "nvidia_smi_status": "failed_nvml_driver_library_mismatch",
+    "torch_cuda_available": true
+  },
+  "conclusion": "The repair is operational and improves Entity Tracking/reading, but BLiMP remains far below the MLM-only baseline."
+}

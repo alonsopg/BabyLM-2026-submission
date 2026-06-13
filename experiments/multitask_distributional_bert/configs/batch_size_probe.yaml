@@ -1,0 +1,16 @@
+base_config: experiments/multitask_distributional_bert/configs/normal_bert_mlm.yaml
+seed: 1
+candidate_batch_sizes:
+  - 16
+  - 32
+  - 48
+  - 64
+  - 96
+  - 128
+  - 192
+  - 256
+probe_steps: 20
+max_train_rows: 2000
+target: normal_bert_mlm
+largest_successful_batch_size: 128
+recommended_batch_size: 96

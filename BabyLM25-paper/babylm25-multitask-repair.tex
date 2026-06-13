@@ -1,0 +1,148 @@
+\pdfoutput=1
+\documentclass[11pt]{article}
+
+\usepackage[review]{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage[breaklinks]{hyperref}
+
+\urlstyle{same}
+
+\title{When Auxiliary Objectives Help Reading but Hurt Syntax: A BabyLM Multi-Task Diagnostic}
+
+\author{
+  Alonso Palomino \\
+  Independent Researcher \\
+  \texttt{mail@alonsopg.com}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We report a compact BabyLM-scale diagnostic study of multi-task pretraining for masked language models. Starting from a small BERT model trained on the BabyLM strict-small corpus, we compare standard masked language modeling against multi-task variants that add replaced-token detection, connective prediction, definiteness prediction, collocation naturalness, and two syntax-oriented repair strategies. Multi-task training substantially improves Entity Tracking and reading-prediction scores, but it consistently degrades BLiMP grammatical minimal-pair accuracy. A syntax-focused masked-token repair improves BLiMP only slightly, and a direct BLiMP-style grammatical minimal-pair preference objective fails to improve BLiMP beyond the earlier calibrated multi-task baseline. These results suggest that the observed BLiMP degradation is not simply due to the absence of explicit grammatical supervision. Instead, it may reflect broader interference between auxiliary objectives and the sentence-level acceptability behavior measured by BLiMP.
+\end{abstract}
+
+\section{Introduction}
+
+Sample-efficient pretraining is central to the BabyLM setting, where models must learn from developmentally plausible corpora rather than web-scale text \citep{warstadt2023babylm,hu2024babylm}. A natural strategy is to enrich masked language modeling (MLM) with auxiliary objectives that target complementary linguistic or discourse-level skills. Multi-task training can expose a compact model to signals that ordinary token reconstruction may not emphasize, such as local replacement detection, discourse connectives, definiteness, lexical naturalness, or sentence-level preferences.
+
+Our experiments began with this motivation: can a compact BERT-style model gain stronger BabyLM evaluation performance by adding auxiliary tasks while retaining the syntactic generalization learned by MLM? The answer is mixed. Multi-task training reliably improves Entity Tracking and reading-prediction metrics, but it causes a large drop on BLiMP \citep{warstadt2020blimp}. This creates a diagnostic puzzle: the auxiliary objectives appear to help some aspects of language understanding while damaging grammatical minimal-pair preference.
+
+We therefore tested two repair strategies. First, we added syntax-oriented MLM-head tasks: function-word recovery and agreement prediction. Second, we replaced those weak repair tasks with a direct BLiMP-style grammatical minimal-pair preference objective. Both repairs trained successfully, but neither recovered BLiMP. The direct minimal-pair task was especially informative: even when the model was explicitly trained to choose grammatical sentences over minimally corrupted alternatives, BLiMP did not improve.
+
+This paper presents the current state of the experiments as a diagnostic negative result. The contribution is not a new winning model, but a controlled account of a persistent trade-off: auxiliary objectives can improve Entity Tracking and reading-prediction behavior in compact BabyLM-scale models while leaving, or even worsening, a large deficit in BLiMP-style grammatical acceptability.
+
+\section{Model and Data}
+
+All runs use the same compact BERT-style MLM architecture \citep{devlin2019bert}. The tokenizer is \texttt{bert-base-uncased}. The model has hidden size 256, 4 transformer layers, 4 attention heads, intermediate size 1024, and maximum position embeddings 512. This keeps model capacity fixed across all comparisons.
+
+The training corpus is the BabyLM 2026 strict-small corpus from Hugging Face. We use the same train/validation setup across experiments, with a held-out validation split of 2000 examples for MLM validation loss. Unless otherwise stated, runs use batch size 96, maximum sequence length 128, AdamW with learning rate $5 \times 10^{-4}$, weight decay 0.01, linear warmup over 6\% of steps, gradient clipping at 1.0, and fp32 training. All full runs use 10000 training steps.
+
+Training was run on a single NVIDIA RTX A6000 through PyTorch CUDA. The local \texttt{nvidia-smi} command failed because of an NVML driver/library mismatch, but PyTorch CUDA detected the A6000 and the training script exits rather than falling back to CPU.
+
+\section{Tasks}
+
+\paragraph{MLM baseline.}
+The baseline is standard random masked language modeling. This model provides the strongest BLiMP result and serves as the main syntactic reference point.
+
+\paragraph{Core auxiliary tasks.}
+The calibrated multi-task setup combines MLM with four auxiliary signals. Replaced-token detection follows the intuition of discriminator-style pretraining \citep{clark2020electra}. Connective prediction masks discourse connectives with a special marker and classifies the original connective. Definiteness prediction masks articles and predicts definite versus indefinite usage. Collocation naturalness presents a pair of short expressions and asks the model to identify the more natural collocation. The pairwise collocation task uses a shared BERT encoder and a two-way classification head over the pooled \texttt{[CLS]} representation.
+
+\paragraph{Final MLM calibration.}
+The multi-task systems use a final MLM-only calibration phase. In the calibrated runs reported here, the last 2000 of 10000 steps are forced to MLM. This was kept fixed for the repair experiments so that changes in results reflect task changes rather than a different training budget.
+
+\paragraph{Syntax MLM repair.}
+The first repair added two MLM-head syntax tasks. Function-word recovery masks function words such as auxiliaries, prepositions, complementizers, and negation markers. Agreement prediction masks words such as \textit{is/are}, \textit{was/were}, \textit{has/have}, \textit{do/does}, and demonstratives under conservative local-context filters. These tasks use the same MLM head as the baseline.
+
+\paragraph{BLiMP-pair repair.}
+The second repair replaced the weak syntax MLM tasks with a direct grammatical minimal-pair preference task. Each example contains a grammatical sentence and a minimally corrupted sentence:
+\begin{quote}
+\small
+\texttt{[CLS] The dogs are barking. [SEP] The dogs is barking. [SEP]}
+\end{quote}
+The label indicates whether the first or second sentence is better. The task uses the same two-way pairwise classification head as collocation naturalness.
+
+We first attempted corpus-derived corruptions, but manual inspection found too many noisy determiner examples, especially cases where \textit{that} was a complementizer or pronoun rather than a determiner. We therefore rejected the corpus-corruption generator before training. The final BLiMP-pair generator used high-precision templates covering subject--verb agreement, determiner--noun agreement, auxiliary agreement, negative polarity item licensing, and simple reflexive binding. The final generated file contains 30820 examples.
+
+\section{Experimental Conditions}
+
+The systems are:
+
+\begin{itemize}
+    \item \textbf{MLM-only baseline}: standard MLM, 10000 steps.
+    \item \textbf{Calibrated multi-task}: MLM 60\%, replaced-token detection 20\%, connective prediction 10\%, definiteness prediction 10\%, with final MLM calibration.
+    \item \textbf{Light auxiliary multi-task}: a reduced-auxiliary variant from the same infrastructure.
+    \item \textbf{Syntax repair}: MLM 60\%, replaced-token detection 10\%, connective 7.5\%, definiteness 7.5\%, collocation 5\%, function-word recovery 5\%, agreement prediction 5\%, substitution disabled.
+    \item \textbf{BLiMP-pair repair}: MLM 60\%, replaced-token detection 10\%, connective 7.5\%, definiteness 7.5\%, collocation 5\%, grammatical minimal pairs 10\%, substitution and weak syntax MLM repairs disabled.
+\end{itemize}
+
+For repair runs, early stopping is enabled from step 9000 with patience 2 and minimum validation-loss delta 0.01. Both repair runs completed the full 10000-step budget or reached the natural final evaluation. The syntax repair's best validation checkpoint occurred at step 9000 with validation MLM loss 6.8174. The BLiMP-pair repair's best validation checkpoint occurred at step 9500 with validation MLM loss 6.7981.
+
+\section{Evaluation}
+
+We use the official BabyLM strict fast-evaluation pipeline available locally. We report BLiMP, BLiMP Supplement, EWoK, Entity Tracking, Eye Tracking, and Self-Paced Reading (SPR). BLiMP, Supplement, EWoK, and Entity Tracking are accuracy-style percentages. Eye and SPR are official reading-prediction scores.
+
+\input{tables/main_results}
+
+\section{Results}
+
+Table~\ref{tab:main-results} shows a consistent pattern. The MLM-only baseline is much stronger on BLiMP, reaching 64.33. The calibrated multi-task model drops to 54.80 BLiMP, a loss of 9.53 points, but improves Entity Tracking from 15.56 to 34.52 and improves reading scores from 2.47/2.42 to 7.46/3.19.
+
+The syntax repair is the best overall repaired model among those tested. Its final checkpoint reaches 55.51 BLiMP, only 0.71 above the calibrated multi-task baseline and still 8.82 below MLM-only. However, it preserves strong auxiliary-side behavior: Entity Tracking is 32.76, Eye is 8.28, and SPR is 3.63. The validation-best syntax checkpoint gives the strongest Entity score observed in these experiments, 34.92.
+
+The BLiMP-pair repair does not improve the main target. The validation-best checkpoint obtains 54.80 BLiMP, exactly matching the older calibrated multi-task baseline. The final checkpoint obtains 54.81. Both are below the syntax repair final checkpoint. Entity Tracking also drops to 27.54 for the best checkpoint and 25.99 for the final checkpoint, though both remain above the MLM-only baseline. Reading scores remain elevated relative to MLM-only but fall below the syntax repair final checkpoint.
+
+\section{Analysis}
+
+\paragraph{Auxiliary tasks help non-BLiMP behavior.}
+The most robust positive result is that multi-task training improves Entity Tracking and reading-prediction metrics. This happens across the calibrated multi-task, syntax repair, and BLiMP-pair repair systems. The gains are large enough that they are unlikely to be incidental noise: Entity Tracking roughly doubles relative to MLM-only in the strongest multi-task systems, and Eye/SPR improve consistently.
+
+\paragraph{BLiMP loss is persistent.}
+The negative result is equally stable. Every multi-task variant remains far below MLM-only on BLiMP. The best repaired BLiMP score is 55.51, still nearly nine points behind the MLM-only baseline. The BLiMP-pair objective was designed to be structurally close to the evaluation: choose the grammatical member of a minimal pair. Its failure suggests that the problem is not merely the absence of explicit grammatical preference supervision.
+
+\paragraph{Template preference was too easy.}
+During BLiMP-pair training, the grammar-minpair loss became near zero by mid-training. This suggests that the model learned the template discrimination task quickly. The lack of BLiMP transfer may reflect a mismatch between our generated templates and the broader BLiMP distribution, or it may indicate that a separate pairwise classification head learns the task without improving the MLM scoring behavior used in BLiMP evaluation.
+
+\paragraph{Validation MLM loss is not enough.}
+The BLiMP-pair repair achieved a validation MLM loss close to the earlier repaired systems, with a best value of 6.7981. This did not translate into BLiMP recovery. Conversely, MLM-only has much lower validation loss and much higher BLiMP, but much worse Entity/Reading. The metrics appear to reward different internal behaviors.
+
+\section{Discussion}
+
+The current evidence points to a real trade-off in this compact BabyLM setting. Auxiliary objectives appear useful for discourse-like, tracking, or reading-predictive behavior, but they interfere with the grammatical minimal-pair preferences captured by BLiMP. Simple repairs do not remove this trade-off.
+
+One plausible explanation is reduced effective MLM exposure. Even with final calibration, the multi-task models spend a large fraction of training on objectives that do not directly train token reconstruction. Another possibility is representation interference: objectives such as replaced-token detection and pairwise classification may encourage features that help certain discriminative tasks but do not preserve the fine-grained sentence likelihood preferences used by BLiMP-style scoring. A third possibility is head mismatch. The BLiMP-pair repair uses a classifier head, while BLiMP evaluation probes the MLM head. The classifier can solve generated minimal pairs without forcing the MLM head to assign better pseudo-likelihoods to grammatical sentences.
+
+\section{Current Recommendation}
+
+The current best model depends on the intended metric. If BLiMP is primary, the MLM-only baseline remains the best system. If Entity Tracking and reading-prediction behavior are primary, the syntax repair final checkpoint is the most attractive compromise among the repaired systems tested so far. The BLiMP-pair repair should not be kept as the main model.
+
+The most sensible next experiment is not more template pair supervision at the same mixture weight. A more conservative follow-up would increase MLM share while keeping a small grammar-pair dose, for example 70\% MLM, 7.5\% replaced-token detection, 5\% connective, 5\% definiteness, 2.5\% collocation, and 10\% grammar-minpair, with the same final MLM calibration. This would test whether the BLiMP loss is primarily caused by reduced MLM exposure rather than lack of grammatical contrastive supervision.
+
+\section{Limitations}
+
+These experiments are single-seed diagnostic runs. The conclusions are therefore about the observed current systems rather than statistically robust population estimates. The official fast evaluation is useful for iteration but should be treated as a lightweight proxy for the full evaluation. The BLiMP-pair generator uses templates for precision, which may limit transfer to naturalistic BLiMP phenomena. Finally, the pairwise grammar objective uses a classification head, whereas BLiMP evaluation depends on MLM scoring; future work should test objectives that directly shape the MLM head's sentence preferences.
+
+\section{Ethics Statement}
+
+This work studies compact language-model pretraining under constrained data. No human subjects are involved, and no new private or sensitive data were introduced. The experiments reuse the BabyLM strict-small corpus and local evaluation pipeline. The main risk is overclaiming from single-seed diagnostic results; we therefore frame the results as current evidence and explicitly report failed repair attempts.
+
+\bibliography{babylm25-references}
+
+\appendix
+\section{Implementation Details}
+
+The trainer samples active task files according to configured probabilities and logs cumulative task counts at each evaluation point. For MLM-head tasks, labels are provided to the BERT MLM head. For replaced-token detection, a token-level two-way classifier is applied to encoder hidden states. Connective and definiteness prediction use special marker tokens and classifier heads over the marker representation. Collocation and grammar-minpair use a two-way classification head over the pooled \texttt{[CLS]} representation.
+
+The BLiMP-pair run used 30820 generated grammar-minpair examples. The mixed phase reached the following task counts at step 8000: 4817 MLM, 749 replaced-token detection, 605 connective, 609 definiteness, 406 collocation, and 814 grammar-minpair. The last 2000 steps were MLM-only calibration.
+
+\end{document}

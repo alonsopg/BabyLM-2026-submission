@@ -1,0 +1,43 @@
+{
+  "mlm": {
+    "probability": 0.6,
+    "num_examples": 48889,
+    "enabled": true
+  },
+  "rtd": {
+    "probability": 0.1,
+    "num_examples": 48889,
+    "enabled": true
+  },
+  "connective": {
+    "probability": 0.075,
+    "num_examples": 7777,
+    "enabled": true
+  },
+  "definiteness": {
+    "probability": 0.075,
+    "num_examples": 19007,
+    "enabled": true
+  },
+  "collocation": {
+    "probability": 0.05,
+    "num_examples": 8570,
+    "enabled": true
+  },
+  "function_word_recovery": {
+    "probability": 0.05,
+    "num_examples": 19180,
+    "enabled": true
+  },
+  "agreement_prediction": {
+    "probability": 0.05,
+    "num_examples": 10285,
+    "enabled": true
+  },
+  "substitution": {
+    "probability": 0.0,
+    "num_examples": 40990,
+    "enabled": false,
+    "disabled_reason": "disabled for syntax repair run because pilot inspection found noisy heuristic examples"
+  }
+}

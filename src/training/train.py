@@ -274,15 +274,35 @@ def main():
     log_path = out_dir / "train_log.csv"
     mask_path = out_dir / "mask_diagnostics.csv"
     resume_dir = out_dir / "checkpoint-latest"
+    best_dir = out_dir / "checkpoint-best"
+    early_cfg = cfg["training"].get("early_stopping", {})
+    early_enabled = bool(early_cfg.get("enabled", False))
+    early_patience = int(early_cfg.get("patience_evals", 4))
+    early_min_delta = float(early_cfg.get("min_delta", 0.0))
+    early_start = int(early_cfg.get("start_after_step", 0))
+    best_val_loss = float("inf")
+    bad_evals = 0
+    stopped_early = False
     start_step = 0
     if args.resume and resume_dir.exists():
         start_step = load_training_state(resume_dir, model, optimizer, scheduler, collator, device)
+        if log_path.exists():
+            with log_path.open(newline="") as existing_log:
+                previous_rows = list(csv.DictReader(existing_log))
+            if previous_rows:
+                previous = previous_rows[-1]
+                try:
+                    best_val_loss = float(previous.get("best_val_loss") or previous.get("val_loss") or "inf")
+                    bad_evals = int(previous.get("bad_evals") or 0)
+                except ValueError:
+                    best_val_loss = float("inf")
+                    bad_evals = 0
     start = time.time()
     model.train()
     log_mode = "a" if start_step and log_path.exists() else "w"
     mask_mode = "a" if start_step and mask_path.exists() else "w"
     with log_path.open(log_mode, newline="") as lf, mask_path.open(mask_mode, newline="") as mf:
-        log_writer = csv.DictWriter(lf, fieldnames=["step", "train_loss", "val_loss", "lr", "elapsed_sec"])
+        log_writer = csv.DictWriter(lf, fieldnames=["step", "train_loss", "val_loss", "best_val_loss", "bad_evals", "lr", "elapsed_sec", "early_stop"])
         mask_writer = csv.DictWriter(mf, fieldnames=["step", "masked_tokens", "entity_masks", "error_masks", "random_masks"])
         if log_mode == "w":
             log_writer.writeheader()
@@ -329,11 +349,31 @@ def main():
             mask_writer.writerow({"step": step, "masked_tokens": masked, "entity_masks": totals["entity"], "error_masks": totals["error"], "random_masks": totals["random"]})
             if step == 1 or step % cfg["training"].get("eval_every", 100) == 0 or step == total_steps:
                 val_loss = evaluate(model, val_loader, device, cfg["training"].get("eval_batches", 20))
-                log_writer.writerow({"step": step, "train_loss": float(out.loss.detach().cpu()), "val_loss": val_loss, "lr": scheduler.get_last_lr()[0], "elapsed_sec": time.time() - start})
+                improved = val_loss < (best_val_loss - early_min_delta)
+                if improved:
+                    best_val_loss = val_loss
+                    bad_evals = 0
+                    model.save_pretrained(best_dir)
+                    tokenizer.save_pretrained(best_dir)
+                elif step >= early_start:
+                    bad_evals += 1
+                stopped_early = early_enabled and step >= early_start and bad_evals >= early_patience and step < total_steps
+                log_writer.writerow({
+                    "step": step,
+                    "train_loss": float(out.loss.detach().cpu()),
+                    "val_loss": val_loss,
+                    "best_val_loss": best_val_loss,
+                    "bad_evals": bad_evals,
+                    "lr": scheduler.get_last_lr()[0],
+                    "elapsed_sec": time.time() - start,
+                    "early_stop": stopped_early,
+                })
                 lf.flush()
                 mf.flush()
                 save_training_state(resume_dir, model, optimizer, scheduler, step)
                 save_collator_state(resume_dir, collator)
+                if stopped_early:
+                    break
     model.save_pretrained(out_dir / "checkpoint-final")
     tokenizer.save_pretrained(out_dir / "checkpoint-final")
     if hasattr(collator, "error_sketch"):

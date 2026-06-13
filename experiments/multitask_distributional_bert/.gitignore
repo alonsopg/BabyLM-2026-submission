@@ -1,0 +1,14 @@
+# Keep generated corpora, checkpoints, and logs local.
+data/generated/*.jsonl
+data/generated/*.json
+data/generated/samples/*.jsonl
+logs/*
+checkpoints/*
+metrics/*.json
+metrics/*.md
+metrics/*.yaml
+
+# Preserve directory placeholders.
+!data/generated/.gitkeep
+!logs/.gitkeep
+!metrics/.gitkeep

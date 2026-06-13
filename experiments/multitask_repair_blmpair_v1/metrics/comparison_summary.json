@@ -1,0 +1,98 @@
+{
+  "experiment": "multitask_repair_blmpair_v1",
+  "seed": 1,
+  "verdict": "unsuccessful_for_blimp_recovery",
+  "systems": [
+    {
+      "name": "normal_bert_mlm_final",
+      "blimp": 64.33,
+      "blimp_supplement": 54.0,
+      "ewok": 50.55,
+      "entity_tracking": 15.56,
+      "reading_eye": 2.47,
+      "reading_spr": 2.42
+    },
+    {
+      "name": "multitask_bert_calibrated_best",
+      "blimp": 54.8,
+      "blimp_supplement": 54.8,
+      "ewok": 50.27,
+      "entity_tracking": 34.52,
+      "reading_eye": 7.46,
+      "reading_spr": 3.19
+    },
+    {
+      "name": "multitask_repair_syntax_v1_final",
+      "blimp": 55.51,
+      "blimp_supplement": 52.4,
+      "ewok": 49.55,
+      "entity_tracking": 32.76,
+      "reading_eye": 8.28,
+      "reading_spr": 3.63
+    },
+    {
+      "name": "multitask_repair_blmpair_v1_best",
+      "blimp": 54.8,
+      "blimp_supplement": 51.6,
+      "ewok": 51.0,
+      "entity_tracking": 27.54,
+      "reading_eye": 8.02,
+      "reading_spr": 3.05,
+      "checkpoint": "step_9500_validation_best"
+    },
+    {
+      "name": "multitask_repair_blmpair_v1_final",
+      "blimp": 54.81,
+      "blimp_supplement": 52.4,
+      "ewok": 50.73,
+      "entity_tracking": 25.99,
+      "reading_eye": 7.96,
+      "reading_spr": 3.11,
+      "checkpoint": "step_10000_final"
+    }
+  ],
+  "deltas_final": {
+    "minus_mlm_only": {
+      "blimp": -9.52,
+      "entity_tracking": 10.43,
+      "reading_eye": 5.49,
+      "reading_spr": 0.69
+    },
+    "minus_prior_calibrated_multitask": {
+      "blimp": 0.01,
+      "entity_tracking": -8.53,
+      "reading_eye": 0.5,
+      "reading_spr": -0.08
+    },
+    "minus_repair_syntax_final": {
+      "blimp": -0.7,
+      "entity_tracking": -6.77,
+      "reading_eye": -0.32,
+      "reading_spr": -0.52
+    }
+  },
+  "training": {
+    "completed_steps": 10000,
+    "calibration_mlm_steps": 2000,
+    "best_validation_step": 9500,
+    "best_validation_mlm_loss": 6.79810889561971,
+    "final_validation_mlm_loss": 6.818406263987224,
+    "early_stopping_enabled": true,
+    "final_bad_evals": 1,
+    "torch_cuda_available": true,
+    "gpu": "NVIDIA RTX A6000",
+    "nvidia_smi_status": "failed_nvml_driver_library_mismatch"
+  },
+  "grammar_minpair": {
+    "num_examples": 30820,
+    "phenomena": {
+      "subject_verb_agreement": 17500,
+      "determiner_noun_agreement": 7040,
+      "auxiliary_agreement": 5976,
+      "npi_licensing": 220,
+      "reflexive_binding": 84
+    },
+    "generator": "high_precision_templates_after_rejecting_noisy_corpus_corruption"
+  },
+  "conclusion": "The direct BLiMP-style grammatical minimal-pair task trained correctly but did not recover BLiMP. It ties the prior calibrated multi-task BLiMP score and underperforms the previous syntax repair final checkpoint."
+}

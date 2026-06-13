@@ -1,0 +1,48 @@
+{
+  "dataset": "BabyLM-community/BabyLM-2026-Strict-Small",
+  "text_column": "text",
+  "max_rows": 50000,
+  "seed": 1,
+  "tasks": {
+    "mlm": {
+      "probability": 0.6,
+      "path": "experiments/multitask_repair_syntax_v1/data/generated/mlm.jsonl",
+      "sample_path": "experiments/multitask_repair_syntax_v1/data/generated/samples/mlm_50_examples.jsonl"
+    },
+    "rtd": {
+      "probability": 0.1,
+      "path": "experiments/multitask_repair_syntax_v1/data/generated/rtd.jsonl",
+      "sample_path": "experiments/multitask_repair_syntax_v1/data/generated/samples/rtd_50_examples.jsonl"
+    },
+    "connective": {
+      "probability": 0.075,
+      "path": "experiments/multitask_repair_syntax_v1/data/generated/connective.jsonl",
+      "sample_path": "experiments/multitask_repair_syntax_v1/data/generated/samples/connective_50_examples.jsonl"
+    },
+    "definiteness": {
+      "probability": 0.075,
+      "path": "experiments/multitask_repair_syntax_v1/data/generated/definiteness.jsonl",
+      "sample_path": "experiments/multitask_repair_syntax_v1/data/generated/samples/definiteness_50_examples.jsonl"
+    },
+    "collocation": {
+      "probability": 0.05,
+      "path": "experiments/multitask_repair_syntax_v1/data/generated/collocation.jsonl",
+      "sample_path": "experiments/multitask_repair_syntax_v1/data/generated/samples/collocation_50_examples.jsonl"
+    },
+    "function_word_recovery": {
+      "probability": 0.05,
+      "path": "experiments/multitask_repair_syntax_v1/data/generated/function_word_recovery.jsonl",
+      "sample_path": "experiments/multitask_repair_syntax_v1/data/generated/samples/function_word_recovery_50_examples.jsonl"
+    },
+    "agreement_prediction": {
+      "probability": 0.05,
+      "path": "experiments/multitask_repair_syntax_v1/data/generated/agreement_prediction.jsonl",
+      "sample_path": "experiments/multitask_repair_syntax_v1/data/generated/samples/agreement_prediction_50_examples.jsonl"
+    },
+    "substitution": {
+      "probability": 0.0,
+      "path": "experiments/multitask_repair_syntax_v1/data/generated/substitution.jsonl",
+      "sample_path": "experiments/multitask_repair_syntax_v1/data/generated/samples/substitution_50_examples.jsonl"
+    }
+  }
+}

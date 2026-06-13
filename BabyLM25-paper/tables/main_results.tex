@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrrl}
+\toprule
+\textbf{System} & \textbf{BLiMP} & \textbf{Sup.} & \textbf{EWoK} & \textbf{Entity} & \textbf{Eye} & \textbf{SPR} & \textbf{Notes} \\
+\midrule
+MLM-only baseline & 64.33 & 54.00 & 50.55 & 15.56 & 2.47 & 2.42 & standard MLM \\
+Calibrated multi-task & 54.80 & 54.80 & 50.27 & 34.52 & 7.46 & 3.19 & auxiliary tasks + MLM calibration \\
+Light auxiliary multi-task & 54.59 & 52.00 & 50.09 & 29.60 & 8.07 & 3.34 & reduced auxiliary weight \\
+Syntax repair, best & 55.28 & 52.80 & 50.09 & 34.92 & 8.13 & 3.50 & function/agreement MLM repair \\
+Syntax repair, final & 55.51 & 52.40 & 49.55 & 32.76 & 8.28 & 3.63 & final MLM-calibrated checkpoint \\
+BLiMP-pair repair, best & 54.80 & 51.60 & 51.00 & 27.54 & 8.02 & 3.05 & validation-best checkpoint \\
+BLiMP-pair repair, final & 54.81 & 52.40 & 50.73 & 25.99 & 7.96 & 3.11 & final checkpoint \\
+\bottomrule
+\end{tabular}
+\caption{Official strict fast-evaluation results. BLiMP, Supplement, EWoK, and Entity Tracking are accuracy-style percentages. Eye and SPR are the official reading-prediction scores.}
+\label{tab:main-results}
+\end{table*}
