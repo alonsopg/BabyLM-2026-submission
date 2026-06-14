@@ -13,7 +13,15 @@ to reproduce and interpret this specific experiment.
   - sample inspection notes
   - official fast-eval results
   - comparison summaries
+- `experiments/multitask_mlm_pair_ranking_minimal/`
+  - MLM-head pairwise ranking follow-up
+  - converter from the previous conceptual-plausibility examples
+  - selected-token PLL ranking data
+  - official fast-eval results
+  - comparison summaries
 - `experiments/run_records/multitask_ewok_plausibility_minimal*/`
+  - small run logs, configs, and task counts for the smoke and full runs
+- `experiments/run_records/multitask_mlm_pair_ranking_minimal*/`
   - small run logs, configs, and task counts for the smoke and full runs
 - Minimal shared multi-task utilities under
   `experiments/multitask_distributional_bert/scripts/`
@@ -38,3 +46,7 @@ The experiment trained and evaluated correctly on GPU, but it is a negative resu
 the target hypothesis: the synthetic conceptual-plausibility auxiliary task did not
 improve EWoK. The best EWoK score was 49.64, below the MLM-only baseline of 50.55 and
 below the previous BLiMP-pair repair best of 51.00.
+
+The MLM-head pairwise ranking follow-up also trained and evaluated correctly. It did not
+improve EWoK either: best EWoK was 49.55 and final EWoK was 49.18. It did, however,
+improve reading scores, reaching Eye 8.73 and SPR 3.67 at the best checkpoint.
