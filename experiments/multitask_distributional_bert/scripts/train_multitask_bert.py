@@ -28,10 +28,11 @@ from src.training.train import evaluate
 
 
 CONNECTIVES = ["because", "so", "but", "although", "however", "therefore", "when", "while", "if", "then", "before", "after", "since", "though", "unless"]
-TASKS = ["mlm", "rtd", "connective", "definiteness", "collocation", "substitution", "function_word_recovery", "agreement_prediction", "grammar_minpair", "conceptual_plausibility_choice", "mlm_pair_ranking"]
+TASKS = ["mlm", "rtd", "connective", "definiteness", "collocation", "substitution", "function_word_recovery", "agreement_prediction", "grammar_minpair", "conceptual_plausibility_choice", "mlm_pair_ranking", "semantic_cloze_ranking"]
 MLM_HEAD_TASKS = {"mlm", "function_word_recovery", "agreement_prediction"}
 COLLOCATION_HEAD_TASKS = {"collocation", "grammar_minpair", "conceptual_plausibility_choice"}
 MLM_PAIR_RANKING_TASKS = {"mlm_pair_ranking"}
+SEMANTIC_CLOZE_TASKS = {"semantic_cloze_ranking"}
 CONTENT_STOPWORDS = {
     "a", "an", "the", "to", "of", "in", "on", "at", "for", "from", "with", "by", "is", "are", "was", "were",
     "be", "been", "being", "can", "could", "will", "would", "should", "may", "might", "must", "do", "does",
@@ -155,6 +156,15 @@ def collate_mlm_pair_ranking(rows: list[dict], tokenizer, max_length: int, max_s
 def collate_task(rows: list[dict], task: str, tokenizer, rng: random.Random, max_length: int, max_scoring_positions: int = 6) -> dict[str, torch.Tensor]:
     if task in MLM_PAIR_RANKING_TASKS:
         return collate_mlm_pair_ranking(rows, tokenizer, max_length, max_scoring_positions)
+    if task in SEMANTIC_CLOZE_TASKS:
+        enc = tokenizer([row["prompt"] for row in rows], padding=True, truncation=True, max_length=max_length, return_tensors="pt")
+        mask_positions = enc["input_ids"].eq(tokenizer.mask_token_id).nonzero(as_tuple=False)
+        if mask_positions.size(0) != len(rows) or not torch.equal(mask_positions[:, 0], torch.arange(len(rows))):
+            raise ValueError("semantic_cloze_ranking rows must contain exactly one [MASK]")
+        enc["mask_positions"] = mask_positions[:, 1]
+        enc["good_token_ids"] = torch.tensor([tokenizer.encode(row["good"], add_special_tokens=False)[0] for row in rows], dtype=torch.long)
+        enc["bad_token_ids"] = torch.tensor([tokenizer.encode(row["bad"], add_special_tokens=False)[0] for row in rows], dtype=torch.long)
+        return enc
     enc = tokenizer([row["input"] for row in rows], padding=True, truncation=True, max_length=max_length, return_tensors="pt")
     if task == "mlm":
         labels = mask_batch(enc["input_ids"], enc["attention_mask"], tokenizer, rng)
@@ -248,30 +258,46 @@ def score_selected_mlm_positions(mlm: BertForMaskedLM, input_ids: torch.Tensor, 
     return scores / counts.clamp_min(1.0)
 
 
-def forward_task(model: MultiTaskBert, batch: dict[str, torch.Tensor], task: str, tokenizer) -> torch.Tensor:
+def forward_task(model: MultiTaskBert, batch: dict[str, torch.Tensor], task: str, tokenizer) -> tuple[torch.Tensor, dict[str, float]]:
     if task in MLM_PAIR_RANKING_TASKS:
         score_good = score_selected_mlm_positions(model.mlm, batch["good_input_ids"], batch["good_attention_mask"], batch["good_positions"], tokenizer.mask_token_id)
         score_bad = score_selected_mlm_positions(model.mlm, batch["bad_input_ids"], batch["bad_attention_mask"], batch["bad_positions"], tokenizer.mask_token_id)
-        return F.softplus(-(score_good - score_bad)).mean()
+        margin = score_good - score_bad
+        loss = F.softplus(-margin).mean()
+        return loss, {}
+    if task in SEMANTIC_CLOZE_TASKS:
+        out = model.mlm(input_ids=batch["input_ids"], attention_mask=batch["attention_mask"])
+        row_idx = torch.arange(batch["input_ids"].size(0), device=batch["input_ids"].device)
+        logits = out.logits[row_idx, batch["mask_positions"], :]
+        log_probs = F.log_softmax(logits, dim=-1)
+        score_good = log_probs[row_idx, batch["good_token_ids"]]
+        score_bad = log_probs[row_idx, batch["bad_token_ids"]]
+        margin = score_good - score_bad
+        loss = F.softplus(-margin).mean()
+        metrics = {
+            "semantic_cloze_ranking_margin": float(margin.detach().mean().cpu()),
+            "semantic_cloze_ranking_accuracy": float((margin.detach() > 0).float().mean().cpu()),
+        }
+        return loss, metrics
     labels = batch.pop("labels")
     if task in MLM_HEAD_TASKS:
-        return model.mlm(**batch, labels=labels).loss
+        return model.mlm(**batch, labels=labels).loss, {}
     out = model.bert(**batch)
     hidden = out.last_hidden_state
     if task == "rtd":
         logits = model.rtd_head(hidden)
-        return nn.functional.cross_entropy(logits.view(-1, 2), labels.view(-1), ignore_index=-100)
+        return nn.functional.cross_entropy(logits.view(-1, 2), labels.view(-1), ignore_index=-100), {}
     if task == "connective":
         pooled = pooled_at_marker(hidden, batch["input_ids"], tokenizer.convert_tokens_to_ids("[unused1]"))
-        return nn.functional.cross_entropy(model.connective_head(pooled), labels)
+        return nn.functional.cross_entropy(model.connective_head(pooled), labels), {}
     if task == "definiteness":
         pooled = pooled_at_marker(hidden, batch["input_ids"], tokenizer.convert_tokens_to_ids("[unused2]"))
-        return nn.functional.cross_entropy(model.definiteness_head(pooled), labels)
+        return nn.functional.cross_entropy(model.definiteness_head(pooled), labels), {}
     pooled = hidden[:, 0]
     if task in COLLOCATION_HEAD_TASKS:
-        return nn.functional.cross_entropy(model.collocation_head(pooled), labels)
+        return nn.functional.cross_entropy(model.collocation_head(pooled), labels), {}
     if task == "substitution":
-        return nn.functional.cross_entropy(model.substitution_head(pooled), labels)
+        return nn.functional.cross_entropy(model.substitution_head(pooled), labels), {}
     raise ValueError(task)
 
 
@@ -350,9 +376,10 @@ def main() -> None:
     best_val_mlm_loss = float("inf")
     bad_evals = 0
     start = time.time()
+    last_semantic_metrics: dict[str, float] = {}
     model.train()
     with log_path.open("w", newline="") as f:
-        fields = ["step", "task", "loss", "val_mlm_loss", "best_val_mlm_loss", "bad_evals", "lr", "elapsed_sec", "early_stop"] + [f"steps/{task}" for task in TASKS]
+        fields = ["step", "task", "loss", "semantic_cloze_ranking_margin", "semantic_cloze_ranking_accuracy", "val_mlm_loss", "best_val_mlm_loss", "bad_evals", "lr", "elapsed_sec", "early_stop"] + [f"steps/{task}" for task in TASKS]
         writer = csv.DictWriter(f, fieldnames=fields)
         writer.writeheader()
         for step in range(1, total_steps + 1):
@@ -366,7 +393,9 @@ def main() -> None:
                 loaders[task] = iter(DataLoader(datasets[task], batch_size=cfg["training"]["batch_size"], shuffle=True, collate_fn=lambda rows, t=task: collate_task(rows, t, tokenizer, rng, cfg["training"]["max_length"], cfg["training"].get("max_scoring_positions", 6))))
                 batch = next(loaders[task])
             batch = {k: v.to(device) for k, v in batch.items()}
-            loss = forward_task(model, batch, task, tokenizer)
+            loss, task_metrics = forward_task(model, batch, task, tokenizer)
+            if task_metrics:
+                last_semantic_metrics.update(task_metrics)
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), cfg["training"].get("max_grad_norm", 1.0))
             optimizer.step()
@@ -389,6 +418,8 @@ def main() -> None:
                     "step": step,
                     "task": task,
                     "loss": float(loss.detach().cpu()),
+                    "semantic_cloze_ranking_margin": last_semantic_metrics.get("semantic_cloze_ranking_margin", ""),
+                    "semantic_cloze_ranking_accuracy": last_semantic_metrics.get("semantic_cloze_ranking_accuracy", ""),
                     "val_mlm_loss": val_mlm_loss,
                     "best_val_mlm_loss": best_val_mlm_loss,
                     "bad_evals": bad_evals,

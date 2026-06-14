@@ -19,9 +19,17 @@ to reproduce and interpret this specific experiment.
   - selected-token PLL ranking data
   - official fast-eval results
   - comparison summaries
+- `experiments/multitask_ewok_semantic_cloze_v1/`
+  - semantic cloze ranking follow-up
+  - synthetic single-mask semantic completion examples
+  - recovered grammar-minpair auxiliary data needed for the mixture
+  - official fast-eval results
+  - comparison summaries
 - `experiments/run_records/multitask_ewok_plausibility_minimal*/`
   - small run logs, configs, and task counts for the smoke and full runs
 - `experiments/run_records/multitask_mlm_pair_ranking_minimal*/`
+  - small run logs, configs, and task counts for the smoke and full runs
+- `experiments/run_records/multitask_ewok_semantic_cloze_v1*/`
   - small run logs, configs, and task counts for the smoke and full runs
 - Minimal shared multi-task utilities under
   `experiments/multitask_distributional_bert/scripts/`
@@ -50,3 +58,10 @@ below the previous BLiMP-pair repair best of 51.00.
 The MLM-head pairwise ranking follow-up also trained and evaluated correctly. It did not
 improve EWoK either: best EWoK was 49.55 and final EWoK was 49.18. It did, however,
 improve reading scores, reaching Eye 8.73 and SPR 3.67 at the best checkpoint.
+
+The semantic cloze ranking follow-up is the first positive EWoK result in this isolated
+series. The best validation checkpoint reached EWoK 50.73, and the final early-stopped
+checkpoint reached EWoK 52.00. That is +1.45 over the MLM-only baseline and +1.00 over
+the previous branch-best EWoK score. The trade-off is entity tracking: the semantic
+cloze best checkpoint reached 36.61, but the final checkpoint dropped to 27.44 while
+improving EWoK and SPR.

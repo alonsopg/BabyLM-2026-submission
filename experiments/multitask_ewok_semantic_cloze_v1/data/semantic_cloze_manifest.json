@@ -1,0 +1,16 @@
+{
+  "task": "semantic_cloze_ranking",
+  "num_examples": 1000,
+  "num_skipped_multitoken": 4,
+  "domains": {
+    "affordance": 356,
+    "animate_agency": 140,
+    "part_whole": 168,
+    "physical_property": 168,
+    "typical_location": 168
+  },
+  "uses_official_ewok_data": false,
+  "uses_official_blimp_data": false,
+  "tokenizer": "bert-base-uncased",
+  "target_size": 1000
+}

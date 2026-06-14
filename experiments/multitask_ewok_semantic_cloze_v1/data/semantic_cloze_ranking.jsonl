@@ -1,0 +1,1000 @@
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a shovel is used for [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the purpose of a spoon is [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a broom is used for [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a brush is used for [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that ice is usually [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that an apple is kept in a [MASK].", "good": "basket", "bad": "garage", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, part of a door can be [MASK].", "good": "handle", "bad": "wing", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that people use soap for [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A bird lives in a [MASK].", "good": "nest", "bad": "bottle", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, the purpose of a hammer is [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a plane flies in the [MASK].", "good": "sky", "bad": "drawer", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a camera is used for [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a bed is used for [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that people use a broom for [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, people use soap for [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a camera has [MASK].", "good": "lens", "bad": "leaf", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a hammer is used for [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that part of a shirt can be [MASK].", "good": "sleeves", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, a camera is used for [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a shirt has [MASK].", "good": "sleeves", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, a chair is used for [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that knives are usually [MASK].", "good": "sharp", "bad": "sleepy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A flower has [MASK].", "good": "petals", "bad": "keys", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that feathers can be [MASK].", "good": "light", "bad": "heavy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the purpose of a key is [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a door has [MASK].", "good": "handle", "bad": "wing", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the purpose of a hammer is [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that part of a guitar can be [MASK].", "good": "strings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that lemons taste [MASK].", "good": "sour", "bad": "sweet", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, part of a book can be [MASK].", "good": "pages", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A book is kept on a [MASK].", "good": "shelf", "bad": "river", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that lemons taste [MASK].", "good": "sour", "bad": "sweet", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a train moves on a [MASK].", "good": "track", "bad": "blanket", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Glass is often [MASK].", "good": "fragile", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A doctor can [MASK].", "good": "help", "bad": "boil", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the purpose of a key is [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a doctor can [MASK].", "good": "help", "bad": "boil", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the purpose of a shovel is [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the usual place for a bird is [MASK].", "good": "nest", "bad": "bottle", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a baby can [MASK].", "good": "cry", "bad": "drive", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the purpose of a camera is [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the person is able to [MASK].", "good": "think", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a boat moves on [MASK].", "good": "water", "bad": "grass", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the purpose of a hammer is [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the purpose of a shovel is [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a needle is used for [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a ruler is used for [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that glass is often [MASK].", "good": "fragile", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that people use a broom for [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that people use a cup for [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the purpose of a broom is [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a book is kept on a [MASK].", "good": "shelf", "bad": "river", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People use a ruler for [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the purpose of a ruler is [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a brush is used for [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a bird can [MASK].", "good": "fly", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual place for milk is [MASK].", "good": "fridge", "bad": "shoe", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that milk is kept in a [MASK].", "good": "fridge", "bad": "shoe", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the purpose of a knife is [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a shirt is kept in a [MASK].", "good": "closet", "bad": "lake", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that people use a shovel for [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that part of a camera can be [MASK].", "good": "lens", "bad": "leaf", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A child can [MASK].", "good": "learn", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the purpose of a spoon is [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that feathers can be [MASK].", "good": "light", "bad": "heavy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A book has [MASK].", "good": "pages", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a teacher can [MASK].", "good": "explain", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Feathers can be [MASK].", "good": "light", "bad": "heavy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the purpose of a cup is [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the purpose of a shovel is [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the chef is able to [MASK].", "good": "cook", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that people use a broom for [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, people use soap for [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that people use a pencil for [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a knife is used for [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People use a pencil for [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that people use a bed for [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that people use a chair for [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a broom is used for [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the child is able to [MASK].", "good": "learn", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, part of a shirt can be [MASK].", "good": "sleeves", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the usual place for a lamp is [MASK].", "good": "desk", "bad": "ocean", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that people use a cup for [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a lamp stands on a [MASK].", "good": "desk", "bad": "ocean", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a driver can [MASK].", "good": "steer", "bad": "bloom", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the purpose of a bed is [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the singer is able to [MASK].", "good": "sing", "bad": "freeze", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People use a spoon for [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the purpose of a bed is [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that part of a shirt can be [MASK].", "good": "sleeves", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the usual place for a train is [MASK].", "good": "track", "bad": "blanket", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that feathers can be [MASK].", "good": "light", "bad": "heavy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A baby can [MASK].", "good": "cry", "bad": "drive", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that glass is often [MASK].", "good": "fragile", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, knives are usually [MASK].", "good": "sharp", "bad": "sleepy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, glass is often [MASK].", "good": "fragile", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, a hammer is used for [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that an apple is kept in a [MASK].", "good": "basket", "bad": "garage", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the usual place for a train is [MASK].", "good": "track", "bad": "blanket", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the purpose of soap is [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a chef can [MASK].", "good": "cook", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a chair is used for [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the purpose of a needle is [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that part of a shirt can be [MASK].", "good": "sleeves", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a car has [MASK].", "good": "wheels", "bad": "pages", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the usual place for a lamp is [MASK].", "good": "desk", "bad": "ocean", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual place for a shirt is [MASK].", "good": "closet", "bad": "lake", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a clock has [MASK].", "good": "hands", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a tree has [MASK].", "good": "leaves", "bad": "buttons", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the chef is able to [MASK].", "good": "cook", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, a key is used for [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the purpose of a shovel is [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that part of a house can be [MASK].", "good": "roof", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that fire can be [MASK].", "good": "hot", "bad": "cold", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that bricks can be [MASK].", "good": "heavy", "bad": "thirsty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the usual place for milk is [MASK].", "good": "fridge", "bad": "shoe", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the usual place for milk is [MASK].", "good": "fridge", "bad": "shoe", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that part of a tree can be [MASK].", "good": "leaves", "bad": "buttons", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the purpose of a chair is [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that people use a ruler for [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People use a camera for [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that honey can be [MASK].", "good": "sticky", "bad": "angry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that people use a chair for [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that people use a ruler for [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that people use a key for [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the usual place for a plane is [MASK].", "good": "sky", "bad": "drawer", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a shirt is kept in a [MASK].", "good": "closet", "bad": "lake", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the usual place for an apple is [MASK].", "good": "basket", "bad": "garage", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a lamp stands on a [MASK].", "good": "desk", "bad": "ocean", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People use a broom for [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that people use a cup for [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a driver can [MASK].", "good": "steer", "bad": "bloom", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual place for a boat is [MASK].", "good": "water", "bad": "grass", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that part of a door can be [MASK].", "good": "handle", "bad": "wing", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the usual place for a fish is [MASK].", "good": "water", "bad": "cupboard", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a person can [MASK].", "good": "think", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a book is kept on a [MASK].", "good": "shelf", "bad": "river", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a plane flies in the [MASK].", "good": "sky", "bad": "drawer", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Part of a bird can be [MASK].", "good": "wings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A coin is kept in a [MASK].", "good": "pocket", "bad": "cloud", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that bricks are usually [MASK].", "good": "heavy", "bad": "thirsty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, ice can be [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a cup is used for [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a knife is used for [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the baby is able to [MASK].", "good": "cry", "bad": "drive", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, ice is usually [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a needle is used for [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that soap is used for [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that people use a needle for [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a spoon is used for [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that feathers are usually [MASK].", "good": "light", "bad": "heavy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People use a bed for [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a baby can [MASK].", "good": "cry", "bad": "drive", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual place for a lamp is [MASK].", "good": "desk", "bad": "ocean", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that part of a door can be [MASK].", "good": "handle", "bad": "wing", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a needle is used for [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that part of a car can be [MASK].", "good": "wheels", "bad": "pages", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the usual place for a lamp is [MASK].", "good": "desk", "bad": "ocean", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A car is driven on a [MASK].", "good": "road", "bad": "pillow", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a door has [MASK].", "good": "handle", "bad": "wing", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, snow is usually [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a hammer is used for [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a driver can [MASK].", "good": "steer", "bad": "bloom", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The purpose of a chair is [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the usual place for an apple is [MASK].", "good": "basket", "bad": "garage", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that people use a chair for [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the doctor is able to [MASK].", "good": "help", "bad": "boil", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that fire can be [MASK].", "good": "hot", "bad": "cold", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A clock has [MASK].", "good": "hands", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that people use a shovel for [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that sugar tastes [MASK].", "good": "sweet", "bad": "salty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that knives can be [MASK].", "good": "sharp", "bad": "sleepy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a spoon is used for [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a fish lives in [MASK].", "good": "water", "bad": "cupboard", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the child is able to [MASK].", "good": "learn", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People use a hammer for [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a key is used for [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the usual place for a coin is [MASK].", "good": "pocket", "bad": "cloud", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The purpose of a cup is [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, the purpose of a brush is [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that lemons can taste [MASK].", "good": "sour", "bad": "sweet", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that part of a book can be [MASK].", "good": "pages", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a book is kept on a [MASK].", "good": "shelf", "bad": "river", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a flower has [MASK].", "good": "petals", "bad": "keys", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a camera has [MASK].", "good": "lens", "bad": "leaf", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the purpose of a knife is [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Sugar tastes [MASK].", "good": "sweet", "bad": "salty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, part of a car can be [MASK].", "good": "wheels", "bad": "pages", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that people use a spoon for [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a camera is used for [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the usual place for a fish is [MASK].", "good": "water", "bad": "cupboard", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A lamp stands on a [MASK].", "good": "desk", "bad": "ocean", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Clouds are often [MASK].", "good": "soft", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a dog can [MASK].", "good": "bark", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the purpose of a key is [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a doctor can [MASK].", "good": "help", "bad": "boil", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a broom is used for [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that people use a hammer for [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the purpose of soap is [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the usual place for an apple is [MASK].", "good": "basket", "bad": "garage", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a bird has [MASK].", "good": "wings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Soap is used for [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that fire is usually [MASK].", "good": "hot", "bad": "cold", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a dog can [MASK].", "good": "bark", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a baby can [MASK].", "good": "cry", "bad": "drive", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the purpose of a camera is [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that ice is usually [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that part of a clock can be [MASK].", "good": "hands", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that bricks are usually [MASK].", "good": "heavy", "bad": "thirsty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that knives are usually [MASK].", "good": "sharp", "bad": "sleepy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the driver is able to [MASK].", "good": "steer", "bad": "bloom", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that part of a book can be [MASK].", "good": "pages", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a car has [MASK].", "good": "wheels", "bad": "pages", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the driver is able to [MASK].", "good": "steer", "bad": "bloom", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a key is used for [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, the purpose of a broom is [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the purpose of a cup is [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the purpose of a bed is [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the purpose of a bed is [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that people use a bed for [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the usual place for a boat is [MASK].", "good": "water", "bad": "grass", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A door has [MASK].", "good": "handle", "bad": "wing", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the purpose of a cup is [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A bird has [MASK].", "good": "wings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a flower has [MASK].", "good": "petals", "bad": "keys", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that ice is usually [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The chef is able to [MASK].", "good": "cook", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a chef can [MASK].", "good": "cook", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a flower has [MASK].", "good": "petals", "bad": "keys", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A bird can [MASK].", "good": "fly", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a needle is used for [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a chair is used for [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the usual place for a bird is [MASK].", "good": "nest", "bad": "bottle", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that part of a car can be [MASK].", "good": "wheels", "bad": "pages", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, people use a key for [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the usual place for an apple is [MASK].", "good": "basket", "bad": "garage", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that snow can be [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a child can [MASK].", "good": "learn", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the teacher is able to [MASK].", "good": "explain", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the purpose of a spoon is [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a camera has [MASK].", "good": "lens", "bad": "leaf", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, clouds are often [MASK].", "good": "soft", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, people use a needle for [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a dog can [MASK].", "good": "bark", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual place for a book is [MASK].", "good": "shelf", "bad": "river", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that fire is usually [MASK].", "good": "hot", "bad": "cold", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a book is kept on a [MASK].", "good": "shelf", "bad": "river", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the driver is able to [MASK].", "good": "steer", "bad": "bloom", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a bird has [MASK].", "good": "wings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the person is able to [MASK].", "good": "think", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a bird lives in a [MASK].", "good": "nest", "bad": "bottle", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that part of a car can be [MASK].", "good": "wheels", "bad": "pages", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a lamp stands on a [MASK].", "good": "desk", "bad": "ocean", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the usual place for a plane is [MASK].", "good": "sky", "bad": "drawer", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a person can [MASK].", "good": "think", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the child is able to [MASK].", "good": "learn", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the purpose of a cup is [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a driver can [MASK].", "good": "steer", "bad": "bloom", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that snow can be [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, people use a broom for [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the purpose of a knife is [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a car is driven on a [MASK].", "good": "road", "bad": "pillow", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the purpose of a knife is [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, the purpose of a chair is [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a needle is used for [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the usual place for a plane is [MASK].", "good": "sky", "bad": "drawer", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that clouds are often [MASK].", "good": "soft", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, part of a camera can be [MASK].", "good": "lens", "bad": "leaf", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A knife is used for [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that honey is usually [MASK].", "good": "sticky", "bad": "angry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that bricks are usually [MASK].", "good": "heavy", "bad": "thirsty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the dog is able to [MASK].", "good": "bark", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that honey can be [MASK].", "good": "sticky", "bad": "angry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that feathers can be [MASK].", "good": "light", "bad": "heavy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the doctor is able to [MASK].", "good": "help", "bad": "boil", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the bird is able to [MASK].", "good": "fly", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that people use a cup for [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Fire is usually [MASK].", "good": "hot", "bad": "cold", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, people use a spoon for [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, bricks can be [MASK].", "good": "heavy", "bad": "thirsty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A broom is used for [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that part of a guitar can be [MASK].", "good": "strings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the person is able to [MASK].", "good": "think", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A boat moves on [MASK].", "good": "water", "bad": "grass", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a key is used for [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that part of a camera can be [MASK].", "good": "lens", "bad": "leaf", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that stone can be [MASK].", "good": "hard", "bad": "soft", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that bricks are usually [MASK].", "good": "heavy", "bad": "thirsty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual place for an apple is [MASK].", "good": "basket", "bad": "garage", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that sugar can taste [MASK].", "good": "sweet", "bad": "salty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a teacher can [MASK].", "good": "explain", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a fish lives in [MASK].", "good": "water", "bad": "cupboard", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that stone can be [MASK].", "good": "hard", "bad": "soft", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a camera has [MASK].", "good": "lens", "bad": "leaf", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a shirt is kept in a [MASK].", "good": "closet", "bad": "lake", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that honey can be [MASK].", "good": "sticky", "bad": "angry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the usual place for a car is [MASK].", "good": "road", "bad": "pillow", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the purpose of a knife is [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the purpose of a chair is [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that people use soap for [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Stone is usually [MASK].", "good": "hard", "bad": "soft", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the purpose of a broom is [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the purpose of a broom is [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the purpose of a spoon is [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a chair is used for [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The teacher is able to [MASK].", "good": "explain", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A key is used for [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, an apple is kept in a [MASK].", "good": "basket", "bad": "garage", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a plane flies in the [MASK].", "good": "sky", "bad": "drawer", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that feathers can be [MASK].", "good": "light", "bad": "heavy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that people use a knife for [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A tree has [MASK].", "good": "leaves", "bad": "buttons", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, the purpose of a spoon is [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the dog is able to [MASK].", "good": "bark", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that honey can be [MASK].", "good": "sticky", "bad": "angry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A singer can [MASK].", "good": "sing", "bad": "freeze", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the purpose of a pencil is [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the purpose of a spoon is [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a bird lives in a [MASK].", "good": "nest", "bad": "bottle", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that ice can be [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a train moves on a [MASK].", "good": "track", "bad": "blanket", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a camera is used for [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that people use a needle for [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "An apple is kept in a [MASK].", "good": "basket", "bad": "garage", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Part of a flower can be [MASK].", "good": "petals", "bad": "keys", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that part of a computer can be [MASK].", "good": "keyboard", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the purpose of a needle is [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that bricks can be [MASK].", "good": "heavy", "bad": "thirsty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a pencil is used for [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the purpose of a brush is [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a shirt has [MASK].", "good": "sleeves", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the purpose of a cup is [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, honey is usually [MASK].", "good": "sticky", "bad": "angry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the usual place for a shirt is [MASK].", "good": "closet", "bad": "lake", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, part of a house can be [MASK].", "good": "roof", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the doctor is able to [MASK].", "good": "help", "bad": "boil", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that part of a camera can be [MASK].", "good": "lens", "bad": "leaf", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the usual place for a bird is [MASK].", "good": "nest", "bad": "bottle", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that part of a book can be [MASK].", "good": "pages", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the singer is able to [MASK].", "good": "sing", "bad": "freeze", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that part of a shirt can be [MASK].", "good": "sleeves", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Milk is kept in a [MASK].", "good": "fridge", "bad": "shoe", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a bird lives in a [MASK].", "good": "nest", "bad": "bottle", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The driver is able to [MASK].", "good": "steer", "bad": "bloom", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the child is able to [MASK].", "good": "learn", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a child can [MASK].", "good": "learn", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the usual place for a bird is [MASK].", "good": "nest", "bad": "bottle", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that people use a pencil for [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the usual place for a plane is [MASK].", "good": "sky", "bad": "drawer", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a train moves on a [MASK].", "good": "track", "bad": "blanket", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a coin is kept in a [MASK].", "good": "pocket", "bad": "cloud", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the purpose of soap is [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the usual place for milk is [MASK].", "good": "fridge", "bad": "shoe", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the usual place for a plane is [MASK].", "good": "sky", "bad": "drawer", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that snow can be [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a singer can [MASK].", "good": "sing", "bad": "freeze", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, people use a knife for [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the purpose of a key is [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that ice can be [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that part of a bird can be [MASK].", "good": "wings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the purpose of soap is [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Lemons taste [MASK].", "good": "sour", "bad": "sweet", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the purpose of a needle is [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the usual place for a boat is [MASK].", "good": "water", "bad": "grass", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a plane flies in the [MASK].", "good": "sky", "bad": "drawer", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that part of a door can be [MASK].", "good": "handle", "bad": "wing", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the teacher is able to [MASK].", "good": "explain", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A plane flies in the [MASK].", "good": "sky", "bad": "drawer", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People use a needle for [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a shovel is used for [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, people use a shovel for [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a bed is used for [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that honey is usually [MASK].", "good": "sticky", "bad": "angry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Bricks can be [MASK].", "good": "heavy", "bad": "thirsty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a flower has [MASK].", "good": "petals", "bad": "keys", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the purpose of a broom is [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a doctor can [MASK].", "good": "help", "bad": "boil", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a bird has [MASK].", "good": "wings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a key is used for [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that people use a chair for [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, a broom is used for [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a guitar has [MASK].", "good": "strings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Feathers are usually [MASK].", "good": "light", "bad": "heavy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that milk is kept in a [MASK].", "good": "fridge", "bad": "shoe", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the singer is able to [MASK].", "good": "sing", "bad": "freeze", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a book has [MASK].", "good": "pages", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the usual place for a coin is [MASK].", "good": "pocket", "bad": "cloud", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that honey is usually [MASK].", "good": "sticky", "bad": "angry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a house has [MASK].", "good": "roof", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the purpose of a hammer is [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a pencil is used for [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the usual place for a coin is [MASK].", "good": "pocket", "bad": "cloud", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that part of a tree can be [MASK].", "good": "leaves", "bad": "buttons", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the purpose of a ruler is [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a spoon is used for [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that snow is usually [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that glass can be [MASK].", "good": "fragile", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the usual place for milk is [MASK].", "good": "fridge", "bad": "shoe", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a needle is used for [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a bird lives in a [MASK].", "good": "nest", "bad": "bottle", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a chef can [MASK].", "good": "cook", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that part of a computer can be [MASK].", "good": "keyboard", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that clouds can be [MASK].", "good": "soft", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The baby is able to [MASK].", "good": "cry", "bad": "drive", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A computer has [MASK].", "good": "keyboard", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that part of a bird can be [MASK].", "good": "wings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the purpose of a chair is [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, sugar tastes [MASK].", "good": "sweet", "bad": "salty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that soap is used for [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the usual place for a shirt is [MASK].", "good": "closet", "bad": "lake", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, people use a chair for [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that people use soap for [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a chef can [MASK].", "good": "cook", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Clouds can be [MASK].", "good": "soft", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A pencil is used for [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the purpose of a brush is [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A dog can [MASK].", "good": "bark", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A fish lives in [MASK].", "good": "water", "bad": "cupboard", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a shovel is used for [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a teacher can [MASK].", "good": "explain", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a teacher can [MASK].", "good": "explain", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the doctor is able to [MASK].", "good": "help", "bad": "boil", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a house has [MASK].", "good": "roof", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that people use a pencil for [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the chef is able to [MASK].", "good": "cook", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that part of a flower can be [MASK].", "good": "petals", "bad": "keys", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a bed is used for [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, lemons taste [MASK].", "good": "sour", "bad": "sweet", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a bird can [MASK].", "good": "fly", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Fire can be [MASK].", "good": "hot", "bad": "cold", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, part of a clock can be [MASK].", "good": "hands", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the singer is able to [MASK].", "good": "sing", "bad": "freeze", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a chef can [MASK].", "good": "cook", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that part of a camera can be [MASK].", "good": "lens", "bad": "leaf", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a bird can [MASK].", "good": "fly", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a bed is used for [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that stone can be [MASK].", "good": "hard", "bad": "soft", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the usual place for a boat is [MASK].", "good": "water", "bad": "grass", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the usual place for a train is [MASK].", "good": "track", "bad": "blanket", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the usual place for a car is [MASK].", "good": "road", "bad": "pillow", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, sugar can taste [MASK].", "good": "sweet", "bad": "salty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, people use a spoon for [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Knives are usually [MASK].", "good": "sharp", "bad": "sleepy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a shirt has [MASK].", "good": "sleeves", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the purpose of a key is [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a train moves on a [MASK].", "good": "track", "bad": "blanket", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, people use a bed for [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a child can [MASK].", "good": "learn", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the usual place for a boat is [MASK].", "good": "water", "bad": "grass", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a hammer is used for [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a person can [MASK].", "good": "think", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a pencil is used for [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that stone can be [MASK].", "good": "hard", "bad": "soft", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that people use a broom for [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a clock has [MASK].", "good": "hands", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, stone is usually [MASK].", "good": "hard", "bad": "soft", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the usual place for a fish is [MASK].", "good": "water", "bad": "cupboard", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a chair is used for [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The purpose of a shovel is [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the teacher is able to [MASK].", "good": "explain", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A driver can [MASK].", "good": "steer", "bad": "bloom", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The doctor is able to [MASK].", "good": "help", "bad": "boil", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a lamp stands on a [MASK].", "good": "desk", "bad": "ocean", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a shovel is used for [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a bird can [MASK].", "good": "fly", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that lemons taste [MASK].", "good": "sour", "bad": "sweet", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Lemons can taste [MASK].", "good": "sour", "bad": "sweet", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that part of a house can be [MASK].", "good": "roof", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a child can [MASK].", "good": "learn", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that people use a key for [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a book has [MASK].", "good": "pages", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that sugar can taste [MASK].", "good": "sweet", "bad": "salty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the dog is able to [MASK].", "good": "bark", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that part of a flower can be [MASK].", "good": "petals", "bad": "keys", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that people use a bed for [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the usual place for a shirt is [MASK].", "good": "closet", "bad": "lake", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a car is driven on a [MASK].", "good": "road", "bad": "pillow", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that fire can be [MASK].", "good": "hot", "bad": "cold", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the purpose of a brush is [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that sugar can taste [MASK].", "good": "sweet", "bad": "salty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that milk is kept in a [MASK].", "good": "fridge", "bad": "shoe", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that snow is usually [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a hammer is used for [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the driver is able to [MASK].", "good": "steer", "bad": "bloom", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People use a key for [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that people use a knife for [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, soap is used for [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that clouds are often [MASK].", "good": "soft", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that snow can be [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a coin is kept in a [MASK].", "good": "pocket", "bad": "cloud", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the usual place for a fish is [MASK].", "good": "water", "bad": "cupboard", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the baby is able to [MASK].", "good": "cry", "bad": "drive", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that sugar tastes [MASK].", "good": "sweet", "bad": "salty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that people use a camera for [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, people use a hammer for [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that people use a key for [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the doctor is able to [MASK].", "good": "help", "bad": "boil", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that clouds are often [MASK].", "good": "soft", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual place for a car is [MASK].", "good": "road", "bad": "pillow", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that people use a bed for [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, part of a computer can be [MASK].", "good": "keyboard", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a pencil is used for [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a cup is used for [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that part of a guitar can be [MASK].", "good": "strings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that fire is usually [MASK].", "good": "hot", "bad": "cold", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a teacher can [MASK].", "good": "explain", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a bird can [MASK].", "good": "fly", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the usual place for a plane is [MASK].", "good": "sky", "bad": "drawer", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that people use a ruler for [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that stone is usually [MASK].", "good": "hard", "bad": "soft", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a teacher can [MASK].", "good": "explain", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that ice is usually [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a singer can [MASK].", "good": "sing", "bad": "freeze", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that part of a house can be [MASK].", "good": "roof", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a baby can [MASK].", "good": "cry", "bad": "drive", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the purpose of a bed is [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that people use a cup for [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that part of a car can be [MASK].", "good": "wheels", "bad": "pages", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a car has [MASK].", "good": "wheels", "bad": "pages", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a doctor can [MASK].", "good": "help", "bad": "boil", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that people use a hammer for [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a clock has [MASK].", "good": "hands", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Stone can be [MASK].", "good": "hard", "bad": "soft", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the purpose of a brush is [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a bird has [MASK].", "good": "wings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a singer can [MASK].", "good": "sing", "bad": "freeze", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the purpose of a ruler is [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that part of a guitar can be [MASK].", "good": "strings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The purpose of a bed is [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a coin is kept in a [MASK].", "good": "pocket", "bad": "cloud", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a clock has [MASK].", "good": "hands", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Part of a car can be [MASK].", "good": "wheels", "bad": "pages", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A shirt has [MASK].", "good": "sleeves", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the usual place for a lamp is [MASK].", "good": "desk", "bad": "ocean", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that part of a clock can be [MASK].", "good": "hands", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, clouds can be [MASK].", "good": "soft", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that bricks can be [MASK].", "good": "heavy", "bad": "thirsty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the usual place for a car is [MASK].", "good": "road", "bad": "pillow", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the baby is able to [MASK].", "good": "cry", "bad": "drive", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A needle is used for [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, the purpose of a bed is [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the chef is able to [MASK].", "good": "cook", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, people use a ruler for [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, people use a brush for [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Snow can be [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a bird lives in a [MASK].", "good": "nest", "bad": "bottle", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Snow is usually [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a guitar has [MASK].", "good": "strings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the usual place for a book is [MASK].", "good": "shelf", "bad": "river", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a book has [MASK].", "good": "pages", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a computer has [MASK].", "good": "keyboard", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the usual place for a train is [MASK].", "good": "track", "bad": "blanket", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that people use soap for [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the usual place for an apple is [MASK].", "good": "basket", "bad": "garage", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the bird is able to [MASK].", "good": "fly", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the usual place for a book is [MASK].", "good": "shelf", "bad": "river", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the singer is able to [MASK].", "good": "sing", "bad": "freeze", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that clouds can be [MASK].", "good": "soft", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the usual place for a book is [MASK].", "good": "shelf", "bad": "river", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that knives can be [MASK].", "good": "sharp", "bad": "sleepy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that bricks are usually [MASK].", "good": "heavy", "bad": "thirsty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a dog can [MASK].", "good": "bark", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Part of a clock can be [MASK].", "good": "hands", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a boat moves on [MASK].", "good": "water", "bad": "grass", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the usual place for a book is [MASK].", "good": "shelf", "bad": "river", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A train moves on a [MASK].", "good": "track", "bad": "blanket", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, the purpose of a camera is [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the chef is able to [MASK].", "good": "cook", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the usual place for a fish is [MASK].", "good": "water", "bad": "cupboard", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the doctor is able to [MASK].", "good": "help", "bad": "boil", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, a shovel is used for [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a car is driven on a [MASK].", "good": "road", "bad": "pillow", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, feathers can be [MASK].", "good": "light", "bad": "heavy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People use a cup for [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A brush is used for [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a book is kept on a [MASK].", "good": "shelf", "bad": "river", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, people use a pencil for [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that stone is usually [MASK].", "good": "hard", "bad": "soft", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, part of a flower can be [MASK].", "good": "petals", "bad": "keys", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the usual place for a bird is [MASK].", "good": "nest", "bad": "bottle", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that sugar tastes [MASK].", "good": "sweet", "bad": "salty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that ice is usually [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that fire is usually [MASK].", "good": "hot", "bad": "cold", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that honey can be [MASK].", "good": "sticky", "bad": "angry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that people use a broom for [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a lamp stands on a [MASK].", "good": "desk", "bad": "ocean", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that people use a camera for [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A camera has [MASK].", "good": "lens", "bad": "leaf", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that people use a hammer for [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that part of a door can be [MASK].", "good": "handle", "bad": "wing", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, people use a key for [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a bird lives in a [MASK].", "good": "nest", "bad": "bottle", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The person is able to [MASK].", "good": "think", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that people use a brush for [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, the purpose of a pencil is [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that part of a flower can be [MASK].", "good": "petals", "bad": "keys", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that glass can be [MASK].", "good": "fragile", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, the purpose of a ruler is [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the usual place for a coin is [MASK].", "good": "pocket", "bad": "cloud", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a knife is used for [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that part of a computer can be [MASK].", "good": "keyboard", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a flower has [MASK].", "good": "petals", "bad": "keys", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a ruler is used for [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a plane flies in the [MASK].", "good": "sky", "bad": "drawer", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual place for a fish is [MASK].", "good": "water", "bad": "cupboard", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the usual place for a coin is [MASK].", "good": "pocket", "bad": "cloud", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a cup is used for [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a shirt is kept in a [MASK].", "good": "closet", "bad": "lake", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, the purpose of a key is [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a guitar has [MASK].", "good": "strings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the purpose of a brush is [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that people use a brush for [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the purpose of a pencil is [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the bird is able to [MASK].", "good": "fly", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Bricks are usually [MASK].", "good": "heavy", "bad": "thirsty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that people use a shovel for [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that snow can be [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a dog can [MASK].", "good": "bark", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a ruler is used for [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that people use a brush for [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the usual place for a car is [MASK].", "good": "road", "bad": "pillow", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, knives can be [MASK].", "good": "sharp", "bad": "sleepy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A person can [MASK].", "good": "think", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that stone is usually [MASK].", "good": "hard", "bad": "soft", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a camera is used for [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that people use a spoon for [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a computer has [MASK].", "good": "keyboard", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Glass can be [MASK].", "good": "fragile", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the purpose of a pencil is [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People use soap for [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that soap is used for [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the bird is able to [MASK].", "good": "fly", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a computer has [MASK].", "good": "keyboard", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a fish lives in [MASK].", "good": "water", "bad": "cupboard", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the dog is able to [MASK].", "good": "bark", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that clouds are often [MASK].", "good": "soft", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that fire can be [MASK].", "good": "hot", "bad": "cold", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that part of a flower can be [MASK].", "good": "petals", "bad": "keys", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a hammer is used for [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that lemons can taste [MASK].", "good": "sour", "bad": "sweet", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that glass can be [MASK].", "good": "fragile", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that ice can be [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that part of a house can be [MASK].", "good": "roof", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a car has [MASK].", "good": "wheels", "bad": "pages", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a boat moves on [MASK].", "good": "water", "bad": "grass", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the teacher is able to [MASK].", "good": "explain", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, part of a bird can be [MASK].", "good": "wings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a knife is used for [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, a knife is used for [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, stone can be [MASK].", "good": "hard", "bad": "soft", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a camera is used for [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a ruler is used for [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The bird is able to [MASK].", "good": "fly", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Honey can be [MASK].", "good": "sticky", "bad": "angry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The purpose of soap is [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual place for a train is [MASK].", "good": "track", "bad": "blanket", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a shirt has [MASK].", "good": "sleeves", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the chef is able to [MASK].", "good": "cook", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, a cup is used for [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the bird is able to [MASK].", "good": "fly", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that part of a tree can be [MASK].", "good": "leaves", "bad": "buttons", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a spoon is used for [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, a brush is used for [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Part of a tree can be [MASK].", "good": "leaves", "bad": "buttons", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, the purpose of a cup is [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that feathers are usually [MASK].", "good": "light", "bad": "heavy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that people use a brush for [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that glass is often [MASK].", "good": "fragile", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that people use a knife for [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that people use a brush for [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that an apple is kept in a [MASK].", "good": "basket", "bad": "garage", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the person is able to [MASK].", "good": "think", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the purpose of a chair is [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a plane flies in the [MASK].", "good": "sky", "bad": "drawer", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the purpose of a spoon is [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a knife is used for [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that sugar can taste [MASK].", "good": "sweet", "bad": "salty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a coin is kept in a [MASK].", "good": "pocket", "bad": "cloud", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the usual place for a lamp is [MASK].", "good": "desk", "bad": "ocean", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, honey can be [MASK].", "good": "sticky", "bad": "angry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, people use a knife for [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a shirt has [MASK].", "good": "sleeves", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, people use a bed for [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a chef can [MASK].", "good": "cook", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Part of a camera can be [MASK].", "good": "lens", "bad": "leaf", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a car has [MASK].", "good": "wheels", "bad": "pages", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that an apple is kept in a [MASK].", "good": "basket", "bad": "garage", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, people use a broom for [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, a bed is used for [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that soap is used for [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a cup is used for [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A house has [MASK].", "good": "roof", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that feathers are usually [MASK].", "good": "light", "bad": "heavy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the usual place for a lamp is [MASK].", "good": "desk", "bad": "ocean", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a clock has [MASK].", "good": "hands", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a bed is used for [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that part of a door can be [MASK].", "good": "handle", "bad": "wing", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that clouds are often [MASK].", "good": "soft", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the purpose of a ruler is [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the usual place for a coin is [MASK].", "good": "pocket", "bad": "cloud", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, people use a pencil for [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that honey is usually [MASK].", "good": "sticky", "bad": "angry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the usual place for a boat is [MASK].", "good": "water", "bad": "grass", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The purpose of a ruler is [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, people use a cup for [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The purpose of a broom is [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A chef can [MASK].", "good": "cook", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a baby can [MASK].", "good": "cry", "bad": "drive", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a shovel is used for [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, part of a guitar can be [MASK].", "good": "strings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that people use a hammer for [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that bricks can be [MASK].", "good": "heavy", "bad": "thirsty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that people use a needle for [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Sugar can taste [MASK].", "good": "sweet", "bad": "salty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the purpose of a cup is [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that soap is used for [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual place for a bird is [MASK].", "good": "nest", "bad": "bottle", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that lemons can taste [MASK].", "good": "sour", "bad": "sweet", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The singer is able to [MASK].", "good": "sing", "bad": "freeze", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that people use a shovel for [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual place for a coin is [MASK].", "good": "pocket", "bad": "cloud", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, part of a tree can be [MASK].", "good": "leaves", "bad": "buttons", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that part of a tree can be [MASK].", "good": "leaves", "bad": "buttons", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the purpose of a chair is [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the usual place for a car is [MASK].", "good": "road", "bad": "pillow", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the purpose of soap is [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a broom is used for [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the driver is able to [MASK].", "good": "steer", "bad": "bloom", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, a pencil is used for [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that part of a computer can be [MASK].", "good": "keyboard", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a doctor can [MASK].", "good": "help", "bad": "boil", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that snow is usually [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the usual place for a book is [MASK].", "good": "shelf", "bad": "river", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a person can [MASK].", "good": "think", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the purpose of a hammer is [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a tree has [MASK].", "good": "leaves", "bad": "buttons", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that knives can be [MASK].", "good": "sharp", "bad": "sleepy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a cup is used for [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the purpose of a broom is [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a cup is used for [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a flower has [MASK].", "good": "petals", "bad": "keys", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a ruler is used for [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, a spoon is used for [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a brush is used for [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that milk is kept in a [MASK].", "good": "fridge", "bad": "shoe", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A ruler is used for [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a spoon is used for [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the child is able to [MASK].", "good": "learn", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A bed is used for [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a car has [MASK].", "good": "wheels", "bad": "pages", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A chair is used for [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that people use a shovel for [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that ice can be [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, people use a hammer for [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a guitar has [MASK].", "good": "strings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the usual place for an apple is [MASK].", "good": "basket", "bad": "garage", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the baby is able to [MASK].", "good": "cry", "bad": "drive", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A guitar has [MASK].", "good": "strings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a singer can [MASK].", "good": "sing", "bad": "freeze", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a boat moves on [MASK].", "good": "water", "bad": "grass", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the purpose of a bed is [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that sugar tastes [MASK].", "good": "sweet", "bad": "salty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a baby can [MASK].", "good": "cry", "bad": "drive", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a fish lives in [MASK].", "good": "water", "bad": "cupboard", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A hammer is used for [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Part of a computer can be [MASK].", "good": "keyboard", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that glass can be [MASK].", "good": "fragile", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a tree has [MASK].", "good": "leaves", "bad": "buttons", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a boat moves on [MASK].", "good": "water", "bad": "grass", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, fire is usually [MASK].", "good": "hot", "bad": "cold", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the usual place for a car is [MASK].", "good": "road", "bad": "pillow", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a brush is used for [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a tree has [MASK].", "good": "leaves", "bad": "buttons", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a computer has [MASK].", "good": "keyboard", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the purpose of a pencil is [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the teacher is able to [MASK].", "good": "explain", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, soap is used for [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a singer can [MASK].", "good": "sing", "bad": "freeze", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that part of a clock can be [MASK].", "good": "hands", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the purpose of a hammer is [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that people use a camera for [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Ice is usually [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the purpose of a chair is [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, people use a brush for [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the usual place for milk is [MASK].", "good": "fridge", "bad": "shoe", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that snow is usually [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Part of a guitar can be [MASK].", "good": "strings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a hammer is used for [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the person is able to [MASK].", "good": "think", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that people use a spoon for [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that knives can be [MASK].", "good": "sharp", "bad": "sleepy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that knives are usually [MASK].", "good": "sharp", "bad": "sleepy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The purpose of a spoon is [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the usual place for milk is [MASK].", "good": "fridge", "bad": "shoe", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The purpose of a key is [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Honey is usually [MASK].", "good": "sticky", "bad": "angry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Ice can be [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that people use a pencil for [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A camera is used for [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, people use a camera for [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that people use a key for [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A car has [MASK].", "good": "wheels", "bad": "pages", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the usual place for a bird is [MASK].", "good": "nest", "bad": "bottle", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the usual place for a book is [MASK].", "good": "shelf", "bad": "river", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a key is used for [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the purpose of a needle is [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that part of a house can be [MASK].", "good": "roof", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that part of a tree can be [MASK].", "good": "leaves", "bad": "buttons", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People use a brush for [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the usual place for a train is [MASK].", "good": "track", "bad": "blanket", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the usual place for a shirt is [MASK].", "good": "closet", "bad": "lake", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a train moves on a [MASK].", "good": "track", "bad": "blanket", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that lemons taste [MASK].", "good": "sour", "bad": "sweet", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the dog is able to [MASK].", "good": "bark", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that clouds can be [MASK].", "good": "soft", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the purpose of a pencil is [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a pencil is used for [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People use a knife for [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that lemons can taste [MASK].", "good": "sour", "bad": "sweet", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, glass can be [MASK].", "good": "fragile", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that snow is usually [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that honey is usually [MASK].", "good": "sticky", "bad": "angry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a spoon is used for [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a camera has [MASK].", "good": "lens", "bad": "leaf", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, people use a camera for [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that people use a bed for [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the purpose of a camera is [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a bird has [MASK].", "good": "wings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that feathers are usually [MASK].", "good": "light", "bad": "heavy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A shirt is kept in a [MASK].", "good": "closet", "bad": "lake", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that people use a hammer for [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that glass is often [MASK].", "good": "fragile", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the purpose of a hammer is [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a guitar has [MASK].", "good": "strings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the dog is able to [MASK].", "good": "bark", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The child is able to [MASK].", "good": "learn", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a broom is used for [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a clock has [MASK].", "good": "hands", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that glass is often [MASK].", "good": "fragile", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a person can [MASK].", "good": "think", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the person is able to [MASK].", "good": "think", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The purpose of a pencil is [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that an apple is kept in a [MASK].", "good": "basket", "bad": "garage", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that stone is usually [MASK].", "good": "hard", "bad": "soft", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the purpose of a shovel is [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a singer can [MASK].", "good": "sing", "bad": "freeze", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that people use a knife for [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a computer has [MASK].", "good": "keyboard", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that knives are usually [MASK].", "good": "sharp", "bad": "sleepy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that people use a needle for [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that sugar can taste [MASK].", "good": "sweet", "bad": "salty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a computer has [MASK].", "good": "keyboard", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a pencil is used for [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that part of a bird can be [MASK].", "good": "wings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, fire can be [MASK].", "good": "hot", "bad": "cold", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that people use a pencil for [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a lamp stands on a [MASK].", "good": "desk", "bad": "ocean", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that part of a shirt can be [MASK].", "good": "sleeves", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A spoon is used for [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a book has [MASK].", "good": "pages", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a shirt has [MASK].", "good": "sleeves", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the purpose of a camera is [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that people use a ruler for [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that part of a clock can be [MASK].", "good": "hands", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a driver can [MASK].", "good": "steer", "bad": "bloom", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the purpose of a needle is [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a coin is kept in a [MASK].", "good": "pocket", "bad": "cloud", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that feathers are usually [MASK].", "good": "light", "bad": "heavy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the usual place for a fish is [MASK].", "good": "water", "bad": "cupboard", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the purpose of a camera is [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the purpose of soap is [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The purpose of a needle is [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that fire is usually [MASK].", "good": "hot", "bad": "cold", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A shovel is used for [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a train moves on a [MASK].", "good": "track", "bad": "blanket", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that clouds can be [MASK].", "good": "soft", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a camera has [MASK].", "good": "lens", "bad": "leaf", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, bricks are usually [MASK].", "good": "heavy", "bad": "thirsty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the purpose of a ruler is [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the baby is able to [MASK].", "good": "cry", "bad": "drive", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a shovel is used for [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that part of a guitar can be [MASK].", "good": "strings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Part of a door can be [MASK].", "good": "handle", "bad": "wing", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a door has [MASK].", "good": "handle", "bad": "wing", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a child can [MASK].", "good": "learn", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the purpose of a ruler is [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Knives can be [MASK].", "good": "sharp", "bad": "sleepy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a door has [MASK].", "good": "handle", "bad": "wing", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that fire can be [MASK].", "good": "hot", "bad": "cold", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the purpose of a pencil is [MASK].", "good": "writing", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a door has [MASK].", "good": "handle", "bad": "wing", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that people use a camera for [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that people use a spoon for [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a house has [MASK].", "good": "roof", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that people use soap for [MASK].", "good": "washing", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that the child is able to [MASK].", "good": "learn", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that people use a spoon for [MASK].", "good": "eating", "bad": "driving", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the purpose of a knife is [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a child can [MASK].", "good": "learn", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that stone can be [MASK].", "good": "hard", "bad": "soft", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a guitar has [MASK].", "good": "strings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that lemons can taste [MASK].", "good": "sour", "bad": "sweet", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The purpose of a camera is [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, milk is kept in a [MASK].", "good": "fridge", "bad": "shoe", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a boat moves on [MASK].", "good": "water", "bad": "grass", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the singer is able to [MASK].", "good": "sing", "bad": "freeze", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that part of a camera can be [MASK].", "good": "lens", "bad": "leaf", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the purpose of a needle is [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that part of a bird can be [MASK].", "good": "wings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, feathers are usually [MASK].", "good": "light", "bad": "heavy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a car is driven on a [MASK].", "good": "road", "bad": "pillow", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that people use a key for [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a ruler is used for [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a shirt is kept in a [MASK].", "good": "closet", "bad": "lake", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that people use a knife for [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a brush is used for [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that part of a flower can be [MASK].", "good": "petals", "bad": "keys", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the driver is able to [MASK].", "good": "steer", "bad": "bloom", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a house has [MASK].", "good": "roof", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that people use a needle for [MASK].", "good": "sewing", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, people use a cup for [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a book has [MASK].", "good": "pages", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the usual place for a train is [MASK].", "good": "track", "bad": "blanket", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that stone is usually [MASK].", "good": "hard", "bad": "soft", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A teacher can [MASK].", "good": "explain", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that the purpose of a brush is [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the usual place for a shirt is [MASK].", "good": "closet", "bad": "lake", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the usual place for a boat is [MASK].", "good": "water", "bad": "grass", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that part of a book can be [MASK].", "good": "pages", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a car is driven on a [MASK].", "good": "road", "bad": "pillow", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Part of a house can be [MASK].", "good": "roof", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a door has [MASK].", "good": "handle", "bad": "wing", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a chair is used for [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, the purpose of a camera is [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a key is used for [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, the purpose of a knife is [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that people use a chair for [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a coin is kept in a [MASK].", "good": "pocket", "bad": "cloud", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, people use a shovel for [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that knives are usually [MASK].", "good": "sharp", "bad": "sleepy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the purpose of a broom is [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a bird has [MASK].", "good": "wings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that lemons taste [MASK].", "good": "sour", "bad": "sweet", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a house has [MASK].", "good": "roof", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a bed is used for [MASK].", "good": "sleeping", "bad": "cooking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, the purpose of a shovel is [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that people use a ruler for [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, a ruler is used for [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that clouds can be [MASK].", "good": "soft", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a driver can [MASK].", "good": "steer", "bad": "bloom", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, people use a chair for [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the usual place for a shirt is [MASK].", "good": "closet", "bad": "lake", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a chair is used for [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that bricks can be [MASK].", "good": "heavy", "bad": "thirsty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the purpose of a key is [MASK].", "good": "opening", "bad": "swimming", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that part of a computer can be [MASK].", "good": "keyboard", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, lemons can taste [MASK].", "good": "sour", "bad": "sweet", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "A cup is used for [MASK].", "good": "drinking", "bad": "cutting", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a broom is used for [MASK].", "good": "sweeping", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a person can [MASK].", "good": "think", "bad": "rust", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The purpose of a hammer is [MASK].", "good": "hitting", "bad": "singing", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People use a chair for [MASK].", "good": "sitting", "bad": "flying", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People use a shovel for [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that milk is kept in a [MASK].", "good": "fridge", "bad": "shoe", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a house has [MASK].", "good": "roof", "bad": "tail", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Part of a shirt can be [MASK].", "good": "sleeves", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a shirt is kept in a [MASK].", "good": "closet", "bad": "lake", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a tree has [MASK].", "good": "leaves", "bad": "buttons", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "As expected, people use a ruler for [MASK].", "good": "measuring", "bad": "sleeping", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a car is driven on a [MASK].", "good": "road", "bad": "pillow", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a bird can [MASK].", "good": "fly", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a fish lives in [MASK].", "good": "water", "bad": "cupboard", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a brush is used for [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The purpose of a knife is [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that part of a bird can be [MASK].", "good": "wings", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a book has [MASK].", "good": "pages", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that glass can be [MASK].", "good": "fragile", "bad": "hungry", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that the purpose of a shovel is [MASK].", "good": "digging", "bad": "reading", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that a doctor can [MASK].", "good": "help", "bad": "boil", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a camera is used for [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, snow can be [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The purpose of a brush is [MASK].", "good": "painting", "bad": "running", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that knives can be [MASK].", "good": "sharp", "bad": "sleepy", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Part of a book can be [MASK].", "good": "pages", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that sugar tastes [MASK].", "good": "sweet", "bad": "salty", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the baby is able to [MASK].", "good": "cry", "bad": "drive", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "People know that part of a clock can be [MASK].", "good": "hands", "bad": "roots", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that a dog can [MASK].", "good": "bark", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that ice can be [MASK].", "good": "cold", "bad": "hot", "domain": "physical_property"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that a book is kept on a [MASK].", "good": "shelf", "bad": "river", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that part of a car can be [MASK].", "good": "wheels", "bad": "pages", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "Children learn that part of a book can be [MASK].", "good": "pages", "bad": "wheels", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The dog is able to [MASK].", "good": "bark", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that the teacher is able to [MASK].", "good": "explain", "bad": "melt", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual place for a plane is [MASK].", "good": "sky", "bad": "drawer", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that a tree has [MASK].", "good": "leaves", "bad": "buttons", "domain": "part_whole"}
+{"task": "semantic_cloze_ranking", "prompt": "The usual fact is that the bird is able to [MASK].", "good": "fly", "bad": "read", "domain": "animate_agency"}
+{"task": "semantic_cloze_ranking", "prompt": "In everyday life, a fish lives in [MASK].", "good": "water", "bad": "cupboard", "domain": "typical_location"}
+{"task": "semantic_cloze_ranking", "prompt": "A simple fact is that people use a camera for [MASK].", "good": "filming", "bad": "eating", "domain": "affordance"}
+{"task": "semantic_cloze_ranking", "prompt": "It is true that a knife is used for [MASK].", "good": "cutting", "bad": "drinking", "domain": "affordance"}
