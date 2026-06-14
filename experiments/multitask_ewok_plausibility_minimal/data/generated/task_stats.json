@@ -1,0 +1,59 @@
+{
+  "mlm": {
+    "num_examples": 48889,
+    "enabled": true,
+    "probability": 0.55
+  },
+  "rtd": {
+    "num_examples": 48889,
+    "enabled": true,
+    "probability": 0.1
+  },
+  "connective": {
+    "num_examples": 7777,
+    "enabled": true,
+    "probability": 0.075
+  },
+  "definiteness": {
+    "num_examples": 19007,
+    "enabled": true,
+    "probability": 0.075
+  },
+  "collocation": {
+    "num_examples": 8570,
+    "enabled": true,
+    "probability": 0.05
+  },
+  "conceptual_plausibility_choice": {
+    "num_examples": 50000,
+    "enabled": true,
+    "probability": 0.15,
+    "domains": {
+      "selectional_preference": 12000,
+      "affordance": 10000,
+      "spatial_containment": 6500,
+      "part_whole": 6000,
+      "animate_agency": 15500
+    }
+  },
+  "substitution": {
+    "num_examples": 40990,
+    "enabled": false,
+    "probability": 0.0
+  },
+  "function_word_recovery": {
+    "num_examples": 0,
+    "enabled": false,
+    "probability": 0.0
+  },
+  "agreement_prediction": {
+    "num_examples": 0,
+    "enabled": false,
+    "probability": 0.0
+  },
+  "grammar_minpair": {
+    "num_examples": 0,
+    "enabled": false,
+    "probability": 0.0
+  }
+}

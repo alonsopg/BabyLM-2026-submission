@@ -1,0 +1,61 @@
+{
+  "dataset": "BabyLM-community/BabyLM-2026-Strict-Small",
+  "text_column": "text",
+  "max_rows": 50000,
+  "seed": 1,
+  "task_probabilities": {
+    "mlm": 0.55,
+    "rtd": 0.1,
+    "connective": 0.075,
+    "definiteness": 0.075,
+    "collocation": 0.05,
+    "conceptual_plausibility_choice": 0.15,
+    "substitution": 0.0,
+    "function_word_recovery": 0.0,
+    "agreement_prediction": 0.0,
+    "grammar_minpair": 0.0
+  },
+  "tasks": {
+    "mlm": {
+      "path": "experiments/multitask_ewok_plausibility_minimal/data/generated/mlm.jsonl",
+      "sample_path": "experiments/multitask_ewok_plausibility_minimal/data/generated/samples/mlm_50_examples.jsonl"
+    },
+    "rtd": {
+      "path": "experiments/multitask_ewok_plausibility_minimal/data/generated/rtd.jsonl",
+      "sample_path": "experiments/multitask_ewok_plausibility_minimal/data/generated/samples/rtd_50_examples.jsonl"
+    },
+    "connective": {
+      "path": "experiments/multitask_ewok_plausibility_minimal/data/generated/connective.jsonl",
+      "sample_path": "experiments/multitask_ewok_plausibility_minimal/data/generated/samples/connective_50_examples.jsonl"
+    },
+    "definiteness": {
+      "path": "experiments/multitask_ewok_plausibility_minimal/data/generated/definiteness.jsonl",
+      "sample_path": "experiments/multitask_ewok_plausibility_minimal/data/generated/samples/definiteness_50_examples.jsonl"
+    },
+    "collocation": {
+      "path": "experiments/multitask_ewok_plausibility_minimal/data/generated/collocation.jsonl",
+      "sample_path": "experiments/multitask_ewok_plausibility_minimal/data/generated/samples/collocation_50_examples.jsonl"
+    },
+    "conceptual_plausibility_choice": {
+      "path": "experiments/multitask_ewok_plausibility_minimal/data/generated/conceptual_plausibility_choice.jsonl",
+      "sample_path": "experiments/multitask_ewok_plausibility_minimal/data/generated/samples/conceptual_plausibility_choice_50_examples.jsonl"
+    },
+    "substitution": {
+      "path": "experiments/multitask_ewok_plausibility_minimal/data/generated/substitution.jsonl",
+      "sample_path": "experiments/multitask_ewok_plausibility_minimal/data/generated/samples/substitution_50_examples.jsonl"
+    },
+    "function_word_recovery": {
+      "path": "experiments/multitask_ewok_plausibility_minimal/data/generated/function_word_recovery.jsonl",
+      "sample_path": "experiments/multitask_ewok_plausibility_minimal/data/generated/samples/function_word_recovery_50_examples.jsonl"
+    },
+    "agreement_prediction": {
+      "path": "experiments/multitask_ewok_plausibility_minimal/data/generated/agreement_prediction.jsonl",
+      "sample_path": "experiments/multitask_ewok_plausibility_minimal/data/generated/samples/agreement_prediction_50_examples.jsonl"
+    },
+    "grammar_minpair": {
+      "path": "experiments/multitask_ewok_plausibility_minimal/data/generated/grammar_minpair.jsonl",
+      "sample_path": "experiments/multitask_ewok_plausibility_minimal/data/generated/samples/grammar_minpair_50_examples.jsonl"
+    }
+  },
+  "ewok_data_used": false
+}
