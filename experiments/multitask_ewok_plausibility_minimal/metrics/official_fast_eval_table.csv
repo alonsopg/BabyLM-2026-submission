@@ -1,0 +1,8 @@
+System,BLiMP,BLiMP Supplement,EWoK,Entity Tracking,Reading Eye,Reading SPR
+normal_bert_mlm_final,64.33,54.00,50.55,15.56,2.47,2.42
+multitask_bert_calibrated_best,54.80,54.80,50.27,34.52,7.46,3.19
+multitask_repair_syntax_v1_final,55.51,52.40,49.55,32.76,8.28,3.63
+multitask_repair_blmpair_v1_best,54.80,51.60,51.00,27.54,8.02,3.05
+multitask_repair_blmpair_v1_final,54.81,52.40,50.73,25.99,7.96,3.11
+multitask_ewok_plausibility_minimal_best,55.46,56.40,49.64,37.10,7.87,3.22
+multitask_ewok_plausibility_minimal_final,55.70,54.00,49.55,35.81,7.79,3.25

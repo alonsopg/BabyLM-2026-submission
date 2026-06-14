@@ -27,9 +27,9 @@ from src.training.train import evaluate
 
 
 CONNECTIVES = ["because", "so", "but", "although", "however", "therefore", "when", "while", "if", "then", "before", "after", "since", "though", "unless"]
-TASKS = ["mlm", "rtd", "connective", "definiteness", "collocation", "substitution", "function_word_recovery", "agreement_prediction", "grammar_minpair"]
+TASKS = ["mlm", "rtd", "connective", "definiteness", "collocation", "substitution", "function_word_recovery", "agreement_prediction", "grammar_minpair", "conceptual_plausibility_choice"]
 MLM_HEAD_TASKS = {"mlm", "function_word_recovery", "agreement_prediction"}
-COLLOCATION_HEAD_TASKS = {"collocation", "grammar_minpair"}
+COLLOCATION_HEAD_TASKS = {"collocation", "grammar_minpair", "conceptual_plausibility_choice"}
 
 
 class JsonlTaskDataset(Dataset):
@@ -140,7 +140,7 @@ def collate_task(rows: list[dict], task: str, tokenizer, rng: random.Random, max
         label = 1 if rows[0]["target"][0]["label"] == "definite" else 0
         enc["labels"] = torch.tensor([1 if row["target"][0]["label"] == "definite" else 0 for row in rows], dtype=torch.long)
         return enc
-    if task in {"collocation", "substitution", "grammar_minpair"}:
+    if task in {"collocation", "substitution", "grammar_minpair", "conceptual_plausibility_choice"}:
         enc["labels"] = torch.tensor([int(row["target"]) for row in rows], dtype=torch.long)
         return enc
     raise ValueError(task)
