@@ -1,0 +1,92 @@
+{
+  "experiment": "multitask_ewok_semantic_cloze_weight_sweep",
+  "base_experiment": "multitask_ewok_semantic_cloze_v1",
+  "device": "NVIDIA RTX A6000",
+  "uses_official_ewok_data": false,
+  "uses_official_blimp_data": false,
+  "uses_external_datasets": false,
+  "uses_classifier_head": false,
+  "unchanged": [
+    "model size",
+    "tokenizer",
+    "corpus",
+    "training schedule",
+    "final MLM calibration",
+    "official fast evaluation"
+  ],
+  "variants": {
+    "semantic_cloze_w025": {
+      "task_weights": {
+        "mlm": 0.625,
+        "rtd": 0.1,
+        "connective": 0.075,
+        "definiteness": 0.075,
+        "collocation": 0.05,
+        "grammar_minpair": 0.05,
+        "semantic_cloze_ranking": 0.025
+      },
+      "stop_step": 9500,
+      "early_stop": true,
+      "best_validation_step": 7000,
+      "best_validation_mlm_loss": 6.811737,
+      "semantic_steps": 202
+    },
+    "semantic_cloze_w075": {
+      "task_weights": {
+        "mlm": 0.575,
+        "rtd": 0.1,
+        "connective": 0.075,
+        "definiteness": 0.075,
+        "collocation": 0.05,
+        "grammar_minpair": 0.05,
+        "semantic_cloze_ranking": 0.075
+      },
+      "stop_step": 9500,
+      "early_stop": true,
+      "best_validation_step": 5000,
+      "best_validation_mlm_loss": 6.898015,
+      "semantic_steps": 604
+    },
+    "semantic_cloze_w100": {
+      "task_weights": {
+        "mlm": 0.55,
+        "rtd": 0.1,
+        "connective": 0.075,
+        "definiteness": 0.075,
+        "collocation": 0.05,
+        "grammar_minpair": 0.05,
+        "semantic_cloze_ranking": 0.1
+      },
+      "stop_step": 10000,
+      "early_stop": false,
+      "best_validation_step": 9000,
+      "best_validation_mlm_loss": 6.830217,
+      "semantic_steps": 857
+    }
+  },
+  "results": [
+    {"system": "normal_bert_mlm_final", "blimp": 64.33, "blimp_supplement": 54.0, "ewok": 50.55, "entity_tracking": 15.56, "reading_eye": 2.47, "reading_spr": 2.42},
+    {"system": "multitask_repair_blmpair_v1_best", "blimp": 54.8, "blimp_supplement": 51.6, "ewok": 51.0, "entity_tracking": 27.54, "reading_eye": 8.02, "reading_spr": 3.05},
+    {"system": "multitask_ewok_semantic_cloze_v1_best", "blimp": 54.1, "blimp_supplement": 57.6, "ewok": 50.73, "entity_tracking": 36.61, "reading_eye": 7.56, "reading_spr": 3.11},
+    {"system": "multitask_ewok_semantic_cloze_v1_final", "blimp": 55.26, "blimp_supplement": 54.4, "ewok": 52.0, "entity_tracking": 27.44, "reading_eye": 8.18, "reading_spr": 3.71},
+    {"system": "semantic_cloze_w025_best", "blimp": 53.93, "blimp_supplement": 52.8, "ewok": 50.82, "entity_tracking": 29.34, "reading_eye": 8.81, "reading_spr": 3.1},
+    {"system": "semantic_cloze_w025_final", "blimp": 54.34, "blimp_supplement": 54.8, "ewok": 50.73, "entity_tracking": 22.79, "reading_eye": 8.82, "reading_spr": 3.06},
+    {"system": "semantic_cloze_w075_best", "blimp": 53.57, "blimp_supplement": 52.8, "ewok": 51.0, "entity_tracking": 40.48, "reading_eye": 7.85, "reading_spr": 3.13},
+    {"system": "semantic_cloze_w075_final", "blimp": 55.17, "blimp_supplement": 55.6, "ewok": 50.82, "entity_tracking": 25.13, "reading_eye": 8.12, "reading_spr": 3.1},
+    {"system": "semantic_cloze_w100_best", "blimp": 54.72, "blimp_supplement": 52.4, "ewok": 51.27, "entity_tracking": 34.77, "reading_eye": 7.92, "reading_spr": 3.25},
+    {"system": "semantic_cloze_w100_final", "blimp": 55.09, "blimp_supplement": 52.8, "ewok": 51.64, "entity_tracking": 33.59, "reading_eye": 8.01, "reading_spr": 3.39}
+  ],
+  "main_finding": {
+    "success_criterion": "EWoK > 52.00",
+    "success": false,
+    "best_overall_ewok_system": "multitask_ewok_semantic_cloze_v1_final",
+    "best_overall_ewok": 52.0,
+    "best_sweep_ewok_system": "semantic_cloze_w100_final",
+    "best_sweep_ewok": 51.64,
+    "best_entity_system": "semantic_cloze_w075_best",
+    "best_entity": 40.48,
+    "best_eye_system": "semantic_cloze_w025_final",
+    "best_eye": 8.82,
+    "recommendation": "Keep the existing 5% semantic cloze final checkpoint as the EWoK-focused result."
+  }
+}

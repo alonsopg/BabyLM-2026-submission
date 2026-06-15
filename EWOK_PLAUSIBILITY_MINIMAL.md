@@ -65,3 +65,10 @@ checkpoint reached EWoK 52.00. That is +1.45 over the MLM-only baseline and +1.0
 the previous branch-best EWoK score. The trade-off is entity tracking: the semantic
 cloze best checkpoint reached 36.61, but the final checkpoint dropped to 27.44 while
 improving EWoK and SPR.
+
+The semantic cloze weight sweep tested 2.5%, 7.5%, and 10.0% semantic cloze while
+leaving all other settings aligned with the 5% run. None of the sweep variants beat the
+5% final EWoK score. The best sweep-only EWoK was 51.64 from `semantic_cloze_w100_final`;
+the best Entity result was 40.48 from `semantic_cloze_w075_best`; and the best Eye score
+was 8.82 from `semantic_cloze_w025_final`. The current recommendation remains the 5%
+semantic cloze final checkpoint for EWoK-focused reporting.

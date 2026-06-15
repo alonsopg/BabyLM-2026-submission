@@ -1,0 +1,11 @@
+System,BLiMP,BLiMP Supplement,EWoK,Entity Tracking,Reading Eye,Reading SPR
+normal_bert_mlm_final,64.33,54.00,50.55,15.56,2.47,2.42
+multitask_repair_blmpair_v1_best,54.80,51.60,51.00,27.54,8.02,3.05
+multitask_ewok_semantic_cloze_v1_best,54.10,57.60,50.73,36.61,7.56,3.11
+multitask_ewok_semantic_cloze_v1_final,55.26,54.40,52.00,27.44,8.18,3.71
+semantic_cloze_w025_best,53.93,52.80,50.82,29.34,8.81,3.10
+semantic_cloze_w025_final,54.34,54.80,50.73,22.79,8.82,3.06
+semantic_cloze_w075_best,53.57,52.80,51.00,40.48,7.85,3.13
+semantic_cloze_w075_final,55.17,55.60,50.82,25.13,8.12,3.10
+semantic_cloze_w100_best,54.72,52.40,51.27,34.77,7.92,3.25
+semantic_cloze_w100_final,55.09,52.80,51.64,33.59,8.01,3.39
