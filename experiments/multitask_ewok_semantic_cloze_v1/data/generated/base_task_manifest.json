@@ -1,0 +1,11 @@
+{
+  "source": "folded from the earlier multi-task generated data used by the selected semantic-cloze run",
+  "tasks": [
+    "mlm",
+    "rtd",
+    "connective",
+    "definiteness",
+    "collocation"
+  ],
+  "note": "These files are included here so the selected semantic-cloze experiment is self-contained on the clean branch."
+}

@@ -2,38 +2,23 @@
 
 ## Branch
 
-`ewok-plausibility-minimal`
+`multitask-semantic-cloze-clean`
 
-## Previous BLiMP-Pair Repair Config
+## Selected Experiment
 
-The local previous BLiMP-pair repair run used the same BERT-style model, tokenizer,
-optimizer, batch size, 10k total steps, and final 2k-step MLM-only calibration. Its task
-mix had `grammar_minpair` enabled and produced the best EWoK score so far, 51.00.
+`experiments/multitask_ewok_semantic_cloze_v1/configs/multitask_ewok_semantic_cloze_v1.yaml`
 
-For this isolated branch, only the lightweight `grammar_minpair.jsonl` data file was
-recovered into the new experiment folder. The older repair experiment folder is not
-added to git.
+The selected run keeps a compact MLM-compatible BERT backbone and adds one semantic cloze ranking auxiliary task. The model submitted to BabyLM remains a plain `BertForMaskedLM` checkpoint.
 
-## Previous EWoK Plausibility Config
+## Multi-Task Sampler
 
-`experiments/multitask_ewok_plausibility_minimal/configs/multitask_ewok_plausibility_minimal.yaml`
+`experiments/multitask_distributional_bert/scripts/train_multitask_bert.py` samples active tasks according to config probabilities until the final MLM-only calibration phase.
 
-That run used the failed 15% classifier-head conceptual-plausibility task. This new run
-sets conceptual plausibility to 0%.
+## MLM Head And Loss Path
 
-## Existing Multi-Task Sampler
+The MLM task uses `model.mlm(...)` directly. The `semantic_cloze_ranking` task also uses `model.mlm(...)` directly, gathering log probabilities at the single `[MASK]` position and optimizing `softplus(-(score_good - score_bad))`.
 
-`experiments/multitask_distributional_bert/scripts/train_multitask_bert.py` samples
-active tasks according to config probabilities until the final MLM-only calibration
-phase.
-
-## Existing MLM Head And Loss Path
-
-The MLM task uses `model.mlm(...)` directly. The new `semantic_cloze_ranking` task also
-uses `model.mlm(...)` directly, gathering log probabilities at the single `[MASK]`
-position and optimizing `softplus(-(score_good - score_bad))`.
-
-## Existing GPU Command
+## GPU Command
 
 ```bash
 source experiments/multitask_distributional_bert/scripts/env.sh
@@ -42,21 +27,15 @@ python experiments/multitask_distributional_bert/scripts/train_multitask_bert.py
   --seed 1
 ```
 
-## Existing Calibration Command
+## Calibration
 
 Final MLM-only calibration is implemented by:
 
 `training.calibration_mlm_steps: 2000`
 
-## Existing Evaluation Command
+## Fast Evaluation Command
 
 ```bash
 experiments/multitask_distributional_bert/scripts/run_official_fast_eval.sh \
   <run_name> <checkpoint_dir> main
 ```
-
-## Minimal Files Changed
-
-- `experiments/multitask_distributional_bert/scripts/train_multitask_bert.py`
-- `experiments/multitask_ewok_semantic_cloze_v1/configs/multitask_ewok_semantic_cloze_v1.yaml`
-- `experiments/multitask_ewok_semantic_cloze_v1/scripts/generate_semantic_cloze.py`

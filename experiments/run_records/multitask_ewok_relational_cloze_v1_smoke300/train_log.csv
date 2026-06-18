@@ -1,3 +1,0 @@
-step,task,loss,semantic_cloze_ranking_margin,semantic_cloze_ranking_accuracy,val_mlm_loss,best_val_mlm_loss,bad_evals,lr,elapsed_sec,early_stop,steps/mlm,steps/rtd,steps/connective,steps/definiteness,steps/collocation,steps/substitution,steps/function_word_recovery,steps/agreement_prediction,steps/grammar_minpair,steps/conceptual_plausibility_choice,steps/mlm_pair_ranking,steps/semantic_cloze_ranking,steps/relational_semantic_cloze
-1,mlm,10.340572357177734,,,10.356061617533365,10.356061617533365,0,2.7777777777777776e-05,2.1634387969970703,False,1,0,0,0,0,0,0,0,0,0,0,0,0
-300,connective,2.13846755027771,1.6915591955184937,0.90625,7.796850204467773,7.796850204467773,0,0.0,36.54611420631409,False,175,32,30,22,16,0,0,0,11,0,0,7,7

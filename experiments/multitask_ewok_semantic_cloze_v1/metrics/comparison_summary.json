@@ -1,11 +1,11 @@
 {
   "experiment": "multitask_ewok_semantic_cloze_v1",
-  "branch": "ewok-plausibility-minimal",
+  "branch": "multitask-semantic-cloze-clean",
   "device": "NVIDIA RTX A6000",
   "uses_official_ewok_data": false,
   "uses_official_blimp_data": false,
   "uses_external_datasets": false,
-  "uses_classifier_head": false,
+  "uses_classifier_head_at_submission": false,
   "training": {
     "stopped_step": 9500,
     "early_stop": true,
@@ -30,7 +30,7 @@
     "grammar_minpair": 0.05,
     "semantic_cloze_ranking": 0.05
   },
-  "results": [
+  "fast_eval_results": [
     {
       "system": "normal_bert_mlm_final",
       "blimp": 64.33,
@@ -39,60 +39,6 @@
       "entity_tracking": 15.56,
       "reading_eye": 2.47,
       "reading_spr": 2.42
-    },
-    {
-      "system": "multitask_repair_blmpair_v1_best",
-      "blimp": 54.8,
-      "blimp_supplement": 51.6,
-      "ewok": 51.0,
-      "entity_tracking": 27.54,
-      "reading_eye": 8.02,
-      "reading_spr": 3.05
-    },
-    {
-      "system": "multitask_repair_blmpair_v1_final",
-      "blimp": 54.81,
-      "blimp_supplement": 52.4,
-      "ewok": 50.73,
-      "entity_tracking": 25.99,
-      "reading_eye": 7.96,
-      "reading_spr": 3.11
-    },
-    {
-      "system": "multitask_ewok_plausibility_minimal_best",
-      "blimp": 55.46,
-      "blimp_supplement": 56.4,
-      "ewok": 49.64,
-      "entity_tracking": 37.1,
-      "reading_eye": 7.87,
-      "reading_spr": 3.22
-    },
-    {
-      "system": "multitask_ewok_plausibility_minimal_final",
-      "blimp": 55.7,
-      "blimp_supplement": 54.0,
-      "ewok": 49.55,
-      "entity_tracking": 35.81,
-      "reading_eye": 7.79,
-      "reading_spr": 3.25
-    },
-    {
-      "system": "multitask_mlm_pair_ranking_minimal_best",
-      "blimp": 55.95,
-      "blimp_supplement": 47.2,
-      "ewok": 49.55,
-      "entity_tracking": 33.5,
-      "reading_eye": 8.73,
-      "reading_spr": 3.67
-    },
-    {
-      "system": "multitask_mlm_pair_ranking_minimal_final",
-      "blimp": 56.45,
-      "blimp_supplement": 50.4,
-      "ewok": 49.18,
-      "entity_tracking": 32.93,
-      "reading_eye": 8.45,
-      "reading_spr": 3.56
     },
     {
       "system": "multitask_ewok_semantic_cloze_v1_best",
@@ -118,7 +64,6 @@
     "best_system": "multitask_ewok_semantic_cloze_v1_final",
     "best_ewok": 52.0,
     "delta_vs_mlm_baseline": 1.45,
-    "delta_vs_previous_best": 1.0,
-    "tradeoff": "Entity tracking is lower than the semantic-cloze best checkpoint and the earlier conceptual plausibility run."
+    "tradeoff": "The final checkpoint improves EWoK and reading metrics over the MLM baseline, while BLiMP drops and entity tracking is lower than the semantic-cloze best checkpoint."
   }
 }
