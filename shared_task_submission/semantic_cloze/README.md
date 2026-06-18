@@ -88,3 +88,5 @@ Known incompleteness for a full Challenge-valid package:
 - AoA surprisal was not run, so `aoa` is `null` in the collated artifact.
 - The required checkpoint-revision fast-eval series (`chck_1M` through `chck_100M`) was not run or uploaded; the collator filled those missing revision entries with `null`.
 - The final-model fast-eval results are present from the existing experiment, but not the full checkpoint trajectory.
+
+AoA was attempted on 2026-06-18. The official script requires Hugging Face revisions named `chck_1M` through `chck_100M`; those revisions are not present in the model repo, so no AoA surprisal file was generated. See `AOA_STATUS.md`.
