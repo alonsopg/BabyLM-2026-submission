@@ -1,0 +1,42 @@
+{
+  "submission_name": "semantic_cloze_multitask_minimal",
+  "created_utc": "2026-06-18",
+  "track": "strict-small",
+  "backend": "mlm",
+  "model": {
+    "huggingface_repo": "alonsopg/babylm-2026-semantic-cloze-strict-small",
+    "huggingface_url": "https://huggingface.co/alonsopg/babylm-2026-semantic-cloze-strict-small",
+    "huggingface_commit": "4530b3e6be2c264f339a59a2223c35bf3e12798a",
+    "architecture": "BertForMaskedLM",
+    "parameters": 11201338
+  },
+  "source_repository": {
+    "repo": "git@github.com:alonsopg/BabyLM-2026-submission.git",
+    "branch": "ewok-plausibility-minimal",
+    "commit_before_submission_folder": "04d51a2a333c39023b0601115787f458b32c5d2a"
+  },
+  "official_eval": {
+    "repo_path": "/home/paperspace/babylm-hhm/resources/babylm-eval",
+    "repo_commit": "467793f8809fe56f68b0d26f170da5a0cfcb7e0b",
+    "strict_eval_path": "/home/paperspace/babylm-hhm/resources/babylm-eval/strict",
+    "commands": [
+      "source /home/paperspace/BabyLM-2026-submission/experiments/multitask_distributional_bert/scripts/env.sh",
+      "CUDA_VISIBLE_DEVICES=0 bash scripts/eval_zero_shot.sh alonsopg/babylm-2026-semantic-cloze-strict-small mlm evaluation_data/full_eval",
+      "WANDB_DISABLED=true CUDA_VISIBLE_DEVICES=0 bash scripts/eval_finetuning.sh --model_path alonsopg/babylm-2026-semantic-cloze-strict-small",
+      "bash scripts/collate_preds.sh alonsopg/babylm-2026-semantic-cloze-strict-small mlm strict-small"
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "artifacts/all_full_preds_and_fast_scores_mlm.json",
+      "sha256": "980297bfd29ceeb0900b89fe35256c59b12023b9bc0a3555abefc4c430af3e9e",
+      "bytes": 16485387,
+      "description": "Official BabyLM collated predictions and available fast-eval scores."
+    }
+  ],
+  "known_missing_for_full_challenge_validity": [
+    "AoA surprisal output is absent and appears as null in the collated JSON.",
+    "Checkpoint-revision fast-eval outputs for chck_1M through chck_100M are absent and appear as null.",
+    "Only the final selected model is uploaded publicly on Hugging Face."
+  ]
+}
