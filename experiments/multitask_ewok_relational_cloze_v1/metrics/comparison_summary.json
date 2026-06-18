@@ -1,0 +1,80 @@
+{
+  "experiment": "multitask_ewok_relational_cloze_v1",
+  "question": "Does adding relational semantic cloze examples improve EWoK beyond the current best semantic cloze result?",
+  "conclusion": "No. The relational cloze variant trained and evaluated correctly, but it did not beat the 5% semantic cloze final checkpoint on EWoK.",
+  "current_best_for_ewok": {
+    "system": "multitask_ewok_semantic_cloze_v1_final",
+    "ewok": 52.0
+  },
+  "results": [
+    {
+      "system": "normal_bert_mlm_final",
+      "blimp": 64.33,
+      "supplement": 54.0,
+      "ewok": 50.55,
+      "entity": 15.56,
+      "eye": 2.47,
+      "spr": 2.42
+    },
+    {
+      "system": "multitask_repair_blmpair_v1_best",
+      "blimp": 54.8,
+      "supplement": 51.6,
+      "ewok": 51.0,
+      "entity": 27.54,
+      "eye": 8.02,
+      "spr": 3.05
+    },
+    {
+      "system": "multitask_ewok_semantic_cloze_v1_best",
+      "blimp": 54.1,
+      "supplement": 57.6,
+      "ewok": 50.73,
+      "entity": 36.61,
+      "eye": 7.56,
+      "spr": 3.11
+    },
+    {
+      "system": "multitask_ewok_semantic_cloze_v1_final",
+      "blimp": 55.26,
+      "supplement": 54.4,
+      "ewok": 52.0,
+      "entity": 27.44,
+      "eye": 8.18,
+      "spr": 3.71
+    },
+    {
+      "system": "multitask_ewok_relational_cloze_v1_best",
+      "blimp": 54.78,
+      "supplement": 53.2,
+      "ewok": 51.0,
+      "entity": 40.68,
+      "eye": 7.69,
+      "spr": 3.29
+    },
+    {
+      "system": "multitask_ewok_relational_cloze_v1_final",
+      "blimp": 54.83,
+      "supplement": 52.0,
+      "ewok": 50.82,
+      "entity": 26.8,
+      "eye": 8.09,
+      "spr": 3.26
+    }
+  ],
+  "training": {
+    "device": "NVIDIA RTX A6000",
+    "seed": 1,
+    "max_steps": 10000,
+    "stopped_step": 9500,
+    "early_stop": true,
+    "best_validation_step": 5000,
+    "semantic_cloze_probability": 0.025,
+    "relational_semantic_cloze_probability": 0.025,
+    "uses_classifier_head": false,
+    "uses_cls_pooling": false,
+    "uses_official_ewok_data_for_training": false,
+    "uses_external_datasets_for_relational_examples": false
+  },
+  "recommendation": "Keep multitask_ewok_semantic_cloze_v1_final as the EWoK-focused checkpoint. Consider relational cloze only as a possible Entity Tracking lead."
+}

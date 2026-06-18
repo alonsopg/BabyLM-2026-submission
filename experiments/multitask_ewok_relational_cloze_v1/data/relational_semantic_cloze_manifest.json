@@ -1,0 +1,17 @@
+{
+  "task": "relational_semantic_cloze",
+  "num_examples": 1200,
+  "num_skipped_multitoken": 1,
+  "num_skipped_ambiguous": 0,
+  "uses_official_ewok_data": false,
+  "uses_official_blimp_data": false,
+  "uses_external_datasets": false,
+  "domains": {
+    "cause_effect": 301,
+    "containment": 312,
+    "social_agentive": 275,
+    "spatial_support": 312
+  },
+  "tokenizer": "bert-base-uncased",
+  "target_size": 1200
+}

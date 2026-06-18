@@ -72,3 +72,13 @@ leaving all other settings aligned with the 5% run. None of the sweep variants b
 the best Entity result was 40.48 from `semantic_cloze_w075_best`; and the best Eye score
 was 8.82 from `semantic_cloze_w025_final`. The current recommendation remains the 5%
 semantic cloze final checkpoint for EWoK-focused reporting.
+
+The relational semantic cloze follow-up split the original 5% cloze pressure into 2.5%
+original semantic cloze and 2.5% relational cloze, using the same MLM-head single-mask
+ranking loss. This did not improve EWoK: the best relational checkpoint reached EWoK
+51.00 and the final early-stopped checkpoint reached EWoK 50.82, both below the 5%
+semantic cloze final score of 52.00. The useful signal is Entity Tracking: the relational
+best checkpoint reached Entity 40.68, the strongest Entity result in this isolated
+series so far. Recommendation: keep the 5% semantic cloze final checkpoint for
+EWoK-focused reporting; treat relational cloze as a negative EWoK result but a possible
+lead for Entity Tracking.

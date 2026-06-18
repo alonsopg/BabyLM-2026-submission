@@ -28,11 +28,11 @@ from src.training.train import evaluate
 
 
 CONNECTIVES = ["because", "so", "but", "although", "however", "therefore", "when", "while", "if", "then", "before", "after", "since", "though", "unless"]
-TASKS = ["mlm", "rtd", "connective", "definiteness", "collocation", "substitution", "function_word_recovery", "agreement_prediction", "grammar_minpair", "conceptual_plausibility_choice", "mlm_pair_ranking", "semantic_cloze_ranking"]
+TASKS = ["mlm", "rtd", "connective", "definiteness", "collocation", "substitution", "function_word_recovery", "agreement_prediction", "grammar_minpair", "conceptual_plausibility_choice", "mlm_pair_ranking", "semantic_cloze_ranking", "relational_semantic_cloze"]
 MLM_HEAD_TASKS = {"mlm", "function_word_recovery", "agreement_prediction"}
 COLLOCATION_HEAD_TASKS = {"collocation", "grammar_minpair", "conceptual_plausibility_choice"}
 MLM_PAIR_RANKING_TASKS = {"mlm_pair_ranking"}
-SEMANTIC_CLOZE_TASKS = {"semantic_cloze_ranking"}
+SEMANTIC_CLOZE_TASKS = {"semantic_cloze_ranking", "relational_semantic_cloze"}
 CONTENT_STOPWORDS = {
     "a", "an", "the", "to", "of", "in", "on", "at", "for", "from", "with", "by", "is", "are", "was", "were",
     "be", "been", "being", "can", "could", "will", "would", "should", "may", "might", "must", "do", "does",
@@ -160,7 +160,7 @@ def collate_task(rows: list[dict], task: str, tokenizer, rng: random.Random, max
         enc = tokenizer([row["prompt"] for row in rows], padding=True, truncation=True, max_length=max_length, return_tensors="pt")
         mask_positions = enc["input_ids"].eq(tokenizer.mask_token_id).nonzero(as_tuple=False)
         if mask_positions.size(0) != len(rows) or not torch.equal(mask_positions[:, 0], torch.arange(len(rows))):
-            raise ValueError("semantic_cloze_ranking rows must contain exactly one [MASK]")
+            raise ValueError(f"{task} rows must contain exactly one [MASK]")
         enc["mask_positions"] = mask_positions[:, 1]
         enc["good_token_ids"] = torch.tensor([tokenizer.encode(row["good"], add_special_tokens=False)[0] for row in rows], dtype=torch.long)
         enc["bad_token_ids"] = torch.tensor([tokenizer.encode(row["bad"], add_special_tokens=False)[0] for row in rows], dtype=torch.long)
