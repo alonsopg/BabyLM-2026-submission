@@ -4,7 +4,7 @@ Date: 2026-06-20
 
 ## Summary
 
-The missing AoA/checkpoint-revision issue was fixed in a temporary Hugging Face repository without changing the existing final model or minimal submission bundle.
+The missing AoA/checkpoint-revision issue was first fixed in a temporary Hugging Face repository, then the validated `chck_*` revisions were uploaded to the official submission model repository.
 
 Temporary model repo:
 
@@ -18,10 +18,18 @@ The temporary repo contains:
 - `chck_1M` through `chck_9M`
 - `chck_10M` through `chck_100M` by tens
 
-The official AoA script successfully processed all 19 checkpoint revisions and produced:
+Official submission model repo:
 
 ```text
-/home/paperspace/babylm-hhm/resources/babylm-eval/strict/results/babylm-2026-semantic-cloze-aoa-rerun/main/zero_shot/mlm/AoA_word/surprisal.json
+https://huggingface.co/alonsopg/babylm-2026-semantic-cloze-strict-small
+```
+
+The official repo now contains the same 19 `chck_*` revisions. The selected `main` final model was not overwritten.
+
+The official AoA script successfully processed all 19 checkpoint revisions for the official repo and produced:
+
+```text
+/home/paperspace/babylm-hhm/resources/babylm-eval/strict/results/babylm-2026-semantic-cloze-strict-small/main/zero_shot/mlm/AoA_word/surprisal.json
 ```
 
 AoA output:
@@ -30,7 +38,6 @@ AoA output:
 processed checkpoints: 19
 predictions per checkpoint: 8005
 total predictions: 152095
-sha256: a7059ff96132862affd4a33560fbc3c71269c626668057c226116ec4ed8f8e71
 ```
 
 ## What Changed In The Trainer
@@ -116,17 +123,17 @@ The rerun final checkpoint was evaluated locally with the official fast-eval hel
 
 ## Decision
 
-Do not update the official model repo yet.
+Update the official model repo with the isolated rerun trajectory for AoA, but keep the existing selected final model on `main`.
 
-Reason: the temporary AoA rerun proves that the checkpoint-revision/AoA pipeline works, but the rerun final checkpoint is materially worse than the current final on entity tracking. Updating the official repository with this trajectory would mix the current submitted final model with a different, weaker rerun trajectory.
+Reason: the temporary AoA rerun proves that the checkpoint-revision/AoA pipeline works, and the `chck_*` branches are real intermediate states rather than final-model copies. The rerun final checkpoint is materially worse than the current final on entity tracking, so the stronger existing final model remains on `main`.
 
-The existing minimal submission remains untouched:
+The minimal submission artifact has been regenerated with AoA populated:
 
 ```text
 shared_task_submission/semantic_cloze_minimal_submission.zip
 ```
 
-The existing final Hugging Face model remains untouched:
+The existing final Hugging Face model on `main` remains untouched:
 
 ```text
 alonsopg/babylm-2026-semantic-cloze-strict-small
@@ -160,6 +167,19 @@ cd /home/paperspace/babylm-hhm/resources/babylm-eval/strict
 source /home/paperspace/BabyLM-2026-submission/experiments/multitask_distributional_bert/scripts/env.sh
 CUDA_VISIBLE_DEVICES=0 bash scripts/eval_aoa.sh \
   alonsopg/babylm-2026-semantic-cloze-aoa-rerun \
+  mlm \
+  strict-small \
+  evaluation_data/full_eval/aoa/cdi_childes.json \
+  results
+```
+
+AoA on official repo:
+
+```bash
+cd /home/paperspace/babylm-hhm/resources/babylm-eval/strict
+source /home/paperspace/BabyLM-2026-submission/experiments/multitask_distributional_bert/scripts/env.sh
+CUDA_VISIBLE_DEVICES=0 bash scripts/eval_aoa.sh \
+  alonsopg/babylm-2026-semantic-cloze-strict-small \
   mlm \
   strict-small \
   evaluation_data/full_eval/aoa/cdi_childes.json \

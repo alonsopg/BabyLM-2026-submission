@@ -2,7 +2,9 @@
 
 Date: 2026-06-18
 
-## Attempted Command
+Updated: 2026-06-20
+
+## Original Attempted Command
 
 Run from the official BabyLM eval checkout:
 
@@ -17,7 +19,7 @@ CUDA_VISIBLE_DEVICES=0 bash scripts/eval_aoa.sh \
   results
 ```
 
-## Result
+## Original Result
 
 The official AoA script started correctly, loaded the AoA word/context data, selected CUDA, and generated the expected strict-small checkpoint list:
 
@@ -33,29 +35,46 @@ It then queried Hugging Face revisions such as:
 https://huggingface.co/alonsopg/babylm-2026-semantic-cloze-strict-small/resolve/chck_1M/config.json
 ```
 
-Every required `chck_*` revision returned `404 Not Found`, so no AoA surprisal results were generated.
+Every required `chck_*` revision returned `404 Not Found`, so no AoA surprisal results were generated at that time.
 
 ## Current Status
 
-AoA is still missing from the collated submission artifact because the final Hugging Face model repo only contains the final selected model. The official BabyLM AoA pipeline requires checkpoint-revision model states, not only a final checkpoint.
+Fixed on 2026-06-20. The official Hugging Face model repo now contains all 19 required `chck_*` revisions, uploaded from an isolated AoA rerun trajectory while leaving the selected `main` final model unchanged.
 
-## Temporary Rerun Validation
+The official AoA command now resolves the checkpoint revisions successfully and produced:
 
-On 2026-06-20, an isolated AoA rerun was completed and uploaded to a temporary Hugging Face repo:
+```text
+/home/paperspace/babylm-hhm/resources/babylm-eval/strict/results/babylm-2026-semantic-cloze-strict-small/main/zero_shot/mlm/AoA_word/surprisal.json
+```
+
+AoA output:
+
+```text
+processed checkpoints: 19
+predictions per checkpoint: 8005
+total predictions: 152095
+```
+
+The collated submission artifact has been regenerated, and `aoa` is no longer `null`.
+
+## Rerun Validation
+
+On 2026-06-20, an isolated AoA rerun was first completed and validated in a temporary Hugging Face repo:
 
 ```text
 alonsopg/babylm-2026-semantic-cloze-aoa-rerun
 ```
 
-The official AoA script successfully processed all 19 required checkpoint revisions in that temporary repo and produced `surprisal.json`. The official submission repo was not updated because the rerun final checkpoint was materially worse than the current submitted final on entity tracking. See `AOA_RERUN.md` for the full record.
+The official AoA script successfully processed all 19 required checkpoint revisions in that temporary repo and produced `surprisal.json`. After the 404 cause was confirmed, the same 19 checkpoint revisions were uploaded to the official submission repo:
 
-## Required Next Step
+```text
+alonsopg/babylm-2026-semantic-cloze-strict-small
+```
 
-To complete AoA honestly, we need real checkpoint revisions for the training trajectory:
+See `AOA_RERUN.md` for the full record.
 
-1. Recover saved model checkpoints corresponding to the required `chck_*` names, or rerun training with checkpoint export enabled at those milestones.
-2. Upload each checkpoint to the Hugging Face model repo as a revision named exactly `chck_1M`, `chck_2M`, ..., `chck_100M`.
-3. Re-run `scripts/eval_aoa.sh`.
-4. Re-run `scripts/collate_preds.sh` so `aoa` is no longer `null`.
+## Remaining Caveat
 
-Do not satisfy AoA by copying the final model into every `chck_*` revision; that would produce an artifact but would not represent a real acquisition trajectory.
+The `chck_*` revisions are real intermediate model states from the isolated rerun, not copies of the final model. However, the selected `main` final model remains the stronger original final checkpoint. This means the AoA trajectory and final `main` checkpoint do not come from the exact same local training run.
+
+Checkpoint-revision fast-eval outputs for BLiMP, BLiMP supplement, EWoK, entity tracking, and reading are still absent for `chck_1M` through `chck_100M`; the collator fills those fast-eval entries with `null`.

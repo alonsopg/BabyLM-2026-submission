@@ -13,8 +13,8 @@ This folder contains the minimal official-eval artifact for the selected multi-t
 
 - `artifacts/all_full_preds_and_fast_scores_mlm.json`
   - Produced by the official BabyLM eval collator.
-  - Contains full zero-shot predictions, finetuning predictions, and available fast-eval results.
-  - SHA256: `980297bfd29ceeb0900b89fe35256c59b12023b9bc0a3555abefc4c430af3e9e`
+  - Contains full zero-shot predictions, AoA surprisal results, finetuning predictions, and available fast-eval results.
+  - SHA256: `d07167cc4b3d48c5a089bb5638df5ef93daa8c449278e193fffa447168af6d8d`
 
 ## Official Eval Commands
 
@@ -55,6 +55,17 @@ bash scripts/collate_preds.sh \
   strict-small
 ```
 
+AoA:
+
+```bash
+CUDA_VISIBLE_DEVICES=0 bash scripts/eval_aoa.sh \
+  alonsopg/babylm-2026-semantic-cloze-strict-small \
+  mlm \
+  strict-small \
+  evaluation_data/full_eval/aoa/cdi_childes.json \
+  results
+```
+
 ## Full Eval Scores Observed
 
 | Section | Metric | Score |
@@ -81,12 +92,11 @@ bash scripts/collate_preds.sh \
 
 ## Submission Status
 
-This is ready as a minimal artifact for the selected final model. The model loads with Hugging Face Transformers as `AutoModelForMaskedLM`, and all seven finetuning prediction files are present in the collated JSON.
+This is ready as a minimal artifact for the selected final model. The model loads with Hugging Face Transformers as `AutoModelForMaskedLM`, all seven finetuning prediction files are present in the collated JSON, and AoA is now populated.
 
-Known incompleteness for a full Challenge-valid package:
+Known remaining incompleteness for a full Challenge-valid package:
 
-- AoA surprisal was not run, so `aoa` is `null` in the collated artifact.
-- The required checkpoint-revision fast-eval series (`chck_1M` through `chck_100M`) was not run or uploaded; the collator filled those missing revision entries with `null`.
-- The final-model fast-eval results are present from the existing experiment, but not the full checkpoint trajectory.
+- The required checkpoint-revision fast-eval series (`chck_1M` through `chck_100M`) was not run; the collator filled those missing revision entries with `null`.
+- The final-model fast-eval results are present from the existing experiment, but not the full checkpoint fast-eval trajectory.
 
-AoA was attempted on 2026-06-18. The official script requires Hugging Face revisions named `chck_1M` through `chck_100M`; those revisions are not present in the model repo, so no AoA surprisal file was generated. See `AOA_STATUS.md`.
+AoA originally failed on 2026-06-18 because the official script requires Hugging Face revisions named `chck_1M` through `chck_100M`. On 2026-06-20, those revisions were uploaded from an isolated rerun trajectory and the official AoA script processed all 19 checkpoints successfully. See `AOA_STATUS.md` and `AOA_RERUN.md`.

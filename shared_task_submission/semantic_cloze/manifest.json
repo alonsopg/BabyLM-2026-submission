@@ -1,6 +1,6 @@
 {
   "submission_name": "semantic_cloze_multitask_minimal",
-  "created_utc": "2026-06-18",
+  "created_utc": "2026-06-20",
   "track": "strict-small",
   "backend": "mlm",
   "model": {
@@ -8,12 +8,34 @@
     "huggingface_url": "https://huggingface.co/alonsopg/babylm-2026-semantic-cloze-strict-small",
     "huggingface_commit": "4530b3e6be2c264f339a59a2223c35bf3e12798a",
     "architecture": "BertForMaskedLM",
-    "parameters": 11201338
+    "parameters": 11201338,
+    "checkpoint_revisions": [
+      "chck_1M",
+      "chck_2M",
+      "chck_3M",
+      "chck_4M",
+      "chck_5M",
+      "chck_6M",
+      "chck_7M",
+      "chck_8M",
+      "chck_9M",
+      "chck_10M",
+      "chck_20M",
+      "chck_30M",
+      "chck_40M",
+      "chck_50M",
+      "chck_60M",
+      "chck_70M",
+      "chck_80M",
+      "chck_90M",
+      "chck_100M"
+    ],
+    "checkpoint_revision_note": "chck_* revisions were uploaded from the isolated AoA rerun trajectory; main remains the selected original final model."
   },
   "source_repository": {
     "repo": "git@github.com:alonsopg/BabyLM-2026-submission.git",
-    "branch": "ewok-plausibility-minimal",
-    "commit_before_submission_folder": "04d51a2a333c39023b0601115787f458b32c5d2a"
+    "branch": "multitask-semantic-cloze-clean",
+    "commit_before_submission_folder": "497089481f302129336ce21411d16e96c7c54dce"
   },
   "official_eval": {
     "repo_path": "/home/paperspace/babylm-hhm/resources/babylm-eval",
@@ -23,20 +45,20 @@
       "source /home/paperspace/BabyLM-2026-submission/experiments/multitask_distributional_bert/scripts/env.sh",
       "CUDA_VISIBLE_DEVICES=0 bash scripts/eval_zero_shot.sh alonsopg/babylm-2026-semantic-cloze-strict-small mlm evaluation_data/full_eval",
       "WANDB_DISABLED=true CUDA_VISIBLE_DEVICES=0 bash scripts/eval_finetuning.sh --model_path alonsopg/babylm-2026-semantic-cloze-strict-small",
+      "CUDA_VISIBLE_DEVICES=0 bash scripts/eval_aoa.sh alonsopg/babylm-2026-semantic-cloze-strict-small mlm strict-small evaluation_data/full_eval/aoa/cdi_childes.json results",
       "bash scripts/collate_preds.sh alonsopg/babylm-2026-semantic-cloze-strict-small mlm strict-small"
     ]
   },
   "artifacts": [
     {
       "path": "artifacts/all_full_preds_and_fast_scores_mlm.json",
-      "sha256": "980297bfd29ceeb0900b89fe35256c59b12023b9bc0a3555abefc4c430af3e9e",
-      "bytes": 16485387,
-      "description": "Official BabyLM collated predictions and available fast-eval scores."
+      "sha256": "d07167cc4b3d48c5a089bb5638df5ef93daa8c449278e193fffa447168af6d8d",
+      "bytes": 49156703,
+      "description": "Official BabyLM collated predictions, AoA surprisal results, and available fast-eval scores."
     }
   ],
   "known_missing_for_full_challenge_validity": [
-    "AoA surprisal output is absent and appears as null in the collated JSON.",
     "Checkpoint-revision fast-eval outputs for chck_1M through chck_100M are absent and appear as null.",
-    "Only the final selected model is uploaded publicly on Hugging Face."
+    "The AoA checkpoint trajectory comes from an isolated rerun while main remains the stronger selected final checkpoint."
   ]
 }
