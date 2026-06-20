@@ -77,4 +77,4 @@ See `AOA_RERUN.md` for the full record.
 
 The `chck_*` revisions are real intermediate model states from the isolated rerun, not copies of the final model. However, the selected `main` final model remains the stronger original final checkpoint. This means the AoA trajectory and final `main` checkpoint do not come from the exact same local training run.
 
-Checkpoint-revision fast-eval outputs for BLiMP, BLiMP supplement, EWoK, entity tracking, and reading are still absent for `chck_1M` through `chck_100M`; the collator fills those fast-eval entries with `null`.
+Checkpoint-revision fast-eval outputs for BLiMP, BLiMP supplement, EWoK, entity tracking, and reading were generated on 2026-06-20 for all 19 required revisions. The regenerated collated artifact contains no `null` entries in `fast_eval_results`.

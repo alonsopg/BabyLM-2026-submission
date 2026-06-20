@@ -127,7 +127,7 @@ Update the official model repo with the isolated rerun trajectory for AoA, but k
 
 Reason: the temporary AoA rerun proves that the checkpoint-revision/AoA pipeline works, and the `chck_*` branches are real intermediate states rather than final-model copies. The rerun final checkpoint is materially worse than the current final on entity tracking, so the stronger existing final model remains on `main`.
 
-The minimal submission artifact has been regenerated with AoA populated:
+The submission artifact has been regenerated with AoA populated and checkpoint fast-eval results populated for all 19 required `chck_*` revisions:
 
 ```text
 shared_task_submission/semantic_cloze_minimal_submission.zip
