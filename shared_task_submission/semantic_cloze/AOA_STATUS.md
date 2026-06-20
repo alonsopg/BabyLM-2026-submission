@@ -39,6 +39,16 @@ Every required `chck_*` revision returned `404 Not Found`, so no AoA surprisal r
 
 AoA is still missing from the collated submission artifact because the final Hugging Face model repo only contains the final selected model. The official BabyLM AoA pipeline requires checkpoint-revision model states, not only a final checkpoint.
 
+## Temporary Rerun Validation
+
+On 2026-06-20, an isolated AoA rerun was completed and uploaded to a temporary Hugging Face repo:
+
+```text
+alonsopg/babylm-2026-semantic-cloze-aoa-rerun
+```
+
+The official AoA script successfully processed all 19 required checkpoint revisions in that temporary repo and produced `surprisal.json`. The official submission repo was not updated because the rerun final checkpoint was materially worse than the current submitted final on entity tracking. See `AOA_RERUN.md` for the full record.
+
 ## Required Next Step
 
 To complete AoA honestly, we need real checkpoint revisions for the training trajectory:

@@ -17,6 +17,7 @@ data/
 !data/README.md
 resources/
 checkpoints/
+checkpoints_aoa_rerun/
 hf_exports/
 *.safetensors
 *.bin

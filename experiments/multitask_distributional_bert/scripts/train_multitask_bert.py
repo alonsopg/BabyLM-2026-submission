@@ -78,6 +78,32 @@ def set_seed(seed: int) -> None:
     torch.cuda.manual_seed_all(seed)
 
 
+def strict_small_revision_names() -> list[str]:
+    return [f"chck_{i}M" for i in range(1, 10)] + [f"chck_{i}M" for i in range(10, 101, 10)]
+
+
+def build_revision_schedule(cfg: dict, total_steps: int) -> tuple[str, dict[int, str]]:
+    revision_cfg = cfg["training"].get("checkpoint_revisions", {})
+    if not revision_cfg.get("enabled", False):
+        return "disabled", {}
+    names = revision_cfg.get("names") or strict_small_revision_names()
+    schedule_by = revision_cfg.get("schedule_by", "token_millions")
+    schedule_max_step = int(revision_cfg.get("schedule_max_step", total_steps))
+    schedule: dict[int, str] = {}
+    for name in names:
+        if not (name.startswith("chck_") and name.endswith("M")):
+            raise ValueError(f"Unsupported checkpoint revision name: {name}")
+        millions = int(name.removeprefix("chck_").removesuffix("M"))
+        if schedule_by == "token_millions":
+            schedule[millions * 1_000_000] = name
+        elif schedule_by == "step_fraction":
+            target_step = max(1, round((millions / 100) * schedule_max_step))
+            schedule[target_step] = name
+        else:
+            raise ValueError(f"Unsupported checkpoint revision schedule_by: {schedule_by}")
+    return schedule_by, dict(sorted(schedule.items()))
+
+
 def mask_batch(input_ids: torch.Tensor, attention_mask: torch.Tensor, tokenizer, rng: random.Random, mask_rate: float = 0.15) -> torch.Tensor:
     labels = torch.full_like(input_ids, -100)
     specials = set(tokenizer.all_special_ids)
@@ -254,6 +280,12 @@ def main() -> None:
     calibration_mlm_steps = int(cfg["training"].get("calibration_mlm_steps", 0))
     calibration_start = total_steps - calibration_mlm_steps + 1
     scheduler = get_linear_schedule_with_warmup(optimizer, int(total_steps * cfg["training"].get("warmup_fraction", 0.06)), total_steps)
+    revision_schedule_by, revision_schedule = build_revision_schedule(cfg, total_steps)
+    revision_output_dir = out_dir / cfg["training"].get("checkpoint_revisions", {}).get("output_dir", "aoa_revisions")
+    saved_revisions: list[dict[str, int]] = []
+    next_revision_idx = 0
+    revision_targets = list(revision_schedule.items())
+    seen_tokens = 0
 
     log_path = out_dir / "train_log.csv"
     counts = {task: 0 for task in TASKS}
@@ -268,7 +300,7 @@ def main() -> None:
     last_semantic_metrics: dict[str, float] = {}
     model.train()
     with log_path.open("w", newline="") as f:
-        fields = ["step", "task", "loss", "semantic_cloze_ranking_margin", "semantic_cloze_ranking_accuracy", "val_mlm_loss", "best_val_mlm_loss", "bad_evals", "lr", "elapsed_sec", "early_stop"] + [f"steps/{task}" for task in TASKS]
+        fields = ["step", "task", "loss", "semantic_cloze_ranking_margin", "semantic_cloze_ranking_accuracy", "seen_tokens", "val_mlm_loss", "best_val_mlm_loss", "bad_evals", "lr", "elapsed_sec", "early_stop"] + [f"steps/{task}" for task in TASKS]
         writer = csv.DictWriter(f, fieldnames=fields)
         writer.writeheader()
         for step in range(1, total_steps + 1):
@@ -282,6 +314,7 @@ def main() -> None:
                 loaders[task] = iter(DataLoader(datasets[task], batch_size=cfg["training"]["batch_size"], shuffle=True, collate_fn=lambda rows, t=task: collate_task(rows, t, tokenizer, rng, cfg["training"]["max_length"], cfg["training"].get("max_scoring_positions", 6))))
                 batch = next(loaders[task])
             batch = {k: v.to(device) for k, v in batch.items()}
+            seen_tokens += int(batch["attention_mask"].sum().item())
             loss, task_metrics = forward_task(model, batch, task, tokenizer)
             if task_metrics:
                 last_semantic_metrics.update(task_metrics)
@@ -291,6 +324,26 @@ def main() -> None:
             scheduler.step()
             optimizer.zero_grad(set_to_none=True)
             counts[task] += 1
+            while next_revision_idx < len(revision_targets) and (
+                (revision_schedule_by == "token_millions" and seen_tokens >= revision_targets[next_revision_idx][0])
+                or (revision_schedule_by == "step_fraction" and step >= revision_targets[next_revision_idx][0])
+            ):
+                target, revision_name = revision_targets[next_revision_idx]
+                revision_path = revision_output_dir / revision_name
+                model.save_mlm_compatible(revision_path, tokenizer)
+                revision_record = {
+                    "revision": revision_name,
+                    "saved_at_step": step,
+                    "seen_tokens": seen_tokens,
+                    "schedule_by": revision_schedule_by,
+                }
+                if revision_schedule_by == "token_millions":
+                    revision_record["target_tokens"] = target
+                else:
+                    revision_record["target_step"] = target
+                saved_revisions.append(revision_record)
+                (revision_output_dir / "manifest.json").write_text(json.dumps(saved_revisions, indent=2))
+                next_revision_idx += 1
             if step == 1 or step % cfg["training"].get("eval_every", 500) == 0 or step == total_steps:
                 val_mlm_loss = evaluate_mlm_loss(model.mlm, val_loader, device, cfg["training"].get("eval_batches", 20))
                 improved = val_mlm_loss < (best_val_mlm_loss - early_min_delta)
@@ -309,6 +362,7 @@ def main() -> None:
                     "loss": float(loss.detach().cpu()),
                     "semantic_cloze_ranking_margin": last_semantic_metrics.get("semantic_cloze_ranking_margin", ""),
                     "semantic_cloze_ranking_accuracy": last_semantic_metrics.get("semantic_cloze_ranking_accuracy", ""),
+                    "seen_tokens": seen_tokens,
                     "val_mlm_loss": val_mlm_loss,
                     "best_val_mlm_loss": best_val_mlm_loss,
                     "bad_evals": bad_evals,
@@ -327,6 +381,9 @@ def main() -> None:
 
     model.save_full(out_dir / "full_multitask_checkpoint", tokenizer)
     model.save_mlm_compatible(out_dir / "mlm_compatible_checkpoint", tokenizer)
+    if revision_schedule:
+        revision_output_dir.mkdir(parents=True, exist_ok=True)
+        (revision_output_dir / "manifest.json").write_text(json.dumps(saved_revisions, indent=2))
     (out_dir / "task_counts.json").write_text(json.dumps(counts, indent=2))
 
 
