@@ -107,6 +107,8 @@ done
 
 This is ready as a complete artifact package for the selected final model. The model loads with Hugging Face Transformers as `AutoModelForMaskedLM`, all seven finetuning prediction files are present in the collated JSON, AoA is populated, and checkpoint fast-eval results are populated for all 19 required revisions.
 
+Leaderboard form metadata is prepared in `LEADERBOARD_FORM_PAYLOAD.md` and `leaderboard_form_payload.json`. See `LEADERBOARD_SUBMISSION_STATUS.md` for the 2026-06-22 leaderboard API submission attempt and the remaining manual browser submission step.
+
 Known provenance caveat:
 
 - The required `chck_*` revisions were uploaded from an isolated AoA rerun trajectory while the selected `main` final model remains the stronger original final checkpoint. Thus, the checkpoint trajectory and `main` are valid model artifacts, but they do not come from the exact same local training run.

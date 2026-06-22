@@ -1,0 +1,26 @@
+{
+  "experiment_name": "multitask_ewok_semantic_cloze_v1",
+  "selected_system": "multitask_ewok_semantic_cloze_v1_final",
+  "objective": "compact BERT-style MLM with auxiliary multi-task objectives, including MLM-head semantic cloze ranking",
+  "task_mixture": {
+    "mlm": 0.6,
+    "rtd": 0.1,
+    "connective": 0.075,
+    "definiteness": 0.075,
+    "collocation": 0.05,
+    "grammar_minpair": 0.05,
+    "semantic_cloze_ranking": 0.05
+  },
+  "early_stopping": {
+    "enabled": true,
+    "monitor": "val_mlm_loss",
+    "patience_evals": 2,
+    "min_delta": 0.01,
+    "start_after_step": 9000,
+    "stopped_at_step": 9500,
+    "best_validation_step": 5000
+  },
+  "known_provenance_caveat": "The official chck_* trajectory used for AoA and checkpoint fast eval comes from an isolated rerun; main remains the stronger selected final model.",
+  "official_eval_artifact_sha256": "ce458a181ef04dc47284da51dc7bb6e5b1902666a2d7e725cdee226bb23608d7",
+  "zip_sha256": "64bb8c4ed3bab1b02bcc2abea6f263c57be328919d3a860a95488eeef368066d"
+}
