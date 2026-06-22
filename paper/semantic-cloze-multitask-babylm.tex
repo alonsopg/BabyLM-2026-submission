@@ -1,0 +1,193 @@
+\pdfoutput=1
+\documentclass[11pt]{article}
+
+\usepackage[review]{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{url}
+
+\title{Semantic Cloze Ranking as a Lightweight Auxiliary Objective for Strict-Small BabyLM Pretraining}
+
+\author{
+  Alonso Palomino \\
+  \texttt{mail@alonsopg.com}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper describes a compact masked language model submitted to the BabyLM 2026 Strict-Small track.
+The system uses a small BERT-style encoder trained on the official Strict-Small corpus with a multi-task objective.
+In addition to masked language modeling, training includes replaced-token detection, connective prediction, definiteness prediction, collocation discrimination, grammar minimal-pair ranking, and a small semantic cloze ranking task.
+The semantic cloze task presents a masked prompt with a plausible and implausible single-token completion and trains the MLM head to rank the plausible token higher.
+The final model has 11.2M parameters and remains compatible with Hugging Face \texttt{AutoModelForMaskedLM}.
+Official evaluation shows that the selected final checkpoint improves EWoK and reading-oriented metrics over a local MLM baseline, while lowering BLiMP and entity tracking.
+\end{abstract}
+
+\section{Introduction}
+
+The BabyLM Challenge asks whether language models can learn useful linguistic and semantic generalizations from developmentally plausible data budgets \citep{warstadt2023babylm,choshen2026babylm}.
+This submission focuses on the Strict-Small setting, where the data budget is 10M words.
+Instead of increasing model size or using external teacher models, the system keeps a compact encoder architecture and changes the training signal.
+
+The motivating hypothesis is simple: a small masked language model may benefit from auxiliary objectives that make lexical, relational, and plausibility contrasts explicit while still using the same MLM prediction head at submission time.
+The main added objective is semantic cloze ranking.
+Each example contains a prompt with one \texttt{[MASK]} token, a plausible completion, and an implausible completion.
+The model is trained to assign higher MLM log-probability to the plausible completion.
+This gives the model a direct plausibility-ranking signal without adding a separate classifier head.
+
+\section{Model}
+
+The submitted model is a compact BERT-style masked language model \citep{devlin2019bert}.
+It uses the \texttt{bert-base-uncased} WordPiece tokenizer and a randomly initialized encoder with 4 transformer layers, hidden size 256, 4 attention heads, intermediate size 1024, and maximum position embedding length 512.
+The maximum training sequence length is 128.
+The exported model has 11,201,338 parameters and is uploaded publicly at:
+
+\begin{center}
+\small
+\url{https://huggingface.co/alonsopg/babylm-2026-semantic-cloze-strict-small}
+\end{center}
+
+\section{Training Objectives}
+
+Training uses a weighted multi-task mixture.
+The primary task remains standard masked language modeling.
+Auxiliary tasks are generated from the BabyLM Strict-Small training data or from small hand-written semantic templates.
+No official evaluation items are used to construct the auxiliary data.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lr}
+\toprule
+Task & Sampling weight \\
+\midrule
+Masked language modeling & 0.600 \\
+Replaced-token detection & 0.100 \\
+Connective prediction & 0.075 \\
+Definiteness prediction & 0.075 \\
+Collocation discrimination & 0.050 \\
+Grammar minimal-pair ranking & 0.050 \\
+Semantic cloze ranking & 0.050 \\
+\bottomrule
+\end{tabular}
+\caption{Training task mixture for the selected system.}
+\label{tab:mixture}
+\end{table}
+
+The semantic cloze objective uses prompts such as ``A shovel is used for \texttt{[MASK]}.'' with a plausible single-token completion and an implausible alternative.
+Let $s_g$ and $s_b$ be the MLM log-probabilities of the good and bad completions at the masked position.
+The ranking loss is:
+
+\begin{equation}
+  \mathcal{L}_{cloze} = \log(1 + \exp(-(s_g - s_b))).
+\end{equation}
+
+This objective keeps inference unchanged: the final model is still a normal masked language model.
+
+\section{Optimization}
+
+Training used AdamW with maximum learning rate $5\times10^{-4}$, weight decay 0.01, gradient clipping at 1.0, batch size 96 sequences, and linear warmup for 6\% of training steps followed by decay.
+Evaluation on a held-out validation split was performed every 500 steps.
+Early stopping monitored validation MLM loss with patience 2, minimum improvement 0.01, and activation after step 9000.
+The selected final run stopped at step 9500; the best validation checkpoint occurred at step 5000.
+
+\section{Results}
+
+Table~\ref{tab:fast} compares the selected system against a local MLM baseline and the best-validation semantic-cloze checkpoint using the official fast-evaluation helper.
+The final semantic-cloze checkpoint was selected because it produced the strongest EWoK and reading scores among the retained systems.
+
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+System & BLiMP & Supplement & EWoK & Entity & Eye & SPR \\
+\midrule
+MLM baseline & 64.33 & 54.00 & 50.55 & 15.56 & 2.47 & 2.42 \\
+Semantic cloze best validation & 54.10 & 57.60 & 50.73 & 36.61 & 7.56 & 3.11 \\
+Semantic cloze final & 55.26 & 54.40 & 52.00 & 27.44 & 8.18 & 3.71 \\
+\bottomrule
+\end{tabular}
+\caption{Official fast-evaluation scores for local comparison systems.}
+\label{tab:fast}
+\end{table*}
+
+The full official evaluation artifact for the selected public model contains predictions for BLiMP, BLiMP Supplement, EWoK, entity tracking, COMPS, reading, SuperGLUE-style finetuning tasks, AoA, and checkpoint-level fast evaluation.
+Observed full-evaluation scores are shown in Table~\ref{tab:full}.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lr}
+\toprule
+Evaluation section & Score \\
+\midrule
+BLiMP filtered accuracy & 55.35 \\
+BLiMP supplement accuracy & 53.29 \\
+EWoK accuracy & 50.45 \\
+Entity tracking accuracy & 27.55 \\
+COMPS accuracy & 50.63 \\
+Reading eye-tracking score & 8.18 \\
+Reading SPR score & 3.71 \\
+\bottomrule
+\end{tabular}
+\caption{Observed full official evaluation scores for the selected submitted model.}
+\label{tab:full}
+\end{table}
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+Task & Accuracy & F1 & MCC \\
+\midrule
+BoolQ & 0.6679 & 0.7755 & 0.2061 \\
+MNLI & 0.4269 & -- & -- \\
+MRPC & 0.6912 & 0.8131 & 0.1300 \\
+MultiRC & 0.5858 & 0.2132 & 0.0859 \\
+QQP & 0.7044 & 0.5816 & 0.3554 \\
+RTE & 0.5468 & 0.5191 & 0.0910 \\
+WSC & 0.5769 & 0.1538 & -0.0381 \\
+\bottomrule
+\end{tabular}
+\caption{Observed finetuning scores from the official evaluation pipeline.}
+\label{tab:glue}
+\end{table}
+
+\section{Discussion}
+
+The results suggest that semantic cloze ranking can modestly improve conceptual plausibility and reading-oriented metrics for a compact MLM.
+However, the trade-off is visible: BLiMP is lower than the local MLM baseline, and entity tracking is sensitive to checkpoint choice.
+The best-validation semantic-cloze checkpoint improved entity tracking substantially, while the final checkpoint improved EWoK and reading but reduced entity tracking.
+This supports the view that small-model pretraining objectives can shift evaluation behavior unevenly across linguistic, semantic, and discourse-level probes.
+
+\section{Submission Caveat}
+
+The public model repository contains all required BabyLM checkpoint revisions, and the collated submission artifact includes AoA plus checkpoint fast-evaluation results for all 19 required Strict-Small revisions.
+The selected \texttt{main} model remains the stronger original final checkpoint.
+The \texttt{chck\_*} trajectory used for AoA and checkpoint fast evaluation comes from an isolated rerun with the same configuration, because the original run did not export Hugging Face revisions during training.
+Thus, the artifact is complete, but the checkpoint trajectory and selected \texttt{main} checkpoint do not come from the exact same local training run.
+
+\section{Limitations}
+
+This is a single-seed experiment with a small number of auxiliary objective variants.
+The semantic cloze templates are intentionally simple and may not cover the full diversity of conceptual knowledge probed by EWoK.
+The current results should therefore be read as evidence that the objective is promising, not as a definitive statement about the best auxiliary-task mixture.
+
+\section{Ethics Statement}
+
+The submitted model is trained on the official BabyLM Strict-Small data and small auxiliary examples derived without external personal data.
+The model is small and intended for research evaluation.
+No claim is made that it is safe for deployment without additional testing.
+
+\bibliography{semantic-cloze-multitask-babylm}
+
+\end{document}
