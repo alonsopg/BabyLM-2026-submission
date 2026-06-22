@@ -16,4 +16,5 @@ Status:
 - Draft created from the current submission artifact and experiment configs.
 - Results tables are populated from the official eval reports and local fast-eval comparison.
 - The known checkpoint provenance caveat is stated explicitly.
+- Additional paper-writing details, caveats, result tables, commands, and suggested claims are collected in `PAPER_NOTES.md`.
 - Final polishing, bibliography expansion, and venue-specific OpenReview/ARR metadata are still needed before submission.
