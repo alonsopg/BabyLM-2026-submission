@@ -28,7 +28,7 @@
   "token_set_size": 30522,
   "num_layers": 4,
   "total_parameters": 11201338,
-  "flops": 0.008,
+  "flops": 8000000000000000,
   "gpu_train": 4,
   "data_human": "Not applicable",
   "data_preprocessing": "BabyLM",
@@ -42,5 +42,5 @@
   "num_words_en": 0,
   "num_words_nld": 0,
   "num_words_zho": 0,
-  "notes": "GPU hours and PFLOPs are approximate; epochs is set to 1 for the leaderboard form because the local setup is step-sampled multi-task training rather than a clean full-corpus epoch loop."
+  "notes": "GPU hours and FLOPs are approximate; epochs is set to 1 for the leaderboard form because the local setup is step-sampled multi-task training rather than a clean full-corpus epoch loop. The leaderboard form requires Total training FLOPS as an integer; 8000000000000000 is the integer-FLOP equivalent of the original 0.008 PFLOP estimate."
 }

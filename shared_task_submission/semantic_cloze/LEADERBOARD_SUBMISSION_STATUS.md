@@ -55,9 +55,53 @@ The current public leaderboard table was checked after the failures, and no matc
 `semantic-cloze-multitask-bert-strict-small` or `alonsopg/babylm-2026-semantic-cloze-strict-small`
 was visible in the embedded table data. This indicates the failed API calls did not visibly register.
 
+## Manual Submission Result
+
+Manual browser submission succeeded after changing the FLOPs field from the original decimal PFLOP estimate to the integer FLOP value required by the form:
+
+```text
+8000000000000000
+```
+
+The submitted row is visible on the `Strict-small` tab as:
+
+```text
+semantic-cloze-multitask-bert-strict-small
+```
+
+Live row observed after submission:
+
+| Metric | Score |
+|---|---:|
+| Text Average | 33.0 |
+| BLiMP | 55.36 |
+| BLiMP Supplement | 53.29 |
+| EWoK | 0.0 |
+| Entity Tracking | 27.55 |
+| COMPS | 50.63 |
+| Reading | 5.94 |
+| AoA | 11.25 |
+| SuperGLUE | 60.0 |
+
+## EWoK Display Issue
+
+The live leaderboard currently displays EWoK as `0.0`, but the submitted JSON contains EWoK predictions and the local official eval report produced:
+
+```text
+EWoK average accuracy: 50.45
+```
+
+Local artifact checks:
+
+- `ewok` is present in `artifacts/all_full_preds_and_fast_scores_mlm.json`.
+- It contains 11 EWoK subtasks.
+- Checkpoint `fast_eval_results.ewok` contains 19 entries with no `null` values.
+
+This may be a leaderboard scoring/schema issue and should be checked with the organizers if the displayed `0.0` persists.
+
 ## Manual Submission Path
 
-If the API remains unavailable, submit through the leaderboard browser UI:
+If a resubmission is needed, submit through the leaderboard browser UI:
 
 ```text
 https://huggingface.co/spaces/BabyLM-community/BabyLM-Leaderboard-2026
@@ -75,8 +119,8 @@ For Strict-Small, the multilingual predictions file is not required.
 
 ## Remaining Items
 
-- Submit the results through the leaderboard UI once the Space accepts the form.
 - Fill the BabyLM hyperparameter/details form using `LEADERBOARD_FORM_PAYLOAD.md`.
+- Investigate or report the leaderboard EWoK `0.0` display issue.
 - Prepare and submit the paper through the announced OpenReview/ARR path.
 
 The paper is intentionally left as the final item.
