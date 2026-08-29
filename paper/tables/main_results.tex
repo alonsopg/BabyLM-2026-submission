@@ -1,0 +1,27 @@
+\begin{table*}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{lrrrrrrX}
+\toprule
+\textbf{Approach} & \textbf{BLiMP} & \textbf{Sup.} & \textbf{EWoK} & \textbf{Entity} & \textbf{Eye} & \textbf{SPR} & \textbf{Main takeaway} \\
+\midrule
+\rowcolor{tablegray} \textbf{MLM-only baseline} & \textcolor{black}{\textbf{64.33}} & 54.00 & 50.55 & 15.56 & 2.47 & 2.42 & strongest BLiMP \\
+Calibrated multi-task & 54.80 & \textcolor{black}{\textbf{54.80}} & 50.27 & \textcolor{black}{\textbf{34.52}} & \textcolor{black}{\textbf{7.46}} & \textcolor{black}{\textbf{3.19}} & Entity and reading gains \\
+\rowcolor{tablegray} Syntax repair final & 55.51 & 52.40 & 49.55 & \textcolor{black}{\textbf{32.76}} & \textcolor{black}{\textbf{8.28}} & \textcolor{black}{\textbf{3.63}} & repair does not recover BLiMP \\
+BLiMP-pair repair best & 54.80 & 51.60 & \textcolor{black}{\textbf{51.00}} & \textcolor{black}{\textbf{27.54}} & \textcolor{black}{\textbf{8.02}} & \textcolor{black}{\textbf{3.05}} & weak positive fast EWoK delta \\
+\rowcolor{tablegray} Conceptual plausibility best & 55.46 & \textcolor{black}{\textbf{56.40}} & 49.64 & \textcolor{black}{\textbf{37.10}} & \textcolor{black}{\textbf{7.87}} & \textcolor{black}{\textbf{3.22}} & high Entity, negative EWoK delta \\
+MLM pair ranking best & 55.95 & 47.20 & 49.55 & \textcolor{black}{\textbf{33.50}} & \textcolor{black}{\textbf{8.73}} & \textcolor{black}{\textbf{3.67}} & strong reading, negative EWoK delta \\
+\midrule
+\rowcolor{tablegray} Semantic cloze 5\% best & 54.10 & \textcolor{black}{\textbf{57.60}} & \textcolor{black}{\textbf{50.73}} & \textcolor{black}{\textbf{36.61}} & \textcolor{black}{\textbf{7.56}} & \textcolor{black}{\textbf{3.11}} & high Supplement/Entity \\
+Semantic cloze 5\% final & 55.26 & \textcolor{black}{\textbf{54.40}} & \textcolor{black}{\textbf{52.00}} & \textcolor{black}{\textbf{27.44}} & \textcolor{black}{\textbf{8.18}} & \textcolor{black}{\textbf{3.71}} & best fast EWoK and SPR \\
+\rowcolor{tablegray} Semantic cloze 2.5\% final & 54.34 & \textcolor{black}{\textbf{54.80}} & \textcolor{black}{\textbf{50.73}} & \textcolor{black}{\textbf{22.79}} & \textcolor{black}{\textbf{8.82}} & \textcolor{black}{\textbf{3.06}} & best Eye \\
+Semantic cloze 7.5\% best & 53.57 & 52.80 & \textcolor{black}{\textbf{51.00}} & \textcolor{black}{\textbf{40.48}} & \textcolor{black}{\textbf{7.85}} & \textcolor{black}{\textbf{3.13}} & high Entity \\
+\rowcolor{tablegray} Semantic cloze 10\% final & 55.09 & 52.80 & \textcolor{black}{\textbf{51.64}} & \textcolor{black}{\textbf{33.59}} & \textcolor{black}{\textbf{8.01}} & \textcolor{black}{\textbf{3.39}} & best non-selected sweep EWoK \\
+Relational cloze best & 54.78 & 53.20 & \textcolor{black}{\textbf{51.00}} & \textcolor{black}{\textbf{40.68}} & \textcolor{black}{\textbf{7.69}} & \textcolor{black}{\textbf{3.29}} & best Entity \\
+\rowcolor{tablegray} Relational cloze final & 54.83 & 52.00 & \textcolor{black}{\textbf{50.82}} & \textcolor{black}{\textbf{26.80}} & \textcolor{black}{\textbf{8.09}} & \textcolor{black}{\textbf{3.26}} & relation final lowers Entity \\
+\bottomrule
+\end{tabularx}
+\caption{Official strict fast-evaluation results for representative approaches. BLiMP, Supplement, EWoK, and Entity Tracking are accuracy-style percentages. Eye and SPR are official reading-prediction scores. Bold black entries indicate scores that improve over the MLM-only baseline, except for BLiMP where the MLM-only baseline is the strongest observed score.}
+\label{tab:main-results}
+\end{table*}

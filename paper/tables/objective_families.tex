@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{p{0.14\textwidth}p{0.14\textwidth}p{0.18\textwidth}p{0.20\textwidth}X}
+\toprule
+\textbf{Family} & \textbf{Loss interface} & \textbf{Task examples} & \textbf{Expected target} & \textbf{Observed effect} \\
+\midrule
+MLM-only & Selective MLM & Random masked tokens & General baseline; BLiMP & Strongest BLiMP, weakest Entity and reading scores. \\
+Core multi-task & Classification + MLM & RTD, connective, definiteness, collocation & Entity, reading, discourse/function words & Large Entity and reading gains, large BLiMP loss. \\
+Syntax repair & Selective MLM & Function-word recovery, agreement prediction & BLiMP recovery & Only small BLiMP recovery; Entity and reading remain strong. \\
+Grammar repair & Classification & BLiMP-style generated minimal pairs & BLiMP recovery & Does not recover BLiMP; weak positive fast-evaluation EWoK delta. \\
+Plausibility & Classification & Selectional, affordance, part-whole, agency templates & EWoK and Entity & Improves Entity, but has a negative fast-evaluation EWoK delta. \\
+MLM pair ranking & Ranking & Plausible vs. implausible contexts & EWoK and reading & Improves reading most strongly, but has a negative fast-evaluation EWoK delta. \\
+Semantic cloze & Ranking & Single-mask plausible vs. implausible completion & EWoK & Clearest directional fast-evaluation EWoK gain; still trades off against BLiMP. \\
+Relational cloze & Ranking & Spatial and relational masked-token contrasts & EWoK and Entity & Best Entity score, but lower fast-evaluation EWoK than semantic cloze 5\% final. \\
+\bottomrule
+\end{tabularx}
+\caption{Auxiliary objective families tested in the BabyLM Strict-Small experiments. The loss-interface column groups the many objectives into the three broad mechanisms used in the study: selective MLM, classification, and ranking.}
+\label{tab:objective-families}
+\end{table*}

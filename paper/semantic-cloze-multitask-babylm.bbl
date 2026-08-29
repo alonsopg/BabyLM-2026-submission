@@ -1,0 +1,219 @@
+\begin{thebibliography}{27}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Chomsky(1957)}]{chomsky1957syntactic}
+Noam Chomsky. 1957.
+\newblock \emph{Syntactic Structures}.
+\newblock Mouton, The Hague.
+
+\bibitem[{Choshen et~al.(2026)Choshen, Cotterell, Gul, Jumelet, Linzen,
+  Mueller, Salhan, Shah, Warstadt, and Wilcox}]{choshen2026babylmturns4}
+Leshem Choshen, Ryan Cotterell, Mustafa~Omer Gul, Jaap Jumelet, Tal Linzen,
+  Aaron Mueller, Suchir Salhan, Raj~Sanjay Shah, Alex Warstadt, and
+  Ethan~Gotlieb Wilcox. 2026.
+\newblock \href {http://arxiv.org/abs/2602.20092} {{BabyLM} turns 4: Call for
+  papers for the 2026 {BabyLM} workshop}.
+
+\bibitem[{Clark et~al.(2020)Clark, Luong, Le, and Manning}]{clark2020electra}
+Kevin Clark, Minh-Thang Luong, Quoc~V. Le, and Christopher~D. Manning. 2020.
+\newblock \href {https://openreview.net/forum?id=r1xMH1BtvB} {{ELECTRA}:
+  Pre-training text encoders as discriminators rather than generators}.
+\newblock In \emph{International Conference on Learning Representations}.
+
+\bibitem[{Corbett(2006)}]{corbett2006agreement}
+Greville~G. Corbett. 2006.
+\newblock \emph{Agreement}.
+\newblock Cambridge Textbooks in Linguistics. Cambridge University Press,
+  Cambridge.
+
+\bibitem[{Devlin et~al.(2019)Devlin, Chang, Lee, and
+  Toutanova}]{devlin2019bert}
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2019.
+\newblock \href {https://doi.org/10.18653/v1/N19-1423} {{BERT}: Pre-training of
+  deep bidirectional transformers for language understanding}.
+\newblock In \emph{Proceedings of the 2019 Conference of the North American
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies, Volume 1 (Long and Short Papers)}, pages 4171--4186,
+  Minneapolis, Minnesota. Association for Computational Linguistics.
+
+\bibitem[{Firth(1957)}]{firth1957synopsis}
+J.~R. Firth. 1957.
+\newblock A synopsis of linguistic theory, 1930--1955.
+\newblock In \emph{Studies in Linguistic Analysis}, pages 1--32. Blackwell,
+  Oxford.
+
+\bibitem[{Frank et~al.(2013)Frank, Fernandez~Monsalve, Thompson, and
+  Vigliocco}]{frank2013reading}
+Stefan~L. Frank, Irene Fernandez~Monsalve, Robin~L. Thompson, and Gabriella
+  Vigliocco. 2013.
+\newblock \href {https://doi.org/10.3758/s13428-012-0313-y} {Reading time data
+  for evaluating broad-coverage models of {English} sentence processing}.
+\newblock \emph{Behavior Research Methods}, 45(4):1182--1190.
+
+\bibitem[{Fries(1952)}]{fries1952structure}
+Charles~C. Fries. 1952.
+\newblock \emph{The Structure of English: An Introduction to the Construction
+  of English Sentences}.
+\newblock Harcourt, Brace, New York.
+
+\bibitem[{Gundel et~al.(1993)Gundel, Hedberg, and
+  Zacharski}]{gundel1993cognitive}
+Jeanette~K. Gundel, Nancy Hedberg, and Ron Zacharski. 1993.
+\newblock \href {https://doi.org/10.2307/416535} {Cognitive status and the form
+  of referring expressions in discourse}.
+\newblock \emph{Language}, 69(2):274--307.
+
+\bibitem[{Gururangan et~al.(2020)Gururangan, Marasovic, Swayamdipta, Lo,
+  Beltagy, Downey, and Smith}]{gururangan2020dont}
+Suchin Gururangan, Ana Marasovic, Swabha Swayamdipta, Kyle Lo, Iz~Beltagy, Doug
+  Downey, and Noah~A. Smith. 2020.
+\newblock \href {https://doi.org/10.18653/v1/2020.acl-main.740} {Don't stop
+  pretraining: Adapt language models to domains and tasks}.
+\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
+  for Computational Linguistics}, pages 8342--8360, Online. Association for
+  Computational Linguistics.
+
+\bibitem[{Haller et~al.(2024)Haller, Golde, and Akbik}]{haller2024babyhgrn}
+Patrick Haller, Jonas Golde, and Alan Akbik. 2024.
+\newblock \href {https://aclanthology.org/2024.conll-babylm.7/} {{BabyHGRN}:
+  Exploring {RNN}s for sample-efficient language modeling}.
+\newblock In \emph{The 2nd BabyLM Challenge at the 28th Conference on
+  Computational Natural Language Learning}, pages 82--94, Miami, FL, USA.
+  Association for Computational Linguistics.
+
+\bibitem[{Halliday and Hasan(1976)}]{halliday1976cohesion}
+M.~A.~K. Halliday and Ruqaiya Hasan. 1976.
+\newblock \emph{Cohesion in English}.
+\newblock Longman, London.
+
+\bibitem[{Harris(1954)}]{harris1954distributional}
+Zellig~S. Harris. 1954.
+\newblock \href {https://doi.org/10.1080/00437956.1954.11659520}
+  {Distributional structure}.
+\newblock \emph{Word}, 10(2--3):146--162.
+
+\bibitem[{Ivanova et~al.(2025)Ivanova, Sathe, Lipkin, Kumar, Radkani, Clark,
+  Kauf, Hu, Pramod, Grand, Paulun, Ryskina, Aky{\"u}rek, Wilcox, Rashid,
+  Choshen, Levy, Fedorenko, Tenenbaum, and Andreas}]{ivanova2025ewok}
+Anna~A. Ivanova, Aalok Sathe, Benjamin Lipkin, Unnathi~U. Kumar, Setayesh
+  Radkani, Thomas~H. Clark, Carina Kauf, Jennifer Hu, R.~T. Pramod, Gabriel
+  Grand, Vivian~C. Paulun, Maria Ryskina, Ekin Aky{\"u}rek, Ethan~G. Wilcox,
+  Nafisa Rashid, Leshem Choshen, Roger Levy, Evelina Fedorenko, Joshua
+  Tenenbaum, and Jacob Andreas. 2025.
+\newblock \href {https://doi.org/10.1162/tacl.a.38} {Elements of world
+  knowledge ({EW}o{K}): A cognition-inspired framework for evaluating basic
+  world knowledge in language models}.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+  13:1245--1270.
+
+\bibitem[{Joshi et~al.(2020)Joshi, Santy, Budhiraja, Bali, and
+  Choudhury}]{joshi2020state}
+Pratik Joshi, Sebastin Santy, Amar Budhiraja, Kalika Bali, and Monojit
+  Choudhury. 2020.
+\newblock \href {https://doi.org/10.18653/v1/2020.acl-main.560} {The state and
+  fate of linguistic diversity and inclusion in the {NLP} world}.
+\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
+  for Computational Linguistics}, pages 6282--6293, Online. Association for
+  Computational Linguistics.
+
+\bibitem[{Kamzela et~al.(2025)Kamzela, Lango, and Dusek}]{kamzela2025llm}
+Wiktor Kamzela, Mateusz Lango, and Ondrej Dusek. 2025.
+\newblock \href {https://doi.org/10.18653/v1/2025.babylm-main.33} {You are an
+  {LLM} teaching a smaller model everything you know: Multi-task pretraining of
+  language models with {LLM}-designed study plans}.
+\newblock In \emph{Proceedings of the First BabyLM Workshop}, pages 469--487,
+  Suzhou, China. Association for Computational Linguistics.
+
+\bibitem[{Kim and Schuster(2023)}]{kim2023entity}
+Najoung Kim and Sebastian Schuster. 2023.
+\newblock \href {https://doi.org/10.18653/v1/2023.acl-long.213} {Entity
+  tracking in language models}.
+\newblock In \emph{Proceedings of the 61st Annual Meeting of the Association
+  for Computational Linguistics (Volume 1: Long Papers)}, pages 3835--3855,
+  Toronto, Canada. Association for Computational Linguistics.
+
+\bibitem[{Landau and Jackendoff(1993)}]{landau1993what}
+Barbara Landau and Ray Jackendoff. 1993.
+\newblock \href {https://doi.org/10.1017/S0140525X00029733} {What and where in
+  spatial language and spatial cognition}.
+\newblock \emph{Behavioral and Brain Sciences}, 16(2):217--238.
+
+\bibitem[{Lu et~al.(2025)Lu, Li, Cai, Yi, Liu, Liu, Luan, Zhang, Lane, and
+  Xu}]{lu2025demystifying}
+Zhenyan Lu, Xiang Li, Dongqi Cai, Rongjie Yi, Fangming Liu, Wei Liu, Jian Luan,
+  Xiwen Zhang, Nicholas~D. Lane, and Mengwei Xu. 2025.
+\newblock \href {https://doi.org/10.18653/v1/2025.acl-long.718} {Demystifying
+  small language models for edge deployment}.
+\newblock In \emph{Proceedings of the 63rd Annual Meeting of the Association
+  for Computational Linguistics (Volume 1: Long Papers)}, pages 14747--14764,
+  Vienna, Austria. Association for Computational Linguistics.
+
+\bibitem[{Prasad et~al.(2008)Prasad, Dinesh, Lee, Miltsakaki, Robaldo, Joshi,
+  and Webber}]{prasad2008pdtb}
+Rashmi Prasad, Nikhil Dinesh, Alan Lee, Eleni Miltsakaki, Livio Robaldo,
+  Aravind Joshi, and Bonnie Webber. 2008.
+\newblock \href {https://aclanthology.org/L08-1093/} {The {P}enn {D}iscourse
+  {T}ree{B}ank 2.0}.
+\newblock In \emph{Proceedings of the Sixth International Conference on
+  Language Resources and Evaluation ({LREC}'08)}, Marrakech, Morocco. European
+  Language Resources Association (ELRA).
+
+\bibitem[{Resnik(1996)}]{resnik1996selectional}
+Philip Resnik. 1996.
+\newblock \href {https://doi.org/10.1016/S0010-0277(96)00722-6} {Selectional
+  constraints: An information-theoretic model and its computational
+  realization}.
+\newblock \emph{Cognition}, 61(1--2):127--159.
+
+\bibitem[{Salazar et~al.(2020)Salazar, Liang, Nguyen, and
+  Kirchhoff}]{salazar2020masked}
+Julian Salazar, Davis Liang, Toan~Q. Nguyen, and Katrin Kirchhoff. 2020.
+\newblock \href {https://doi.org/10.18653/v1/2020.acl-main.240} {Masked
+  language model scoring}.
+\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
+  for Computational Linguistics}, pages 2699--2712, Online. Association for
+  Computational Linguistics.
+
+\bibitem[{Talmy(2000)}]{talmy2000cognitive}
+Leonard Talmy. 2000.
+\newblock \emph{Toward a Cognitive Semantics, Volume 1: Concept Structuring
+  Systems}.
+\newblock MIT Press, Cambridge, MA.
+
+\bibitem[{Taylor(1953)}]{taylor1953cloze}
+Wilson~L. Taylor. 1953.
+\newblock \href {https://doi.org/10.1177/107769905303000401} {Cloze procedure:
+  A new tool for measuring readability}.
+\newblock \emph{Journalism Quarterly}, 30(4):415--433.
+
+\bibitem[{de~Varda et~al.(2024)de~Varda, Marelli, and
+  Amenta}]{devarda2024cloze}
+Andrea~Gregor de~Varda, Marco Marelli, and Simona Amenta. 2024.
+\newblock \href {https://doi.org/10.3758/s13428-023-02261-8} {Cloze
+  probability, predictability ratings, and computational estimates for 205
+  {English} sentences, aligned with existing {EEG} and reading time data}.
+\newblock \emph{Behavior Research Methods}, 56:5190--5213.
+
+\bibitem[{Warstadt et~al.(2023)Warstadt, Mueller, Choshen, Wilcox, Zhuang,
+  Ciro, Mosquera, Paranjabe, Williams, Linzen, and
+  Cotterell}]{warstadt2023babylm}
+Alex Warstadt, Aaron Mueller, Leshem Choshen, Ethan Wilcox, Chengxu Zhuang,
+  Juan Ciro, Rafael Mosquera, Bhargavi Paranjabe, Adina Williams, Tal Linzen,
+  and Ryan Cotterell. 2023.
+\newblock \href {https://doi.org/10.18653/v1/2023.conll-babylm.1} {Findings of
+  the {BabyLM} challenge: Sample-efficient pretraining on developmentally
+  plausible corpora}.
+\newblock In \emph{Proceedings of the BabyLM Challenge at the 27th Conference
+  on Computational Natural Language Learning}, pages 1--34, Singapore.
+  Association for Computational Linguistics.
+
+\bibitem[{Warstadt et~al.(2020)Warstadt, Parrish, Liu, Mohananey, Peng, Wang,
+  and Bowman}]{warstadt2020blimp}
+Alex Warstadt, Alicia Parrish, Haokun Liu, Anhad Mohananey, Wei Peng, Sheng-Fu
+  Wang, and Samuel~R. Bowman. 2020.
+\newblock \href {https://doi.org/10.1162/tacl_a_00321} {{BLiMP}: The benchmark
+  of linguistic minimal pairs for english}.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+  8:377--392.
+
+\end{thebibliography}

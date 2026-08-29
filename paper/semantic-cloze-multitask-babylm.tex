@@ -1,17 +1,32 @@
 \pdfoutput=1
 \documentclass[11pt]{article}
 
-\usepackage[review]{acl}
+\usepackage[final]{acl}
 \usepackage{times}
 \usepackage{latexsym}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{microtype}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{booktabs}
-\usepackage{url}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit}
+\usepackage[breaklinks]{hyperref}
 
-\title{Semantic Cloze Ranking as a Lightweight Auxiliary Objective for Strict-Small BabyLM Pretraining}
+\definecolor{tablegray}{gray}{0.93}
+
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Exploring Auxiliary Objectives through Multi-Task Learning for Small-Data Language Model Pretraining: A BabyLM 2026 Submission},
+  pdfauthor={Alonso Palomino}
+}
+
+\title{Exploring Auxiliary Objectives through Multi-Task Learning for Small-Data Language Model Pretraining: A BabyLM 2026 Submission}
 
 \author{
   Alonso Palomino \\
@@ -22,172 +37,379 @@
 \maketitle
 
 \begin{abstract}
-This paper describes a compact masked language model submitted to the BabyLM 2026 Strict-Small track.
-The system uses a small BERT-style encoder trained on the official Strict-Small corpus with a multi-task objective.
-In addition to masked language modeling, training includes replaced-token detection, connective prediction, definiteness prediction, collocation discrimination, grammar minimal-pair ranking, and a small semantic cloze ranking task.
-The semantic cloze task presents a masked prompt with a plausible and implausible single-token completion and trains the MLM head to rank the plausible token higher.
-The final model has 11.2M parameters and remains compatible with Hugging Face \texttt{AutoModelForMaskedLM}.
-Official evaluation shows that the selected final checkpoint improves EWoK and reading-oriented metrics over a local MLM baseline, while lowering BLiMP and entity tracking.
+Pretraining optimizes a language model with self-supervised objectives over raw text, shaping the representations later measured by diagnostic evaluations.
+Masked language modeling (MLM) predicts hidden tokens from context, combining the distributional hypothesis with the cloze task.
+Less is known about alternative objectives under small data budgets.
+Using BabyLM 2026's 10M-token Strict-Small setting, this paper asks whether auxiliary objectives jointly improve grammar, world-knowledge plausibility, entity tracking, and reading prediction, or instead benefit some areas at the expense of others.
+The experiments compare an MLM-only baseline with several multi-task objective mixtures while holding the corpus, architecture, tokenizer, training budget, and evaluation pipeline fixed.
+Results are selective: MLM-only is strongest on grammatical minimal-pair judgments, while auxiliary objectives improve entity-state tracking and reading prediction.
+Within the controlled fast evaluation, single-mask semantic cloze gives the clearest directional world-knowledge plausibility gain; grammar repair does not recover grammatical performance, and broad plausibility classification produces no positive EWoK delta.
+The central finding is objective-interface alignment: auxiliary objectives transfer most clearly when their loss format resembles the diagnostic interface used at evaluation time.
+Auxiliary objectives therefore act as targeted steering signals rather than uniform improvements over MLM.
 \end{abstract}
+
+\begin{figure}[t]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tikzpicture}[
+  font=\scriptsize,
+  node distance=2.0mm,
+  stage/.style={draw=black!55, rounded corners=2pt, align=center,
+    inner xsep=3pt, inner ysep=2.6pt, text width=64mm},
+  note/.style={draw=black!25, rounded corners=1.5pt, align=center,
+    inner xsep=2.5pt, inner ysep=1.5pt, text width=64mm, font=\scriptsize\itshape},
+  arrow/.style={-{Latex[length=1.8mm,width=1.3mm]}, line width=0.6pt,
+    draw=black!75, shorten >=0.4mm, shorten <=0.4mm}
+]
+\node[note, fill=gray!10] (fixed) {\textbf{Fixed controls:} Strict-Small corpus, compact BERT, tokenizer, budget, export format, and BabyLM evaluation};
+\node[stage, fill=blue!7, below=of fixed] (loaders) {\textbf{1. Separate task loaders}\\Each objective keeps its own examples, targets, sampling probability, and loss.};
+\node[stage, fill=orange!9, below=of loaders] (sampler) {\textbf{2. Sample one task $k$}\\Draw one batch from task $k$; losses from different tasks are not averaged on the same batch.};
+\node[stage, fill=green!9, below=of sampler] (encoder) {\textbf{3. Encode with shared parameters $\theta$}\\Every task uses the same token embeddings and transformer layers.};
+\node[stage, fill=purple!7, below=of encoder] (head) {\textbf{4. Route through active head $h_k$}\\Use the MLM head, token or marker classifiers, or a pairwise classifier to compute $\mathcal{L}_k$.};
+\node[stage, fill=orange!9, below=of head] (fusion) {\textbf{5. Backpropagate and repeat}\\Update $\theta$ and only $h_k$. Later tasks update the same $\theta$, so one encoder accumulates the mixture.};
+\node[stage, fill=yellow!14, below=of fusion] (export) {\textbf{6. Export one evaluated model}\\Keep the accumulated encoder $\theta$ and MLM head; discard auxiliary heads.};
+\node[note, fill=gray!10, below=of export] (readout) {\textbf{Outcome:} MLM-only is strongest on BLiMP; auxiliary objectives improve Entity Tracking and reading; semantic cloze gives a directional EWoK gain.};
+
+\draw[arrow] (fixed) -- (loaders);
+\draw[arrow] (loaders) -- (sampler);
+\draw[arrow] (sampler) -- (encoder);
+\draw[arrow] (encoder) -- (head);
+\draw[arrow] (head) -- (fusion);
+\draw[arrow] (fusion) -- (export);
+\draw[arrow] (export) -- (readout);
+\end{tikzpicture}
+}
+\caption{Multi-task training and export. The comparison holds the corpus, model, tokenizer, budget, checkpoint format, and evaluation fixed. Tasks remain separate at the data, target, head, and loss levels, but alternating losses update the same encoder; the submitted artifact retains that encoder and the MLM head.}
+\label{fig:thesis}
+\end{figure}
 
 \section{Introduction}
 
-The BabyLM Challenge asks whether language models can learn useful linguistic and semantic generalizations from developmentally plausible data budgets \citep{warstadt2023babylm,choshen2026babylm}.
-This submission focuses on the Strict-Small setting, where the data budget is 10M words.
-Instead of increasing model size or using external teacher models, the system keeps a compact encoder architecture and changes the training signal.
+The distributional hypothesis motivates pretraining by characterizing linguistic units through context \citep{harris1954distributional}.
+Masked language modeling (MLM) operationalizes this idea by recovering hidden tokens \citep{devlin2019bert}, a modern form of the cloze task \citep{taylor1953cloze}.
+Alternative cloze objectives can target function words, discourse connectives, agreement, semantic affordances, and plausibility.
+Under small data budgets, objective choice determines which contrasts a compact model sees often enough to learn, yet these effects remain underexplored.
 
-The motivating hypothesis is simple: a small masked language model may benefit from auxiliary objectives that make lexical, relational, and plausibility contrasts explicit while still using the same MLM prediction head at submission time.
-The main added objective is semantic cloze ranking.
-Each example contains a prompt with one \texttt{[MASK]} token, a plausible completion, and an implausible completion.
-The model is trained to assign higher MLM log-probability to the plausible completion.
-This gives the model a direct plausibility-ranking signal without adding a separate classifier head.
+Small-data pretraining matters when web-scale corpora or compute are unavailable, including for low-resource languages \citep{joshi2020state}, specialized domains \citep{gururangan2020dont}, and on-device deployment \citep{lu2025demystifying}.
+BabyLM formalizes this concern by evaluating language models trained under restricted, human-scale data budgets \citep{warstadt2023babylm}.
+Its premise is that progress should include closing the data-efficiency gap between human and computational learners, not only scaling data.
+The 2026 English release provides a 100M-token \textit{Strict} corpus and a 10M-token \textit{Strict-Small} corpus \citep{choshen2026babylmturns4}; this paper uses Strict-Small throughout.\footnote{\url{https://babylm.github.io/}}
+The fixed 10M-token budget makes sample efficiency the experimental target and prevents improvements from being attributed to additional text.
 
-\section{Model}
+Prior BabyLM submissions explore architectures, data filtering, curricula, optimization, and multi-task supervision for sample-efficient pretraining \citep{warstadt2023babylm,haller2024babyhgrn,kamzela2025llm}.
+This study instead holds the corpus, architecture, tokenizer, training budget, and evaluation interface fixed while varying the objective mixture.
+A compact 11.2M-parameter BERT-style model is trained without downstream fine-tuning under MLM-only or multi-task mixtures containing selective MLM objectives, classification objectives, and ranking objectives.
+The objective mixture is therefore the main intervention.
+The design asks: \emph{Under the BabyLM Strict-Small data budget, how do auxiliary pretraining objectives change diagnostic performance relative to MLM-only pretraining?} \hypertarget{rq:main}{\textcolor{black}{\textbf{(RQ)}}}
 
-The submitted model is a compact BERT-style masked language model \citep{devlin2019bert}.
-It uses the \texttt{bert-base-uncased} WordPiece tokenizer and a randomly initialized encoder with 4 transformer layers, hidden size 256, 4 attention heads, intermediate size 1024, and maximum position embedding length 512.
-The maximum training sequence length is 128.
-The exported model has 11,201,338 parameters and is uploaded publicly at:
+The answer is selective improvement.
+Auxiliary objectives improve entity tracking and reading prediction, and semantic cloze gives the clearest directional world-knowledge plausibility gain in the controlled fast evaluation, but MLM-only remains strongest on grammatical minimal pairs.
+Targeted tasks also transfer unevenly: grammar repair does not recover grammatical performance, while broad plausibility classification produces no positive fast-evaluation EWoK delta.
+The contribution is therefore a controlled account of objective-interface alignment: auxiliary objectives steer a compact model toward behaviors aligned with their loss and prediction interface rather than uniformly improving MLM.
+Figure~\ref{fig:thesis} summarizes this thesis.
 
-\begin{center}
-\small
-\url{https://huggingface.co/alonsopg/babylm-2026-semantic-cloze-strict-small}
-\end{center}
+\section{Related Work}
 
-\section{Training Objectives}
+This work builds on three strands of prior research.
+First, masked language modeling and cloze-style prediction provide the standard pretraining interface for BERT-style encoders \citep{taylor1953cloze,devlin2019bert}.
+MLM is attractive in the BabyLM setting because it requires only raw text and produces checkpoints that can be scored directly by masked-LM diagnostic suites.
+However, MLM observes only a sampled subset of token prediction targets at each step, so auxiliary losses may change which linguistic contrasts receive frequent supervision.
 
-Training uses a weighted multi-task mixture.
-The primary task remains standard masked language modeling.
-Auxiliary tasks are generated from the BabyLM Strict-Small training data or from small hand-written semantic templates.
-No official evaluation items are used to construct the auxiliary data.
+Second, alternative pretraining objectives show that the shape of the training signal matters.
+ELECTRA-style replaced-token detection trains discriminators to identify corrupted tokens rather than only reconstructing masked tokens \citep{clark2020electra}.
+Domain-adaptive and task-adaptive pretraining further show that continued training can shift model behavior toward particular domains or tasks \citep{gururangan2020dont}.
+These results motivate the use of targeted auxiliary objectives, while also making interference a central risk: adding a useful loss can reduce exposure to the original MLM objective or train through a head that is not used at evaluation time.
 
-\begin{table}[t]
-\centering
-\small
-\begin{tabular}{lr}
-\toprule
-Task & Sampling weight \\
-\midrule
-Masked language modeling & 0.600 \\
-Replaced-token detection & 0.100 \\
-Connective prediction & 0.075 \\
-Definiteness prediction & 0.075 \\
-Collocation discrimination & 0.050 \\
-Grammar minimal-pair ranking & 0.050 \\
-Semantic cloze ranking & 0.050 \\
-\bottomrule
-\end{tabular}
-\caption{Training task mixture for the selected system.}
-\label{tab:mixture}
-\end{table}
+Third, BabyLM work has explored ways to improve learning under restricted data.
+The original BabyLM Challenge emphasized developmentally plausible, sample-efficient pretraining \citep{warstadt2023babylm}, while later systems examined compact recurrent architectures and other training recipes \citep{haller2024babyhgrn}.
+Most directly related to this paper, \citet{kamzela2025llm} study multi-task pretraining for BabyLM using LLM-designed study plans and many generated tasks.
+That work motivates the same broad question, namely whether small models benefit from task-diverse supervision, but it uses a teacher-assisted design process for constructing the training plan.
+The present work is complementary rather than competitive with that line: it does not use an external teacher model to design a full curriculum or replace the corpus.
+Instead, it asks a narrower controlled question: what happens when a compact BERT-style MLM is trained on the same Strict-Small corpus and evaluated through the same BabyLM interface while only the objective mixture is varied?
 
-The semantic cloze objective uses prompts such as ``A shovel is used for \texttt{[MASK]}.'' with a plausible single-token completion and an implausible alternative.
-Let $s_g$ and $s_b$ be the MLM log-probabilities of the good and bad completions at the masked position.
-The ranking loss is:
+\section{Background and Objective Families}
 
+Within BabyLM Strict-Small, the pretraining corpus is limited to 10M tokens.
+This creates pressure to choose not only model architecture and data processing, but also the pretraining signal.
+The baseline objective in this study is MLM, as used by BERT-style encoders \citep{devlin2019bert}.
+MLM trains a model to reconstruct masked tokens from context and remains a strong default for compact encoder-only models.
+
+Auxiliary objectives are attractive because they can make specific contrasts more frequent than they would be under random token masking.
+Replaced-token detection, for example, gives dense corruption-discrimination supervision related to ELECTRA-style pretraining \citep{clark2020electra}.
+Discourse and function-word tasks can highlight connectives and determiners.
+Pairwise objectives can ask the model to prefer natural collocations, grammatical sentences, or semantically plausible contexts.
+These signals may help diagnostics that depend on discourse tracking, reading alignment, or conceptual plausibility.
+
+The risk is that auxiliary supervision may interfere with MLM.
+Some tasks use classifier heads rather than the MLM head used by evaluation, and even MLM-compatible tasks can change which behaviors are emphasized during training.
+For this reason, aggregate scores are less informative than the pattern of gains and losses across benchmarks.
+The analysis therefore treats each objective family as a possible steering signal for different diagnostic behaviors.
+The remainder of this section is organized definitions-first.
+It first groups the auxiliary tasks by loss interface, then defines the task names used in the paper, and only then describes how examples are generated.
+The objectives fall into three implementation types.
+\textit{Selective MLM} keeps the MLM head but applies it to targeted tokens, such as function words or agreement-bearing words.
+\textit{Classification} uses token-level, marker-position, or \texttt{[CLS]} classifiers to label corruptions, discourse/reference markers, collocations, grammaticality, or plausibility.
+\textit{Ranking} compares two candidate completions or sentence alternatives by asking the model to assign the preferred option a higher score.
+This taxonomy is used below to separate the linguistic motivation of a task from the loss interface through which it trains the model.
+
+\section{Experimental Setup}
+\label{sec:experimental-setup}
+
+\paragraph{Pretraining corpus.}
+All experiments use the official BabyLM 2026 Strict-Small training set, \texttt{BabyLM-community/}\allowbreak\texttt{BabyLM-2026-Strict-Small}.\footnote{\url{https://huggingface.co/datasets/BabyLM-community/BabyLM-2026-Strict-Small}}
+The dataset card describes it as a detoxified 10M-token English training set and reports six source files: BNC spoken, CHILDES, Gutenberg, OpenSubtitles, Simple Wikipedia, and Switchboard.
+In the training code, examples are loaded from the \texttt{text} column, empty rows are filtered, and the remaining rows are split with a fixed seed into a training portion and 2,000 held-out validation examples.
+The code repository contains the training, evaluation, and paper artifacts used for the submission.\footnote{\url{https://github.com/alonsopg/BabyLM-2026-submission}}
+
+\paragraph{Tokenization and validation.}
+All approaches use the same \texttt{bert-base-uncased} WordPiece tokenizer.
+After tokenization, the text is concatenated and grouped into fixed-length sequences of 128 tokens.
+The held-out corpus split is used for validation loss, checkpoint selection, early stopping, and MLM calibration diagnostics; it is not used as a reported BabyLM benchmark score.
+
+\paragraph{Auxiliary-data setup.}
+The auxiliary datasets are built only after fixing this corpus split and model interface.
+Corpus-derived objectives reuse the Strict-Small text and statistics from it, while template-derived objectives instantiate controlled grammar, plausibility, semantic-cloze, and relational contrasts.
+Official BabyLM diagnostic items remain evaluation-only: the training procedure does not use BLiMP, BLiMP Supplement, EWoK, Entity Tracking, or reading-prediction benchmark examples.
+This setup keeps the underlying data source fixed while varying how the same small-data setting is converted into pretraining supervision.
+
+\subsection{Objective inventory and generation}
+
+Table~\ref{tab:objective-families} summarizes the objective families tested.
+All approaches keep the same compact BERT-style architecture and tokenizer.
+Most auxiliary data are generated from the BabyLM training corpus or from small synthetic templates.
+No official BLiMP, EWoK, Entity Tracking, or reading-prediction items are used to construct the auxiliary tasks.
+
+\input{tables/objective_families}
+
+\paragraph{Terminology.}
+Key task names are defined before the generation procedure.
+\textit{RTD} is replaced-token detection, where a token classifier predicts whether each token is original or corrupted.
+\textit{Connective} and \textit{definiteness} examples replace discourse connectives or articles with special markers and classify the missing relation or reference type.
+\textit{Semantic plausibility} is pairwise classification over plausible and implausible event or property contexts.
+\textit{Semantic cloze} ranks plausible versus implausible single-token completions with the MLM head, and \textit{relational cloze} applies the same masked-token ranking format to spatial or relation templates.
+
+\paragraph{Generation.}
+Corpus-derived objectives are generated offline from the BabyLM Strict-Small training split.
+The generator builds token and bigram frequency statistics, masks eligible tokens for MLM, creates RTD and collocation negatives by replacing words with alternatives from the same coarse word class and frequency bucket, and creates connective and definiteness examples by replacing a fixed connective inventory or articles with special markers.
+The syntax-repair tasks use conservative local filters to mask function words and agreement-bearing tokens.
+The grammar, conceptual-plausibility, semantic-cloze, and relational-cloze objectives are template-based: templates instantiate grammatical contrasts, plausible versus implausible event roles, affordances, part-whole relations, physical properties, typical locations, and spatial or relational contrasts.
+For pairwise tasks, the plausible or grammatical option is randomly placed first or second, and the label records which side should be preferred.
+
+\paragraph{Objective families and loss interfaces.}
+The used tasks are grouped into five linguistic families and three loss-interface types, with detailed per-task examples in Appendix~\ref{app:task-details}.
+\begin{enumerate}
+  \item \textbf{Corruption and discrimination objectives} turn contextual fit into a reconstruction or anomaly-detection problem, following the distributional and cloze motivation behind MLM \citep{harris1954distributional,taylor1953cloze,devlin2019bert} and RTD-style pretraining \citep{clark2020electra}. For example, MLM predicts \textit{apple} in ``The child ate the \texttt{[MASK]},'' while RTD marks \textit{sky} as corrupted in ``The cat sat on the sky.''
+  \item \textbf{Discourse and function objectives} target closed-class words whose form is tied to discourse relations, reference, or syntactic structure \citep{halliday1976cohesion,prasad2008pdtb,gundel1993cognitive,fries1952structure}. For example, connective prediction recovers \textit{so} in ``It was raining, \texttt{[unused1]} the family stayed inside.''
+  \item \textbf{Grammatical repair objectives} emphasize agreement and controlled acceptability contrasts \citep{corbett2006agreement,chomsky1957syntactic,warstadt2020blimp}. For example, an agreement item predicts \textit{are} in ``The dogs \texttt{[MASK]} running,'' and a minimal-pair item prefers ``The dogs run'' over ``The dogs runs.''
+  \item \textbf{Semantic plausibility objectives} train pairwise choices over plausible and implausible contexts, motivated by selectional preferences and world-knowledge plausibility \citep{resnik1996selectional,ivanova2025ewok}. For example, a classifier prefers the context ``The apple was a fruit'' over ``The apple was a stone'' for ``The child ate the apple.''
+  \item \textbf{MLM-head cloze and ranking objectives} keep semantic supervision close to the masked-LM scoring interface by ranking plausible completions at masked positions \citep{salazar2020masked}. For example, semantic cloze ranks \textit{fly} over \textit{read} in ``A bird can \texttt{[MASK]},'' while relational cloze ranks \textit{on} over \textit{under} in ``The picture is \texttt{[MASK]} the wall.''
+\end{enumerate}
+
+The semantic and relational cloze objectives use a masked-token ranking loss.
+For these examples, let $s_g$ and $s_b$ be the MLM log-probabilities of the plausible and implausible tokens at the masked position.
+The ranking loss is
 \begin{equation}
   \mathcal{L}_{cloze} = \log(1 + \exp(-(s_g - s_b))).
 \end{equation}
+This objective changes pretraining while preserving a normal \texttt{AutoModelForMaskedLM} evaluation interface.
 
-This objective keeps inference unchanged: the final model is still a normal masked language model.
+\subsection{Training and evaluation protocol}
 
-\section{Optimization}
+Figure~\ref{fig:thesis} summarizes the experimental control structure.
+The fixed layers define the comparison space: the corpus, model family, tokenizer, training budget, checkpoint interface, and evaluation suite remain constant.
+The objective-condition layer is the intervention, so score differences are interpreted as effects of pretraining objective mixture rather than changes in architecture or evaluation protocol.
 
-Training used AdamW with maximum learning rate $5\times10^{-4}$, weight decay 0.01, gradient clipping at 1.0, batch size 96 sequences, and linear warmup for 6\% of training steps followed by decay.
-Evaluation on a held-out validation split was performed every 500 steps.
-Early stopping monitored validation MLM loss with patience 2, minimum improvement 0.01, and activation after step 9000.
-The selected final run stopped at step 9500; the best validation checkpoint occurred at step 5000.
+\paragraph{Model and data control.}
+All comparisons use a compact BERT-style masked language model with hidden size 256, 4 transformer layers, 4 attention heads, intermediate size 1024, maximum position embeddings 512, and the \texttt{bert-base-uncased} WordPiece tokenizer.
+The exported semantic-cloze checkpoint has 11,201,338 parameters.
+All runs use the shared corpus and preprocessing described in Section~\ref{sec:experimental-setup}; no condition changes the underlying BabyLM Strict-Small data source.
+
+\paragraph{How separate tasks form one model.}
+The tasks are not collapsed into one label space, and separately trained models are not ensembled.
+Instead, they are integrated by alternating updates to one shared encoder:
+Thus, ``multi-task'' refers to the training process, not to the submitted evaluation interface: only one objective is active on a given update, but all updates modify the same encoder.
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parsep}{0pt}
+  \setlength{\topsep}{2pt}
+  \item \textbf{Keep task data separate.} Each objective has its own JSONL file, data loader, sampling probability, target format, and loss.
+  \item \textbf{Select one task per step.} The trainer samples a task from the configured mixture and draws one batch only from that task. Losses from different tasks are therefore not averaged on the same batch.
+  \item \textbf{Update shared parameters.} The batch passes through the same token embeddings and BERT encoder, then through the head required by the selected task. Backpropagation updates the shared encoder and active head; inactive heads receive no update on that step.
+  \item \textbf{Export one model.} After many alternating steps, the shared encoder has accumulated updates from every sampled objective. Auxiliary heads are removed, leaving that encoder and the MLM head as one standard \texttt{AutoModelForMaskedLM} checkpoint.
+\end{enumerate}
+The shared encoder is therefore the point of multi-task fusion: task knowledge is combined in one parameter set across training steps, not by combining predictions at evaluation time.
+
+\paragraph{Task-to-head routing.}
+Selective MLM objectives, including ordinary MLM, function-word recovery, and agreement prediction, train through the MLM head on selected masked positions.
+Ranking objectives, including MLM-head pair ranking, semantic cloze, and relational cloze, also use the MLM head but compare two candidate completions or contexts.
+Classification objectives use auxiliary heads: RTD uses a token classifier; connective and definiteness prediction use marker-position classifiers; and collocation, grammar minimal-pair, and conceptual plausibility tasks use a two-way classifier over \texttt{[CLS]}.
+These auxiliary classifiers are training scaffolds and are not included in the submitted checkpoint.
+The selected semantic-cloze run alternates MLM, RTD, connective, definiteness, collocation, grammar minimal-pair, and semantic-cloze batches; semantic cloze has a configured 5\% probability during the mixed-task phase, followed by an MLM-only calibration phase.
+The semantic cloze 5\% final checkpoint is the single official submission artifact; other checkpoints are diagnostic comparisons rather than separate submitted approaches.\footnote{Primary model artifact: \url{https://huggingface.co/alonsopg/babylm-2026-semantic-cloze-strict-small}. Additional rerun artifact: \url{https://huggingface.co/alonsopg/babylm-2026-semantic-cloze-aoa-rerun}.}
+Figure~\ref{fig:thesis} visualizes this update-and-export process.
+
+\paragraph{Training.}
+Unless otherwise noted, runs use batch size 96, maximum sequence length 128, AdamW with learning rate $5\times10^{-4}$, weight decay 0.01, linear warmup for 6\% of steps, gradient clipping at 1.0, fp32 training, and a 10,000-step budget.
+Several multi-task runs use a final MLM-only calibration phase or early stopping after step 9000.
+The semantic cloze 5\% run stops at step 9500; its best validation checkpoint occurs at step 5000, while its final checkpoint is the strongest fast-evaluation EWoK checkpoint.
+
+\paragraph{Evaluation benchmarks and metrics.}
+The empirical analysis reports verified local outputs from the official BabyLM strict fast-evaluation suite for each experimental checkpoint.\footnote{\url{https://github.com/babylm-org/babylm-eval}}
+The fast suite is a subsampled diagnostic evaluation used for checkpoint comparison \citep{warstadt2023babylm}.
+For candidate-ranking benchmarks, let $s(c_{ij})$ be the summed token log-probability assigned by the MLM backend to candidate $j$ for item $i$, and let $y_i$ be the correct candidate.
+Accuracy is $100N^{-1}\sum_i \mathbb{I}[\operatorname*{arg\,max}_j s(c_{ij})=y_i]$.
+The reported benchmarks are:
+\begin{enumerate}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parsep}{0pt}
+  \setlength{\topsep}{1pt}
+  \item \textbf{BLiMP} tests grammatical minimal pairs; the grammatical sentence must receive the higher MLM score \citep{warstadt2020blimp}.
+  \item \textbf{BLiMP Supplement} uses the same ranking metric for additional BabyLM contrasts such as hypernymy, question answering, inversion, and turn taking \citep{warstadt2023babylm}.
+  \item \textbf{EWoK} tests conceptual and everyday-world plausibility by asking the model to rank the supported completion above a controlled alternative \citep{ivanova2025ewok}.
+  \item \textbf{Entity Tracking} evaluates discourse-state consistency: after entity-state changes, the model must prefer the continuation with the correct resulting state \citep{kim2023entity}.
+  \item \textbf{Eye Tracking} scores whether model surprisal improves regressions of human gaze durations beyond lexical and contextual controls \citep{devarda2024cloze}.
+  \item \textbf{Self-Paced Reading (SPR)} applies the same normalized incremental-$R^2$ scoring to self-paced reading times, including previous-word spillover controls \citep{frank2013reading}.
+\end{enumerate}
+All comparisons keep the model architecture, tokenizer, corpus, and evaluation pipeline fixed.
+Table~\ref{tab:system-configs} summarizes the objective mixtures behind the reported rows.
+Rows labeled \textit{best} use the held-out MLM-validation checkpoint unless otherwise stated; rows labeled \textit{final} use the terminal or early-stopped checkpoint.
+The best-by-metric table is a retrospective diagnostic readout, not a checkpoint-selection rule.
+The controlled comparisons use fast evaluation throughout. Official full evaluation of the selected submission yields 50.45 EWoK accuracy, but no matched full-evaluation baseline is used; this value is therefore descriptive and is not treated as evidence of an EWoK improvement.
+
+\paragraph{Choice of objective weights.}
+The task probabilities in Table~\ref{tab:system-configs} are fixed pilot allocations rather than hyperparameters tuned on BabyLM diagnostic scores.
+They were chosen to preserve ordinary MLM as the majority update source while giving each auxiliary family enough updates to be visible within a 10,000-step budget.
+The core multi-task run keeps MLM at 60\% and assigns the remaining 40\% to dense corruption discrimination and two small discourse/reference classifiers.
+Later variants keep this conservative structure and substitute only a small auxiliary share for the task being tested: syntax repair adds selected function-word and agreement MLM losses, plausibility variants allocate 15\% to semantic supervision, and semantic-cloze sweeps vary the cloze share between 2.5\% and 10\%.
+This design is intentionally simple, but it creates an unavoidable confound: an auxiliary gain may reflect the auxiliary objective itself, the reduced number of MLM updates, or their interaction.
+For that reason, the paper interprets the results as diagnostic trade-offs rather than as optimized multi-task recipes.
+The probabilities should therefore be read as experimental conditions that expose the model to different loss interfaces under one compute budget, not as recommended default weights.
+
+\paragraph{Why sample one task per step.}
+The trainer samples one active objective per update because the tasks have heterogeneous input formats, labels, and heads.
+Some use token-level MLM labels, some use token corruption labels, some use marker-position classifiers, and some use pairwise sentence classifiers.
+Sampling one task per step keeps each loss well-defined and avoids hand-tuned loss-scale coefficients across unlike objectives.
+The cost is higher gradient variance and a potentially spikier optimization path than a design that mixes several losses on each input batch.
+The final MLM-only calibration phase in several runs was included as a simple way to restore exposure to the submitted MLM head after mixed training, but it does not fully remove this limitation.
+
+\input{tables/system_config_summary}
 
 \section{Results}
 
-Table~\ref{tab:fast} compares the selected system against a local MLM baseline and the best-validation semantic-cloze checkpoint using the official fast-evaluation helper.
-The final semantic-cloze checkpoint was selected because it produced the strongest EWoK and reading scores among the retained systems.
+MLM-only is compared against auxiliary multi-task training across all diagnostic families.
+Two supporting analyses help explain the observed changes: comparisons among selective MLM, classification, and ranking objectives test whether transfer depends on objective format, while comparisons between best-validation and final checkpoints examine whether targeted gains persist across training.
+These analyses are diagnostic and are not estimates of robust checkpoint-selection performance.
 
-\begin{table*}[t]
-\centering
-\small
-\begin{tabular}{lrrrrrr}
-\toprule
-System & BLiMP & Supplement & EWoK & Entity & Eye & SPR \\
-\midrule
-MLM baseline & 64.33 & 54.00 & 50.55 & 15.56 & 2.47 & 2.42 \\
-Semantic cloze best validation & 54.10 & 57.60 & 50.73 & 36.61 & 7.56 & 3.11 \\
-Semantic cloze final & 55.26 & 54.40 & 52.00 & 27.44 & 8.18 & 3.71 \\
-\bottomrule
-\end{tabular}
-\caption{Official fast-evaluation scores for local comparison systems.}
-\label{tab:fast}
-\end{table*}
+\input{tables/main_results}
 
-The full official evaluation artifact for the selected public model contains predictions for BLiMP, BLiMP Supplement, EWoK, entity tracking, COMPS, reading, SuperGLUE-style finetuning tasks, AoA, and checkpoint-level fast evaluation.
-Observed full-evaluation scores are shown in Table~\ref{tab:full}.
+Table~\ref{tab:main-results} gives the raw fast-evaluation scores for representative checkpoints.
+The main pattern is selective improvement.
+The key findings are: (i) MLM-only remains strongest for grammar, with the best BLiMP score; (ii) auxiliary approaches strongly improve some non-BLiMP diagnostics, especially Entity Tracking and reading prediction; (iii) objective format matters, since semantic supervision helps fast-evaluation EWoK only when expressed as masked-token cloze ranking; and (iv) no approach dominates all metrics, so the results are a trade-off profile rather than a single uniform improvement.
+The strongest BLiMP result is the MLM-only baseline at 64.33.
+Every auxiliary approach loses at least 7.88 BLiMP points relative to that baseline, including objectives explicitly designed to repair grammatical preference.
+This makes BLiMP the clearest cost of auxiliary training.
 
-\begin{table}[t]
-\centering
-\small
-\begin{tabular}{lr}
-\toprule
-Evaluation section & Score \\
-\midrule
-BLiMP filtered accuracy & 55.35 \\
-BLiMP supplement accuracy & 53.29 \\
-EWoK accuracy & 50.45 \\
-Entity tracking accuracy & 27.55 \\
-COMPS accuracy & 50.63 \\
-Reading eye-tracking score & 8.18 \\
-Reading SPR score & 3.71 \\
-\bottomrule
-\end{tabular}
-\caption{Observed full official evaluation scores for the selected submitted model.}
-\label{tab:full}
-\end{table}
+At the same time, the auxiliary approaches produce large gains for Entity Tracking and reading.
+The calibrated multi-task approach improves Entity Tracking from 15.56 to 34.52, Eye from 2.47 to 7.46, and SPR from 2.42 to 3.19.
+Most later auxiliary variants preserve these gains.
+The best Entity score is achieved by the relational cloze best checkpoint, 40.68, and the best Eye score by the 2.5\% semantic cloze final checkpoint, 8.82.
 
-\begin{table}[t]
-\centering
-\small
-\begin{tabular}{lrrr}
-\toprule
-Task & Accuracy & F1 & MCC \\
-\midrule
-BoolQ & 0.6679 & 0.7755 & 0.2061 \\
-MNLI & 0.4269 & -- & -- \\
-MRPC & 0.6912 & 0.8131 & 0.1300 \\
-MultiRC & 0.5858 & 0.2132 & 0.0859 \\
-QQP & 0.7044 & 0.5816 & 0.3554 \\
-RTE & 0.5468 & 0.5191 & 0.0910 \\
-WSC & 0.5769 & 0.1538 & -0.0381 \\
-\bottomrule
-\end{tabular}
-\caption{Observed finetuning scores from the official evaluation pipeline.}
-\label{tab:glue}
-\end{table}
+Within the controlled fast evaluation, EWoK is more selective.
+The semantic results show that task format matters more than broad semantic motivation.
+The conceptual plausibility classifier and MLM-head pair-ranking objective are both motivated by EWoK-style plausibility, yet neither produces a positive fast-evaluation EWoK delta.
+In contrast, semantic cloze ranking directly trains the MLM head to prefer plausible single-token completions over implausible alternatives, matching the masked-token evaluation interface more closely.
+This is the clearest example of objective-interface alignment in the experiments: unlike broad plausibility classification, semantic cloze trains the same MLM scoring interface later used by EWoK-style candidate ranking.
+The 5\% semantic cloze final checkpoint reaches 52.00 in fast evaluation, 1.45 points above the fast-evaluation MLM baseline and 1.00 above the previous best non-cloze result.
+Because these are single-seed runs and EWoK scores remain close to chance, this fast-evaluation difference is interpreted as a directional effect rather than a stable estimate of expected improvement.
+More generally, checkpoint comparisons are used diagnostically rather than as estimates of expected generalization.
+The semantic-cloze weight sweep and relational variant clarify the trade-off: increasing semantic cloze to 10\% gives the strongest non-selected sweep EWoK score of 51.64, while relational cloze produces the strongest Entity Tracking score, suggesting that relation-focused masked-token supervision may strengthen discourse tracking more than EWoK-style plausibility.
 
-\section{Discussion}
+\input{tables/delta_results}
 
-The results suggest that semantic cloze ranking can modestly improve conceptual plausibility and reading-oriented metrics for a compact MLM.
-However, the trade-off is visible: BLiMP is lower than the local MLM baseline, and entity tracking is sensitive to checkpoint choice.
-The best-validation semantic-cloze checkpoint improved entity tracking substantially, while the final checkpoint improved EWoK and reading but reduced entity tracking.
-This supports the view that small-model pretraining objectives can shift evaluation behavior unevenly across linguistic, semantic, and discourse-level probes.
+Table~\ref{tab:delta-results} shows the same pattern as deltas from the MLM baseline.
+The consistent sign structure is the main finding: fast-evaluation BLiMP deltas are negative for every auxiliary approach, Entity and reading deltas are strongly positive for nearly every auxiliary approach, and the EWoK delta becomes positive only for cloze-shaped objectives.
+Thus, the central result is that auxiliary objectives move gains toward particular diagnostic families.
+More specifically, the result supports an objective-interface alignment view: task content alone is not enough, since the transfer pattern also depends on whether the auxiliary loss is expressed through a scoring interface similar to the diagnostic.
 
-\section{Submission Caveat}
+To address \hyperlink{rq:main}{\textcolor{black}{\textbf{RQ}}}, the results show that auxiliary objectives selectively improve diagnostic performance rather than producing a uniform overall gain.
+They substantially improve Entity Tracking and reading-aligned metrics, while semantic cloze produces a directional positive EWoK delta in fast evaluation; however, every auxiliary approach reduces BLiMP accuracy relative to MLM-only.
+The supporting comparisons suggest that objective format helps explain this pattern: grammar minimal-pair classification does not recover BLiMP, conceptual-plausibility classification does not produce a positive EWoK delta, and the strongest fast-evaluation EWoK result appears when semantic supervision is expressed as masked-token cloze ranking through the MLM head.
 
-The public model repository contains all required BabyLM checkpoint revisions, and the collated submission artifact includes AoA plus checkpoint fast-evaluation results for all 19 required Strict-Small revisions.
-The selected \texttt{main} model remains the stronger original final checkpoint.
-The \texttt{chck\_*} trajectory used for AoA and checkpoint fast evaluation comes from an isolated rerun with the same configuration, because the original run did not export Hugging Face revisions during training.
-Thus, the artifact is complete, but the checkpoint trajectory and selected \texttt{main} checkpoint do not come from the exact same local training run.
+\section{Analysis}
 
+\paragraph{Objective/evaluation alignment.}
+The main conclusion is not that auxiliary objectives simply help or hurt.
+They reallocate a small pretrained model toward the decisions emphasized during training.
+Under a fixed small-data budget, auxiliary objectives are therefore useful steering signals, but they are not neutral extra supervision.
+They consume updates that would otherwise train ordinary MLM, and they shape the representation through the interface that receives the loss.
+This makes objective design a question of objective-interface alignment: an auxiliary task is most useful when its loss, prediction head, and contrast structure resemble the diagnostic behavior one hopes to improve.
+The strongest gains appear when the auxiliary training signal resembles the diagnostic mechanism used at evaluation time.
+Semantic cloze is associated with the clearest directional fast-evaluation EWoK gain and uses the MLM head with a masked-token plausibility contrast.
+MLM-head pair ranking improves reading-oriented scores, plausibly by changing token-level expectations, but does not by itself produce a positive fast-evaluation EWoK delta.
+Conceptual plausibility improves Entity Tracking but not fast-evaluation EWoK, suggesting that a pairwise classifier over contexts may not transfer to the masked-LM scoring interface.
+
+\paragraph{Objective effect versus MLM displacement.}
+The experiments do not fully disentangle two mechanisms.
+One mechanism is \textit{objective content}: an auxiliary task may teach a contrast that ordinary MLM sees rarely, such as discourse connectives or event plausibility.
+The other is \textit{MLM displacement}: every auxiliary update replaces an update that would otherwise train ordinary MLM.
+The BLiMP drop is consistent with both explanations.
+However, the contrast between broad plausibility classification, MLM-head pair ranking, and semantic cloze suggests that the loss interface also matters: all three reduce MLM exposure, but only the single-mask cloze format gives a positive directional fast-evaluation EWoK delta.
+The safest interpretation is therefore not that a particular loss is generally superior, but that auxiliary objectives produce benchmark-specific trade-offs whose direction depends on both content and interface.
+
+\paragraph{Targeted objectives do not always transfer.}
+The non-transfer cases are as informative as the gains.
+Function-word and agreement repair improve BLiMP only slightly.
+A direct BLiMP-style grammatical minimal-pair classifier also does not recover BLiMP, suggesting that template pair classification is not enough to shape the sentence pseudo-likelihood preferences used by BLiMP scoring.
+Similarly, broad conceptual plausibility supervision shows no positive fast-evaluation EWoK delta unless it is recast as a single-mask cloze ranking objective.
+The format of the objective matters, not just its linguistic label.
+
+\iffalse
 \section{Limitations}
 
-This is a single-seed experiment with a small number of auxiliary objective variants.
-The semantic cloze templates are intentionally simple and may not cover the full diversity of conceptual knowledge probed by EWoK.
-The current results should therefore be read as evidence that the objective is promising, not as a definitive statement about the best auxiliary-task mixture.
+The study is designed to isolate objective choice under a fixed BabyLM Strict-Small recipe, so its conclusions are deliberately about diagnostic trade-offs rather than leaderboard optimization.
+This scope has several consequences.
+First, most auxiliary approaches are evaluated as single-seed runs.
+The consistent movement toward higher Entity Tracking and reading-aligned scores is therefore useful as evidence about which diagnostic behaviors are affected, but the exact effect sizes should be confirmed with additional seeds before being treated as stable estimates.
+Second, the objective weights are fixed pilot allocations chosen to keep MLM as the dominant training signal while giving each auxiliary loss enough updates to be observed.
+They are not claimed to be optimal; instead, they provide a controlled starting point for future sweeps over mixture schedules, curricula, or adaptive reweighting.
+Third, auxiliary training necessarily changes both the supervision signal and the distribution of updates.
+The experiments therefore identify the combined effect of adding an objective under a fixed budget, which is the practical shared-task setting, but they do not fully decompose that effect into objective content, loss interface, and displaced MLM exposure.
+Fourth, the one-task-per-step sampler makes heterogeneous losses easy to compare without tuning cross-loss scales, but it may be less smooth than training with several losses on the same batch.
+Finally, most official scores in the tables use the BabyLM strict fast-evaluation suite.
+These diagnostics are appropriate for comparing checkpoints produced by the same evaluation interface; full-evaluation replications would be the natural next step for the strongest objective formats, especially the semantic cloze and reading-oriented mixtures.
+\fi
 
-\section{Ethics Statement}
+\section{Conclusion}
 
-The submitted model is trained on the official BabyLM Strict-Small data and small auxiliary examples derived without external personal data.
-The model is small and intended for research evaluation.
-No claim is made that it is safe for deployment without additional testing.
+Auxiliary objectives in BabyLM Strict-Small are useful, but their benefit is selective.
+Under a fixed small corpus and compact BERT-style architecture, they improve several non-BLiMP diagnostics: multi-task objectives substantially improve Entity Tracking and reading-aligned metrics, and direct semantic cloze ranking produces the clearest directional EWoK gain in the controlled fast evaluation.
+The main cost is grammatical minimal-pair performance, where MLM-only remains strongest on BLiMP.
+Thus, the strongest conclusion is a trade-off: auxiliary objectives do not uniformly improve the model, but they can steer small-data pretraining toward the diagnostic behaviors their losses emphasize.
+The broader lesson is objective-interface alignment: auxiliary objectives should be designed and evaluated with their target diagnostic interface in mind, because pairwise classifiers, MLM-head ranking, and single-mask cloze losses do not transfer in the same way.
+Returning to the research question, auxiliary pretraining objectives do change diagnostic performance relative to MLM-only pretraining, but not as a uniform improvement.
+The practical next step is to test whether the favorable Entity, reading, and semantic-cloze trends persist when mixture weights are swept systematically, MLM exposure is matched more tightly, and multiple seeds are run for the strongest objective formats.
 
 \bibliography{semantic-cloze-multitask-babylm}
+
+\appendix
+\section{Detailed Task Examples}
+\label{app:task-details}
+
+This appendix expands the task inventory summarized in the main text.
+The citations identify the linguistic or psycholinguistic constructs that inspired each generated objective; they are not sources of training examples.
+\begin{enumerate}
+  \item \textbf{Masked language modeling.} Random corpus tokens are replaced with \texttt{[MASK]} and predicted with the MLM head, following distributional and cloze-style word recovery \citep{harris1954distributional,taylor1953cloze,devlin2019bert}. Example: ``The child ate the \texttt{[MASK]}.'' $\rightarrow$ \textit{apple}.
+  \item \textbf{Replaced-token detection.} A classifier marks tokens that were replaced by plausible alternatives, following ELECTRA-style corruption discrimination \citep{clark2020electra}. Example: ``The cat sat on the \textit{sky}.'' marks \textit{sky} as corrupted.
+  \item \textbf{Connective prediction.} A connective is replaced with \texttt{[unused1]} and predicted from context, reflecting discourse cohesion and explicit discourse-relation markers \citep{halliday1976cohesion,prasad2008pdtb}. Example: ``It was raining, \texttt{[unused1]} the family stayed inside.'' $\rightarrow$ \textit{so}.
+  \item \textbf{Definiteness prediction.} An article is replaced with \texttt{[unused2]} and classified as definite or indefinite, motivated by reference and discourse status \citep{gundel1993cognitive}. Example: ``A boy found a ball. He kicked \texttt{[unused2]} ball.'' $\rightarrow$ definite.
+  \item \textbf{Collocation naturalness.} The model chooses the more natural phrase in a pair, motivated by habitual lexical co-occurrence \citep{firth1957synopsis}. Example: \textit{strong tea} is preferred over \textit{powerful tea}.
+  \item \textbf{Function-word recovery.} Closed-class function words are masked and predicted with the MLM head, targeting syntactic structure encoded by function words \citep{fries1952structure}. Example: ``She went \texttt{[MASK]} school.'' $\rightarrow$ \textit{to}.
+  \item \textbf{Agreement prediction.} Agreement-bearing words are masked and predicted with the MLM head, targeting morphosyntactic dependencies \citep{corbett2006agreement}. Example: ``The dogs \texttt{[MASK]} running.'' $\rightarrow$ \textit{are}.
+  \item \textbf{Grammar minimal-pair ranking.} A classifier chooses between generated grammatical and minimally corrupted alternatives, inspired by controlled acceptability contrasts and BLiMP-style minimal pairs \citep{chomsky1957syntactic,warstadt2020blimp}. Example: prefer ``The dogs run'' over ``The dogs runs.''
+  \item \textbf{Conceptual plausibility choice.} A classifier chooses the plausible context for a target sentence, motivated by selectional preference and EWoK-style plausibility \citep{resnik1996selectional,ivanova2025ewok}. Example: for ``The child ate the apple,'' prefer ``The apple was a fruit'' over ``The apple was a stone.''
+  \item \textbf{MLM-head pair ranking.} Plausibility pairs are scored through MLM pseudo-likelihood rather than a classifier \citep{salazar2020masked}. Example: ``The child ate the \texttt{[MASK]}.'' ranks \textit{apple} above \textit{stone}.
+  \item \textbf{Semantic cloze ranking.} The model ranks plausible and implausible single-token completions at one masked position, combining cloze completion with plausibility contrasts \citep{taylor1953cloze,resnik1996selectional,ivanova2025ewok}. Example: ``A bird can \texttt{[MASK]}.'' ranks \textit{fly} above \textit{read}.
+  \item \textbf{Relational semantic cloze.} The same single-mask ranking loss is applied to relation and spatial templates, motivated by spatial and relational semantics \citep{landau1993what,talmy2000cognitive}. Example: ``The picture is \texttt{[MASK]} the wall.'' ranks \textit{on} above \textit{under}.
+\end{enumerate}
 
 \end{document}

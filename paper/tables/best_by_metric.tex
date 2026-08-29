@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{llr}
+\toprule
+\textbf{Metric} & \textbf{Best approach} & \textbf{Score} \\
+\midrule
+\rowcolor{tablegray} BLiMP & \textbf{MLM-only baseline} & \textcolor{black}{\textbf{64.33}} \\
+Supplement & \textbf{Semantic cloze 5\% best} & \textcolor{black}{\textbf{57.60}} \\
+\rowcolor{tablegray} EWoK & \textbf{Semantic cloze 5\% final} & \textcolor{black}{\textbf{52.00}} \\
+Entity & \textbf{Relational cloze best} & \textcolor{black}{\textbf{40.68}} \\
+\rowcolor{tablegray} Eye & \textbf{Semantic cloze 2.5\% final} & \textcolor{black}{\textbf{8.82}} \\
+SPR & \textbf{Semantic cloze 5\% final} & \textcolor{black}{\textbf{3.71}} \\
+\bottomrule
+\end{tabular}
+\caption{Best observed fast-evaluation approach by metric. No single checkpoint dominates across the diagnostic suite.}
+\label{tab:best-by-metric}
+\end{table}

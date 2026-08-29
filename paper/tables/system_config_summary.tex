@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{p{0.17\textwidth}p{0.39\textwidth}p{0.22\textwidth}X}
+\toprule
+\textbf{Approach} & \textbf{Active objective mixture} & \textbf{Reported checkpoint(s)} & \textbf{Selection note} \\
+\midrule
+MLM-only & Random MLM only & final & Baseline MLM checkpoint. \\
+Calibrated multi-task & MLM .60, RTD .20, connective .10, definiteness .10 & validation-best & Final 2k steps use MLM-only calibration. \\
+Syntax repair & MLM .60, RTD .10, connective .075, definiteness .075, collocation .05, function-word .05, agreement .05 & final; best discussed & Final checkpoint has strongest BLiMP/reading for this run. \\
+BLiMP-pair repair & MLM .60, RTD .10, connective .075, definiteness .075, collocation .05, grammar-minpair .10 & validation-best & Final 2k steps use MLM-only calibration. \\
+Conceptual plausibility & MLM .55, RTD .10, connective .075, definiteness .075, collocation .05, conceptual-plausibility .15 & validation-best & Classifier-style semantic objective. \\
+MLM-head pair ranking & Same base mixture as conceptual plausibility, replacing the .15 classifier task with MLM-head pair ranking & validation-best & MLM-compatible ranking over plausible/implausible contexts. \\
+Semantic cloze 5\% & MLM .60, RTD .10, connective .075, definiteness .075, collocation .05, grammar-minpair .05, semantic-cloze .05 & validation-best and final & Final checkpoint gives the strongest observed fast-evaluation EWoK and SPR. \\
+Semantic cloze sweep & Same base as semantic cloze, with cloze weight .025, .075, or .10 and MLM weight adjusted inversely & selected final/best rows & Used to test whether the 5\% result is weight-specific. \\
+Relational cloze & MLM .60, RTD .10, connective .075, definiteness .075, collocation .05, grammar-minpair .05, semantic-cloze .025, relational-cloze .025 & validation-best and final & Tests whether relation-focused cloze transfers to EWoK or Entity. \\
+\bottomrule
+\end{tabularx}
+\caption{Configuration summary for reported approaches. Probabilities are fixed task-sampling weights during mixed training, not tuned recommendations. Rows marked validation-best use the held-out MLM-validation checkpoint, not the BabyLM diagnostic score.}
+\label{tab:system-configs}
+\end{table*}

@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrrr}
+\toprule
+\textbf{Approach} & \textbf{$\Delta$ BLiMP} & \textbf{$\Delta$ Sup.} & \textbf{$\Delta$ EWoK} & \textbf{$\Delta$ Entity} & \textbf{$\Delta$ Eye} & \textbf{$\Delta$ SPR} \\
+\midrule
+\rowcolor{tablegray} Calibrated multi-task & -9.53 & \textcolor{black}{\textbf{+0.80}} & -0.28 & \textcolor{black}{\textbf{+18.96}} & \textcolor{black}{\textbf{+4.99}} & \textcolor{black}{\textbf{+0.77}} \\
+Syntax repair final & -8.82 & -1.60 & -1.00 & \textcolor{black}{\textbf{+17.20}} & \textcolor{black}{\textbf{+5.81}} & \textcolor{black}{\textbf{+1.21}} \\
+\rowcolor{tablegray} BLiMP-pair repair best & -9.53 & -2.40 & \textcolor{black}{\textbf{+0.45}} & \textcolor{black}{\textbf{+11.98}} & \textcolor{black}{\textbf{+5.55}} & \textcolor{black}{\textbf{+0.63}} \\
+Conceptual plausibility best & -8.87 & \textcolor{black}{\textbf{+2.40}} & -0.91 & \textcolor{black}{\textbf{+21.54}} & \textcolor{black}{\textbf{+5.40}} & \textcolor{black}{\textbf{+0.80}} \\
+\rowcolor{tablegray} MLM pair ranking best & -8.38 & -6.80 & -1.00 & \textcolor{black}{\textbf{+17.94}} & \textcolor{black}{\textbf{+6.26}} & \textcolor{black}{\textbf{+1.25}} \\
+Semantic cloze 5\% final & -9.07 & \textcolor{black}{\textbf{+0.40}} & \textcolor{black}{\textbf{+1.45}} & \textcolor{black}{\textbf{+11.88}} & \textcolor{black}{\textbf{+5.71}} & \textcolor{black}{\textbf{+1.29}} \\
+\rowcolor{tablegray} Semantic cloze 10\% final & -9.24 & -1.20 & \textcolor{black}{\textbf{+1.09}} & \textcolor{black}{\textbf{+18.03}} & \textcolor{black}{\textbf{+5.54}} & \textcolor{black}{\textbf{+0.97}} \\
+Relational cloze best & -9.55 & -0.80 & \textcolor{black}{\textbf{+0.45}} & \textcolor{black}{\textbf{+25.12}} & \textcolor{black}{\textbf{+5.22}} & \textcolor{black}{\textbf{+0.87}} \\
+\bottomrule
+\end{tabular}
+\caption{Representative fast-evaluation deltas from the MLM-only baseline. Positive values indicate higher fast-evaluation scores than MLM-only and are shown in bold black; EWoK deltas are interpreted directionally.}
+\label{tab:delta-results}
+\end{table*}
